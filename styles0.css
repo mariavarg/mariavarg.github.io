@@ -1,0 +1,71 @@
+body, html, h1 {
+  height: 100%;
+  background: white;
+  font-family: "Sofia", sans-serif;
+  box-sizing: border-box;
+  margin:0;
+  }
+
+div {
+  max-width: 500px;
+  margin: 10.5px;
+  text-align:center;
+  align-items:center;
+  box-sizing:border-box;
+  }
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 10px;
+  align-items:center;
+}
+
+.responsive {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  align-items:center;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("HOMEPAGE.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Align and scale the image nicely */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: left;
+
+}
+
+
+
