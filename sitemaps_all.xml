@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Maria Vargiakaki</Author>
+  <LastAuthor>foreigner in the world</LastAuthor>
+  <Created>2021-11-08T15:11:27Z</Created>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>9345</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:CharSet="161" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="sitemaps_all">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="15" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row>
+    <Cell><Data ss:Type="String">Address,&quot;Content Type&quot;,&quot;Status Code&quot;,&quot;Status&quot;,&quot;Indexability&quot;,&quot;Indexability Status&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/page6.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/&lt;?=%20$previous%20?&gt;,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;404&quot;,&quot;Not Found&quot;,&quot;Non-Indexable&quot;,&quot;Client Error&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/page0.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/about.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/Index%20of%20myWebsite.pdf,&quot;application/pdf&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/page1.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/pset8/homepage/back.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;404&quot;,&quot;Not Found&quot;,&quot;Non-Indexable&quot;,&quot;Client Error&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/page5.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/index.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/page2.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/page4.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/page3.html,&quot;text/html</Data></Cell>
+    <Cell><Data ss:Type="String"> charset=utf-8&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">https://mariav.art/ΔΥΣΔΑΙΜΟΝΑ.pdf,&quot;application/pdf&quot;,&quot;200&quot;,&quot;OK&quot;,&quot;Indexable&quot;,&quot;&quot;</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
