@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<h1>voters</h1>
+
+<table><thread><tr>
+    <th>Name</th>
+    <th>Steppenwolf</th>
+    </tr>
+    </thread>
+    <tbody>{% for voter in voters %}
+    <tr>
+        <td>{{ voter.name}}</td>
+        <td>{{ voter.Steppenwolf }}</td>
+            <form action="/deregister" method="post">
+                <input name="id" type="hidden" value="{{ voter.id }}"
+                <input type="submit" value="Deregister">
+            </form>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+from cs50 import SQL
+from flask import Flask, redirect, render_template, request
+
+app = Flask(__name__)
+db = SQL("sqlite:///homepage.db")
