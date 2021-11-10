@@ -1,3 +1,4 @@
+from cs50 import SQl
 from flask import Flask, redirect, render_template, request, session, jsonify
 
 def register():
@@ -26,6 +27,14 @@ def register():
     if Steppenwolf not in STEPPENWOLF:
         return render_template("error.html", message="Invalid vote")
 
+        db.execute("INSERT INTO voters (name, Steppenwolf) VALUES(?, ?)", name, Steppenwolf
+
     VOTERS[name] = Steppenwolf
     return redirect("/voters")
+
+def voters():
+    voters = db.execute("SELECT * FROM voters")
+    return render_template("voters.html", voters=voters)
+
+
 
