@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en">
+        <head>
+            <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>
+
+    </title>
+    </head>
+    <body>
+        <form action="/greet" method="post">
+
+        </form>
+        <form action="/register" method="post">
+            <input autocomplete="off" autofocus name="email" placeholder="Email" type="email">
+            <select name="Steppenwolf">
+                <option disable selected value="">Steppenwolf</option>
+                {% for Steppenwolf in Steppenwolf%}
+                    <option value="{{ Steppenwolf }}">{{ Steppenwolf }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Register">
+
+        </form>
+    </body>
+
+    </html>
