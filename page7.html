@@ -84,8 +84,15 @@ Hermine also introduces Harry to a mysterious saxophonist named Pablo, who appea
             <input type="submit" value="Vote">
 
         </form>
-    </body>
-
+    </body>    
+    
+script>function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Fields must be filled out");
+    return false;
+  }
+}</script>
 
 <div class="content">
   <!-- Page content -->
