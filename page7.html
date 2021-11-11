@@ -73,7 +73,7 @@ Hermine also introduces Harry to a mysterious saxophonist named Pablo, who appea
         <form action="/greet" method="post">
 
         </form>
-        <form action="/register" method="post">
+        <form action="/register" onsubmit="return validateForm()" method="post">
             <input autocomplete="off" autofocus name="email" placeholder="Email" type="email">
             <select name="Steppenwolf">
                 <option disable selected value=" ">Genre:</option>
