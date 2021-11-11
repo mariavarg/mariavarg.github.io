@@ -65,6 +65,6 @@ def voters():
     return render_template("voters.html", voters=voters)
                    
 BACKUP DATABASE voters;
-TO DISK = 'D:\BACKUP DATABASE- mariav.art\mariaDB.bak';                   
+TO DISK = 'D:\BACKUP DATABASE- mariav.art\votersDB.bak';                   
 
 
