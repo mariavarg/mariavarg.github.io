@@ -63,5 +63,8 @@ def register():
 def voters():
     voters = db.execute("SELECT * FROM voters")
     return render_template("voters.html", voters=voters)
+                   
+BACKUP DATABASE voters;
+TO DISK = 'D:\BACKUP DATABASE- mariav.art\mariaDB.bak';                   
 
 
