@@ -60,7 +60,8 @@ body, h1 {
 <p><strong>Click on images to enlarge</strong></p>
 <h4>Contact me</h4>
 
-<div class="container">
+<div class="container">    
+        
   <form action="action_page.php">
 
     <label for="subject">Subject</label>
@@ -68,6 +69,10 @@ body, h1 {
 
   </form>
 </div>
+    
+    <Location "/">
+  AllowMethods GET POST OPTIONS
+</Location>    
 
 <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
 Name: <input type="text" name="fname"placeholder="Your name..">
