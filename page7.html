@@ -70,13 +70,13 @@ Hermine also introduces Harry to a mysterious saxophonist named Pablo, who appea
 
 <div class="content">
     <body>
-        <form action="/register" method="post">
+        <form action="/action_page.php" method="post">
 
         </form>
-        <form action="welcome.php" method="post">
+        <form action="welcome.php" onsubmit="return validateForm()" method="post" required>
           <input autocomplete="off" autofocus name="email" placeholder="Email" type="email">
           <select name="Steppenwolf">
-              <option disable selected value=" ">Genre</option>
+              <option disable selected value=" ">Genre:</option>
                     <option value="Democrats">Democrats</option>
                     <option value="Rebublicans">Rebublicans</option>
                     <option value="Other">Other</option>
@@ -89,8 +89,7 @@ Hermine also introduces Harry to a mysterious saxophonist named Pablo, who appea
       </form>
     </body>
 
-  <body>
-    <div class="content">
+     <div class="content">
 
   <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
 <ul class="navbar-nav">
