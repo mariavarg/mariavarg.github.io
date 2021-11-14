@@ -28,7 +28,12 @@ mycursor.execute("CREATE TABLE visitors (id INT AUTO_INCREMENT PRIMARY KEY, name
 <?php
  $Subject = $_POST["Subject"]
  $Name = $_POST["Name"]
- $E-mail = $_POST["E-mail"]
+ $E-mail = $_POST["E-mail"]?>
+
+if ((mysqli_affected_rows ($connect) > 0){
+echo "<p>Thanks for your visit</p>";
+echo "<a href="index.php">Go back</a>;
+
 
 
 
