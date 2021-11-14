@@ -8,10 +8,10 @@ $rs = mysqli_query($con, $sql);
 $con = mysqli_connect('localhost', 'root', '','db_contact');
 
 // get the post records
+$txtMessage = $_POST['txtMessage'];
 $txtName = $_POST['txtName'];
 $txtEmail = $_POST['txtEmail'];
-$txtPhone = $_POST['txtPhone'];
-$txtMessage = $_POST['txtMessage'];
+
 
 // database insert SQL code
 $sql = "INSERT INTO `tbl_contact` (`Id`, `fldName`, `fldEmail`, `fldPhone`, `fldMessage`) VALUES ('0', '$txtName', '$txtEmail', '$txtPhone', '$txtMessage')";
