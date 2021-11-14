@@ -83,6 +83,23 @@ Hermine also introduces Harry to a mysterious saxophonist named Pablo, who appea
         </div>
 
       </form>
+    
+    <script>[].slice.call(document.querySelectorAll('form input:not([type="submit"])')).forEach(function (element, mainpage) {
+    element.addEventListener('keyup', function (e) {
+        var invalidFields = [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).filter(function (element, mainpage) {
+        return !checkfnlname(element.id);
+      });
+      if (invalidFields.length == 0) {
+        // reenable the submit if n. of invalid inputs is 0
+        btnSubmit.removeAttribute('disabled');
+      } else {
+        // disable submit because there are invalid inputs
+        btnSubmit.setAttribute('disabled', 'disabled');
+      }
+    }, false);
+  });
+</script>
+    
     </body>
 
      <div class="content">
