@@ -70,7 +70,7 @@ body, h1 {
   </form>
 </div>
         
-<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="get">
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="POST">
 Name: <input type="text" name="fname"placeholder="Your name..">
 E-mail: <input type="email" id="lmail" name="email" placeholder="Your e-mail..">
   <input type="submit" value="Submit">
@@ -83,9 +83,9 @@ E-mail: <input type="email" id="lmail" name="email" placeholder="Your e-mail..">
   }
 }</script>
     
-    <script>[].slice.call(document.querySelectorAll('form input:not([type="submit"])')).forEach(function (element, mainpage) {
+    <script>[].slice.call(document.querySelectorAll('form input:not([type="submit"])')).forEach(function (element, index) {
     element.addEventListener('keyup', function (e) {
-        var invalidFields = [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).filter(function (element, mainpage) {
+        var invalidFields = [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).filter(function (element, index) {
         return !checkfnlname(element.id);
       });
       if (invalidFields.length == 0) {
