@@ -8,13 +8,13 @@ $rs = mysqli_query($con, $sql);
 $con = mysqli_connect('localhost', 'root', '','db_contact');
 
 // get the post records
-$txtMessage = $_POST['txtMessage'];
+$txtSubject = $_POST['txtMessage'];
 $txtName = $_POST['txtName'];
 $txtEmail = $_POST['txtEmail'];
 
 
 // database insert SQL code
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldName`, `fldEmail`,'fldMessage`) VALUES ('0', '$txtName', '$txtEmail', '$txtPhone', '$txtMessage')";
+$sql = "INSERT INTO `tbl_contact` ('Id', `fldName`, `fldEmail`,'fldMessage`) VALUES ('0', '$txtName', '$txtEmail', $txtMessage')";
 
 // insert in database 
 $rs = mysqli_query($con, $sql);
