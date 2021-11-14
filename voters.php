@@ -26,9 +26,9 @@ mycursor = mydb.cursor()
 mycursor.execute("CREATE TABLE visitors (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))")?>
 
 <?php
- $Email = $_POST["Email"];
- $Genre = $_POST["Genre"];
- $Vote = $_POST["Vote"];
+ $Email = $_GET["Email"];
+ $Genre = $_GET["Genre"];
+ $Vote = $_GET["Vote"];
  
 if ((mysqli_affected_rows ($connect) > 0){
      echo "<p>Thanks for your vote</p>";
