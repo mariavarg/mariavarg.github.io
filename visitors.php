@@ -1,8 +1,8 @@
- <?php
+<?php
 import mysql.connector
 
 mydb = mysql.connector.connect(
-  host="localhost",
+  host="127.0.0.1",
   user="myusername",
   password="mypassword"
 )
