@@ -18,7 +18,7 @@ mydb = mysql.connector.connect(
   host="127.0.0.1",
   user="yourusername",
   password="yourpassword",
-  database="myvotersdatabase"
+  database="votersdatabase"
 )
 
 mycursor = mydb.cursor()
