@@ -15,7 +15,7 @@ mycursor.execute("CREATE DATABASE myvisitorsdatabase")?>
 import mysql.connector
 
 mydb = mysql.connector.connect(
-  host="localhost",
+  host="127.0.0.1",
   user="yourusername",
   password="yourpassword",
   database="myvisitorsdatabase"
