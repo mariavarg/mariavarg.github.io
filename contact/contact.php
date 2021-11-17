@@ -22,6 +22,7 @@ $txtVote = $_POST['txtVote'];
 
 // database insert SQL code
 $sql = "INSERT INTO `tbl_contact` (`Id`, `fldEmail`, `fldGenre`, `fldVote`) VALUES ('0', $txtEmail', '$txtGenre', '$txtVote')";
+$sql = "INSERT INTO `fldGenre` (`Id`, `fldDemocrats`, `fldRepublicans`, `fldOther`) VALUES ('0', $txtDemocrats', '$txtRepublicans', '$txtOther')";
 
 // insert in database
 $rs = mysqli_query($con, $sql);
