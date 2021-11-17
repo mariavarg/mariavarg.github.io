@@ -13,7 +13,7 @@ $rs = mysqli_query($con, $sql);
 // database connection code
 // $con = mysqli_connect('localhost', 'root', 'database_password','db_contact');
 
-$con = mysqli_connect('localhost', 'root', '','db_contact');
+$con = mysqli_connect('localhost', 'root', 'db_contact');
 
 // get the post records
 $txtEmail = $_POST['txtEmail'];
