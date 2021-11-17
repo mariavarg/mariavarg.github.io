@@ -1,8 +1,7 @@
 <?php
 
-$con = mysqli_connect('localhost', 'root', '',’db_contact’);
-The “db_contact” is our database name that we created before.
-After connection database you need to take post variable from the form. See the below code
+$con = mysqli_connect('localhost', 'root', ’db_contact’);
+
 $txtEmail = $_POST['txtEmail'];
 $txtGenre = $_POST['txtGenre:'];
 $txtVote = $_POST['txtVote'];
@@ -12,7 +11,7 @@ $rs = mysqli_query($con, $sql);
 
 <?php
 // database connection code
-// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
+// $con = mysqli_connect('localhost', 'root', 'database_password','db_contact');
 
 $con = mysqli_connect('localhost', 'root', '','db_contact');
 
