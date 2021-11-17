@@ -8,7 +8,7 @@ $rs = mysqli_query($con, $sql);
 $con = mysqli_connect('localhost', 'root', 'db_contact');
 
 // get the post records
-$txtSubject = $_POST['txtMessage'];
+$txtSubject = $_POST['txtSubject'];
 $txtName = $_POST['txtName'];
 $txtEmail = $_POST['txtEmail'];
 
