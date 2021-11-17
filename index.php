@@ -1,11 +1,11 @@
 <?php
-$con = mysqli_connect("localhost","your_localhost_database_user","your_localhost_database_password","your_localhost_database_db");
+$con = mysqli_connect("localhost","root","your_localhost_database_password","db_contact");
 $rs = mysqli_query($con, $sql);
 <?php
 // database connection code
-// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
+// $con = mysqli_connect('localhost', 'root', 'database_password','db_contact');
 
-$con = mysqli_connect('localhost', 'root', '','db_contact');
+$con = mysqli_connect('localhost', 'root', 'db_contact');
 
 // get the post records
 $txtSubject = $_POST['txtMessage'];
@@ -14,7 +14,7 @@ $txtEmail = $_POST['txtEmail'];
 
 
 // database insert SQL code
-$sql = "INSERT INTO `tbl_contact` ('Id', `fldName`, `fldEmail`,'fldMessage`) VALUES ('0', '$txtName', '$txtEmail', $txtMessage')";
+$sql = "INSERT INTO `tbl_contact` ('Id','fldSubject', `fldName`, `fldE-mail`) VALUES ('0','$txtSubject', '$txtName', '$txtEmail')";
 
 // insert in database 
 $rs = mysqli_query($con, $sql);
