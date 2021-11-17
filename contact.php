@@ -1,0 +1,35 @@
+<<?php
+
+$con = mysqli_connect('localhost', 'root', '',’db_contact’);
+The “db_contact” is our database name that we created before.
+After connection database you need to take post variable from the form. See the below code
+$txtEmail = $_POST['txtEmail'];
+$txtGenre = $_POST['txtGenre:'];
+$txtVote = $_POST['txtVote'];
+
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldEmail`, `fldGenre`, `fldVote`) VALUES ('0', '$txtEmail', '$txtGenre', '$txtVote');"
+$rs = mysqli_query($con, $sql);
+
+<?php
+// database connection code
+// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
+
+$con = mysqli_connect('localhost', 'root', '','db_contact');
+
+// get the post records
+$txtEmail = $_POST['txtEmail'];
+$txtGenre = $_POST['txtGenre:'];
+$txtVote = $_POST['txtVote'];
+
+// database insert SQL code
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldEmail`, `fldGenre`, `fldVote`) VALUES ('0', $txtEmail', '$txtGenre', '$txtVote')";
+
+// insert in database
+$rs = mysqli_query($con, $sql);
+
+if($rs)
+{
+	echo "Contact Records Inserted";
+}
+
+??>
