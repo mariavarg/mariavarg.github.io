@@ -1,4 +1,4 @@
-<<?php
+<?php
 
 $con = mysqli_connect('localhost', 'root', '',’db_contact’);
 The “db_contact” is our database name that we created before.
