@@ -33,4 +33,4 @@ if($rs)
 	echo "Contact Records Inserted";
 }
 
-??>
+?>
