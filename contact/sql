@@ -41,5 +41,3 @@ ALTER TABLE `tbl_contact`
 --
 ALTER TABLE `tbl_contact`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-© 2021 GitHub, Inc.
-Term
