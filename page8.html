@@ -54,44 +54,6 @@ He ultimately realizes that the Army cannot grant either wish, and will leave hi
     <h2>Quick check up,<br>from those of you who have seen "Johnny got his Gun",</h2><br><h3>based on your political believes and values,</h3><br><h1>which Genre describes you best?</h1>
 </head>
     
-    <body>
-    
-<div class="content">
-    
-       <form action="/action_page.php" method="POST"></form>
-    
-        <form action="welcome.php" onsubmit="return validateForm()" method="POST" required>
-          <input autocomplete="off" autofocus name="email" placeholder="Email" type="email">
-          <select name="Johnny got his Gun">
-              <option disable selected value=" ">Genre:</option>
-                    <option value="Democrats">Democrats</option>
-                    <option value="Rebublicans">Rebublicans</option>
-                    <option value="Other">Other</option>
-            </select>
-            <input type="submit" value="Vote">
-          </select>
-         </div>
-        </div>
-
-      </form>
-    
-    <script>[].slice.call(document.querySelectorAll('form input:not([type="submit"])')).forEach(function (element, index) {
-    element.addEventListener('keyup', function (e) {
-        var invalidFields = [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).filter(function (element, index) {
-        return !checkfnlname(element.id);
-      });
-      if (invalidFields.length == 0) {
-        // reenable the submit if n. of invalid inputs is 0
-        btnSubmit.removeAttribute('disabled');
-      } else {
-        // disable submit because there are invalid inputs
-        btnSubmit.setAttribute('disabled', 'disabled');
-      }
-    }, false);
-  });
-</script>
-    
-     </body>
    
   <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
 <ul class="navbar-nav">
