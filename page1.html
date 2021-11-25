@@ -23,6 +23,126 @@ body, h1 {
 <div class="content">
   <!-- Page content -->
     <body>
+     <!-- Trigger/Open The Modal -->
+<button id="myBtn">The Garden of Earthly Delights</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+   <span class="close">&times;</span>
+      <h4>copyright©: Maria Vargiakaki, a.k.a. mariavarg, <br>a.k.a. Φαίδρα Κρητικού </br>-2021</h4>
+</head>
+
+        <h1>My Website</h1>
+<h3>Table of Contents</h3>
+      
+    <p>
+      <p>README.md</p>
+      <p>about.html</p>
+  <p>contactme.html</p>
+    
+<p>index.html: Welcome</p> 
+<p>page1.html: "An Insignificant Story" by mariavarg</p>
+<p>page2.html: "Alone" by Egdar Allan Poe</p>
+<p>page3.html: Theatrical -Samples by mariavarg</p>
+<p>page4.html: "Desdemona, the daughter of Venice" by mariavarg</p>
+<p>page5.html: "Erotokritos" by Vitsentzos Kornaros</p>
+<p>page6.html: "The Lord of the Rings" -(movies)</p>
+<p>page7.html: "Steppenwolf" (book) by Herman Hesse</p>
+<p>page8.html: "Johnny got his Gun" -(film)</p>
+<p>page9.html: Raimondo Di Sangro, Prince of Sansevero</p>
+<p>page10.html: "The Garden of Earthly Delights" by Hieronymus Bosch</p>
+<p>page11.html: "Excalibur" -(film)</p>
+<p>page12.html: H. R. Giger</p>
+<p>page13.html: "Shadow (A Parable)" by Edgar Allan Poe</p>
+<p>page14.html: "The Crow" -(1994 film)</p>
+<p>page15.html: "Strange Fruit" by Billie Holiday</p>    
+ 
+      
+ styles.css
+ styles0.css
+ styles1.css
+ styles2.css
+ styles3.css
+ styles4.css
+ styles5.css
+ styles6.css
+   </p>
+    
+     </div>
+
+</div>
+    <style>
+        /* The Modal (background) */    
+        
+ .modal {
+  display: none; /* Hidden by default */
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);   
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% center; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  }</style>
+    
+    <script>
+        // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>    
+      
 <p><strong>An insignificant story</strong></p>
 
 <p>
@@ -138,9 +258,8 @@ For all the excellent work you ‘ve done/
 It’s “Hello World” -D. J. Malan!!!/
 </p>
     <p><strong>copyright©: mariavarg</strong></p>
-
-
-<nav class="navbar navbar-expand-bg bg-dark navbar-dark">
+    
+    <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="index.html">HOME!</a>
