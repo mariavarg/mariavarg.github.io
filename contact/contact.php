@@ -2,11 +2,11 @@
 
 $con = mysqli_connect('localhost', 'root', ’db_contact’);
 
-$txtEmail = $_POST['txtEmail'];
-$txtGenre = $_POST['txtGenre:'];
-$txtVote = $_POST['txtVote'];
+$txtSubject = $_POST['txtSubject'];
+$txtName = $_POST['txtName'];
+$txtE-mail = $_POST['txtE-mail'];
 
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldEmail`, `fldGenre`, `fldVote`) VALUES ('0', '$txtEmail', '$txtGenre', '$txtVote');"
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', '$txtSubject', '$txtName', '$txtE-mail');"
 $rs = mysqli_query($con, $sql);
 
 <?php
@@ -16,13 +16,12 @@ $rs = mysqli_query($con, $sql);
 $con = mysqli_connect('localhost', 'root', 'db_contact');
 
 // get the post records
-$txtEmail = $_POST['txtEmail'];
-$txtGenre = $_POST['txtGenre:'];
-$txtVote = $_POST['txtVote'];
+$txtEmail = $_POST['txtSubject'];
+$txtGenre = $_POST['txtName'];
+$txtVote = $_POST['txtE-mail'];
 
 // database insert SQL code
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldEmail`, `fldGenre`, `fldVote`) VALUES ('0', $txtEmail', '$txtGenre', '$txtVote')";
-$sql = "INSERT INTO `fldGenre` (`Id`, `fldDemocrats`, `fldRepublicans`, `fldOther`) VALUES ('0', $txtDemocrats', '$txtRepublicans', '$txtOther')";
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', $txtSubject', '$txtName', '$txtE-mail')";
 
 // insert in database
 $rs = mysqli_query($con, $sql);
