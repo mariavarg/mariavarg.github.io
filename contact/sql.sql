@@ -5,8 +5,6 @@
 CREATE DATABASE IF NOT EXISTS `db_contact` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `db_contact`;
 
--- --------------------------------------------------------
-
 --
 -- Table structure for table `tbl_contact`
 --
