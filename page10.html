@@ -153,24 +153,16 @@ window.onclick = function(event) {
   }
 }
     </script>
-    
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Interpretation">
-</button>
+  <!-- Trigger/Open The Modal -->
+<button id="myBtn">Interpretation</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog-right" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="Interpretation" id="exampleModalScrollableTitle">Interpretation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <p><strong>Interpretation</strong></p>
-      <p>Detail from the center panel showing two cherry-adorned dancing figures who carry a surface on which an owl is perched.
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Detail from the center panel showing two cherry-adorned dancing figures who carry a surface on which an owl is perched.
    In the front right corner a bird standing on a reclining human's foot is about to eat from a cherry offered to it.
    Because only bare details are known of Bosch's life, interpretation of his work can be an extremely difficult area for academics as it is largely reliant on conjecture.
    Individual motifs and elements of symbolism may be explained, but so far relating these to each other and to his work as a whole has remained elusive.
@@ -210,14 +202,75 @@ window.onclick = function(event) {
    Writer Carl Linfert also senses the joyfulness of the people in the center panel, but rejects Fränger's assertion that the painting is a "doctrinaire" work espousing the "guiltless sexuality" of the Adamite sect.
    While the figures engage in amorous acts without any suggestion of the forbidden, Linfert points to the elements in the center panel suggesting death and temporality: some figures turn away from the activity, seeming to lose hope in deriving pleasure from the passionate frolicking of their cohorts.
    Writing in 1969, E. H. Gombrich drew on a close reading of Genesis and the Gospel According to Saint Matthew to suggest that the central panel is, according to Linfert, "the state of mankind on the eve of the Flood, when men still pursued pleasure with no thought of the morrow, their only sin the unawareness of sin."</p>
-     </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-     </div>
     </div>
-  </div>
+
 </div>
-   
+    <style>
+        /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  right: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  }</style>
+    
+    <script>
+        // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>  
   </body>
          
 <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
