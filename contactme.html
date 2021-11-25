@@ -61,42 +61,72 @@ body, h1 {
 
 <div class="container">    
         
-  <form action="action_page.php">
+  <?php
+// define variables and set to empty values
+$nameErr = $emailErr = "";
+$comment = $name = $email = "";
 
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:75px"></textarea>
-
-  </form>
-</div>
-        
-<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="POST">
-Name: <input type="text" name="fname"placeholder="Your name..">
-E-mail: <input type="email" id="lmail" name="email" placeholder="Your e-mail..">
-  <input type="submit" value="Submit">
-
-<script>function validateForm() {
-  let x = document.forms["myForm"]["fname"].value;
-  if (x == "") {
-    alert("Fields must be filled out");
-    return false;
+ if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
   }
-}</script>
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
+  }
+  
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format";
+    }
+  }
     
-    <script>[].slice.call(document.querySelectorAll('form input:not([type="submit"])')).forEach(function (element, index) {
-    element.addEventListener('keyup', function (e) {
-        var invalidFields = [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).filter(function (element, index) {
-        return !checkfnlname(element.id);
-      });
-      if (invalidFields.length == 0) {
-        // reenable the submit if n. of invalid inputs is 0
-        btnSubmit.removeAttribute('disabled');
-      } else {
-        // disable submit because there are invalid inputs
-        btnSubmit.setAttribute('disabled', 'disabled');
-      }
-    }, false);
-  });
-</script>
+  function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<p><span class="error">* required field</span></p>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+  
+  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+  <br><br>
+  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $nameErr;?></span>
+  <br><br>
+  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>   
+  <input type="submit" name="submit" value="Submit">  
+</form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $comment;
+echo "<br>";
+echo $name;
+echo "<br>";
+echo $email;
+
+
+?>
+
+</body>
       
 <div class="content">
   <!-- Page content -->
