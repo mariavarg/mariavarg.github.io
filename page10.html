@@ -183,6 +183,29 @@ window.onclick = function(event) {
   }
 }
     </script>
+    <script>
+ <button onclick="topFunction()" id="myBBtn" title="Back to top">Back to Top</button>
+ 
+//Get the button
+var mybutton = document.getElementById("myBBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
          
 <p>The Garden of Earthly Delights is the modern title given to a triptych oil painting on oak panel painted by the Early Netherlandish master Hieronymus Bosch, between 1490 and 1510, when Bosch was between 40 and 60 years old.
  It has been housed in the Museo del Prado in Madrid, Spain since 1939.
