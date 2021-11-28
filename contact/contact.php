@@ -1,29 +1,36 @@
+
 <?php
+$con = mysqli_connect("localhost","root","your_localhost_database_password","db_contact");
 
-$con = mysqli_connect('localhost', 'root', ’db_contact’);
-
+$con = mysqli_connect('localhost', 'root', '',’db_contact’);
+The “db_contact” is our database name that we created before.
+After connection database you need to take post variable from the form. See the below code
 $txtSubject = $_POST['txtSubject'];
 $txtName = $_POST['txtName'];
-$txtE-mail = $_POST['txtE-mail'];
+$txtEmail = $_POST['txtEmail'];
 
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', '$txtSubject', '$txtName', '$txtE-mail');"
+
+
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', '$txtSubject', '$txtName', '$txtEmail');"
+
 $rs = mysqli_query($con, $sql);
+?>
 
 <?php
 // database connection code
 // $con = mysqli_connect('localhost', 'root', 'database_password','db_contact');
 
-$con = mysqli_connect('localhost', 'root', 'db_contact');
+$con = mysqli_connect('localhost', 'root', '','db_contact');
 
 // get the post records
-$txtEmail = $_POST['txtSubject'];
-$txtGenre = $_POST['txtName'];
-$txtVote = $_POST['txtE-mail'];
+$txtSubject = $_POST['txtSubject'];
+$txtName = $_POST['txtName'];
+$txtEmail = $_POST['txtEmail'];
 
 // database insert SQL code
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', $txtSubject', '$txtName', '$txtE-mail')";
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldEmail`) VALUES ('0', '$txtSubject', '$txtName', '$txtEmail')";
 
-// insert in database
+// insert in database 
 $rs = mysqli_query($con, $sql);
 
 if($rs)
@@ -31,4 +38,13 @@ if($rs)
 	echo "Contact Records Inserted";
 }
 
-?>
+mysql_select_db("db_contact", $connection);
+$sql="INSERT INTO Subscribers (EmailAddress) VALUES ('$_POST[emailaddress]')";
+
+if (!mysql_query($sql,$connection)) { die('Error: ' . mysql_error()); }
+
+mysql_close($connection); ?>
+
+
+
+
