@@ -7,11 +7,11 @@ The “db_contact” is our database name that we created before.
 After connection database you need to take post variable from the form. See the below code
 $txtSubject = $_POST['txtSubject'];
 $txtName = $_POST['txtName'];
-$txtEmail = $_POST['txtEmail'];
+$txtEmail = $_POST['txtE-mail'];
 
 
 
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', '$txtSubject', '$txtName', '$txtEmail');"
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', '$txtSubject', '$txtName', '$txtE-mail');"
 
 $rs = mysqli_query($con, $sql);
 ?>
@@ -25,10 +25,10 @@ $con = mysqli_connect('localhost', 'root', '','db_contact');
 // get the post records
 $txtSubject = $_POST['txtSubject'];
 $txtName = $_POST['txtName'];
-$txtEmail = $_POST['txtEmail'];
+$txtEmail = $_POST['txtE-mail'];
 
 // database insert SQL code
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldEmail`) VALUES ('0', '$txtSubject', '$txtName', '$txtEmail')";
+$sql = "INSERT INTO `tbl_contact` (`Id`, `fldSubject`, `fldName`, `fldE-mail`) VALUES ('0', '$txtSubject', '$txtName', '$txtE-mail')";
 
 // insert in database 
 $rs = mysqli_query($con, $sql);
