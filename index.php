@@ -10,11 +10,11 @@ $con = mysqli_connect('localhost', 'root', 'db_contact');
 // get the post records
 $txtSubject = $_POST['txtSubject'];
 $txtName = $_POST['txtName'];
-$txtEmail = $_POST['txtEmail'];
+$txtE-mail = $_POST['txtE-mail'];
 
 
 // database insert SQL code
-$sql = "INSERT INTO `tbl_contact` ('Id','fldSubject', `fldName`, `fldE-mail`) VALUES ('0','$txtSubject', '$txtName', '$txtEmail')";
+$sql = "INSERT INTO `tbl_contact` ('Id','fldSubject', `fldName`, `fldE-mail`) VALUES ('0','$txtSubject', '$txtName', '$txtE-mail')";
 
 // insert in database 
 $rs = mysqli_query($con, $sql);
