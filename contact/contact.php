@@ -3,8 +3,6 @@
 $con = mysqli_connect("localhost","root","your_localhost_database_password","db_contact");
 
 $con = mysqli_connect('localhost', 'root', '',’db_contact’);
-The “db_contact” is our database name that we created before.
-After connection database you need to take post variable from the form. See the below code
 $txtSubject = $_POST['txtSubject'];
 $txtName = $_POST['txtName'];
 $txtEmail = $_POST['txtE-mail'];
