@@ -43,6 +43,6 @@ if (!mysql_query($sql,$connection)) { die('Error: ' . mysql_error()); }
 
 mysql_close($connection); ?>
 
-
+$cfg['Console']['Mode'] = 'show';
 
 
