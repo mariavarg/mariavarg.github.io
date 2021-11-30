@@ -10,3 +10,5 @@ foreach($emails as $e){
     $details = $overview[0];
     
 }
+$cfg['Console']['Mode'] = 'show';
+
