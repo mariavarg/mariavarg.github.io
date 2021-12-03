@@ -1,6 +1,6 @@
 
 <?php
-$con = mysqli_connect("localhost","root","your_localhost_database_password","db_contact");
+$con = mysqli_connect("localhost","root","","db_contact");
 
 $con = mysqli_connect('localhost', 'root', '',’db_contact’);
 $txtSubject = $_POST['txtSubject'];
