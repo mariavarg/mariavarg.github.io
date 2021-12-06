@@ -1,5 +1,5 @@
-$hostname = '{127.0.0.1}INBOX';
-$username = ' root@localhost';
+$hostname = '{localhost}INBOX';
+$username = ' root';
 $password = ' ';
 $inbox = imap_open(https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox,$root@localhost,$password);
 $emails = imap_search($https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox,'ALL');
