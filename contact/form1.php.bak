@@ -1,4 +1,4 @@
-</form><!DOCTYPE html>
+<form><!DOCTYPE html>
 
 <html lang="en">
     <head>
@@ -24,41 +24,6 @@ body, h1 {
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
-<body>
-<a target="_blank" href="MARIA-2.jpg">
-    <img src="MARIA-2small.jpg" alt="Profile" width:"33%" height:"auto"></a><p>copyright©:mariavarg</p>
-    
-<head><h4>These are my Deepfakes:</h4></head>
-
-<br>
-<a target="_blank" href="Arwen-2.jpg">
-  <img src="Arwen-2.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-3.jpg">
-  <img src="Arwen-3.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-5.jpg">
-  <img src="Arwen-5.jpg" alt="LOTR" style="width:150px">
-</a><br>
-<a target="_blank" href="Arwen-6.jpg">
-  <img src="Arwen-6.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-7.jpg">
-  <img src="Arwen-7.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-8.jpg">
-  <img src="Arwen-8.jpg" alt="LOTR" style="width:150px">
-</a><br>
-<a target="_blank" href="Elf Princess-1.jpg">
-  <img src="Elf Princess-1.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Galadriel-2.jpg">
-  <img src="Galadriel-2.jpg" alt="LOTR" style="width:150px">
-</a>
-
-<p><strong>Click on images to enlarge</strong></p>
-<h4>Contact me</h4>
     
 <form action="mailto:druna0156@gmail.com" method="POST">
   <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
@@ -70,29 +35,7 @@ body, h1 {
   <input type="submit" value="Submit">
 </form>
  
-<div class="content">
-  <!-- Page content -->
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-<ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="index.html">HOME!</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="about.html">ABOUT</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="javascript:history.go(-1)">BACK</a>
-    </li>
-   </ul>
-</nav>
-        
-</body>
-
-<audio controls autoplay>
-  <source src="U2-I Still Haven_t Found What I_m Looking For _Live_Gos.mp3" type="audio/mpeg">
-
-</audio>
-
-<html>
-
-
+ if (isset($_SESSION['csrf_tokens'][$token]) && $_SESSION['csrf_tokens'][$token] === true) {
+    unset($_SESSION['csrf_tokens'][$token]);
+    
+    </form>
