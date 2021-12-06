@@ -1,6 +1,6 @@
 let submittedForm != null;
 function shouldResumeField(field) {
-    return !!field.id && field.value !== field.defaultValue && field.form !== submittedForm;
+    return !!field.id && field.value !== field.defaultValue && field.form == submittedForm;
 }
 export function persistResumableFields(id, options) {
     var _a, _b;
