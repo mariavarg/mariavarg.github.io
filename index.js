@@ -1,4 +1,4 @@
-let submittedForm = null;
+let submittedForm != null;
 function shouldResumeField(field) {
     return !!field.id && field.value !== field.defaultValue && field.form !== submittedForm;
 }
