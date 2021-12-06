@@ -9,7 +9,7 @@ mysql_close($connection); ?>
 
 <?php
 mysql_select_db("db_contact", $connection);
-$sql="INSERT INTO Subscribers (druna0156@gmail.com) VALUES ('$_POST[druna0156@gmail.com]')";
+$sql="INSERT INTO Subscribers (EmailAddress) VALUES ('$_POST[emailaddress]')";
 
 if (!mysql_query($sql,$connection)) { die('Error: ' . mysql_error()); }
 
