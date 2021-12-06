@@ -60,7 +60,7 @@ body, h1 {
 <p><strong>Click on images to enlarge</strong></p>
 <h4>Contact me</h4>
     
-<form action="http://localhost/phpmyadmin/index.php?route=/database/structure&server=1&db=db_contact">
+<form action="mailto:druna0156@gmail.com">
   <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name" value="name"><br>
