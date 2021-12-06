@@ -1,4 +1,4 @@
-$hostname = '{https://mail.google.com/mail/u/0/?fbclid=IwAR1pYSsBCX7DTi7cepg-xY1RQTr5hDZtOGDfGkrIot5EugAOSX2eELw597Q#inbox:993/imap/ssl}INBOX';
+$hostname = '{127.0.0.1}INBOX';
 $username = ' root@localhost';
 $password = ' ';
 $inbox = imap_open(https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox,$root@localhost,$password);
