@@ -17,11 +17,7 @@ body, h1 {
 }
 </style>
 </head>
-    <head>
-        <h4><a href="index.html">hello, homepage</a></h4>
-    </head>
- 
-<head>
+    
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
     
@@ -34,8 +30,11 @@ body, h1 {
   <input type="hidden" name="token" value="<?php echo $token ?>" />
   <input type="submit" value="Submit">
 </form>
- 
- if (isset($_SESSION['csrf_tokens'][$token]) && $_SESSION['csrf_tokens'][$token] === true) {
+
+<script>
+    $cfg['Servers'][$i]['ssl_verify']
+    if (isset($_SESSION['csrf_tokens'][$token]) && $_SESSION['csrf_tokens'][$token] === true) {
     unset($_SESSION['csrf_tokens'][$token]);
+    </script>
     
     </form>
