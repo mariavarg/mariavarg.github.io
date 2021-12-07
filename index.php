@@ -1,28 +1,46 @@
-<?php
-$con = mysqli_connect("localhost","root","your_localhost_database_password","db_contact");
-$rs = mysqli_query($con, $sql);
-<?php
-// database connection code
-// $con = mysqli_connect('localhost', 'root', 'database_password','db_contact');
+<!DOCTYPE html>
+<html>
+    
+  <form>
 
-$con = mysqli_connect('localhost', 'root', 'db_contact');
-
-// get the post records
-$txtSubject = $_POST['txtSubject'];
-$txtName = $_POST['txtName'];
-$txtE-mail = $_POST['txtE-mail'];
-
-
-// database insert SQL code
-$sql = "INSERT INTO `tbl_contact` ('Id','fldSubject', `fldName`, `fldE-mail`) VALUES ('0','$txtSubject', '$txtName', '$txtE-mail')";
-
-// insert in database 
-$rs = mysqli_query($con, $sql);
-
-if($rs)
-{
-	echo "Contact Records Inserted";
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        google-site-verification=lx9Buu8regrl5IfmZntGJ-oDlfmAMPucGl-y4_8W9RE
+        <title>My Website</title>
+    </head>
+    <head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
+body, h1 {
+  font-family: "Sofia", sans-serif;
 }
+</style>
+</head>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+    
+<form action="contact/submit.inc.php" method="POST">
+  <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" value="name"><br>
+  <label for="email">E-mail:</label><br>
+  <input type="text" id="email" name="email" value="email"><br><br>
+  <input type="submit" value="Submit">
+</form>
 
-?>
+    </form>
+  
+<?php
 
+$dbServername = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "loginsystem";
+
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+?>    
