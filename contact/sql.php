@@ -24,7 +24,7 @@ while($row = mysql_fetch_object($result)){
             <?php echo $row->name;?>  
         </td>
 		<td>  
-            <?php echo $row->mail;?>  
+            <?php echo $row->email;?>  
         </td>          
         <tr>  
             <? php } ?>  
