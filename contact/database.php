@@ -4,3 +4,5 @@ visitor_subject text
 visitor_name varchar(256) not null,
 visitor_email varchar(256) not null
 );
+
+INSERT INTO visitors (visitor_id, visitor_subject, visitor_name, visitor_email)
