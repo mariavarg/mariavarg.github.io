@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-  </head>
-<body>
-  
+    
   <form>
 
 <html lang="en">
