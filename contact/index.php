@@ -1,4 +1,9 @@
 <?php
+
+include_once "includes/dbh.inc.php";
+
+?>
+
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
