@@ -6,7 +6,7 @@
 <body>
   
 <?php>
-  $sql = "SELECT * FROM visitors;";
+  $sql = "INSERT INTO visitors (visitor_id, visitor_subject, visitor_name, visitor_email) VALUES ('0', '$txtSubject', '$txtName', '$txtE-mail');";
   $result = mysqli_query($conn, $sql);
 ?>
 
