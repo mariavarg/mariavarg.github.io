@@ -24,7 +24,7 @@ body, h1 {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
     
-<form action="contact/database.php">
+<form action="contact/submit.inc.php">
   <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name" value="name"><br>
