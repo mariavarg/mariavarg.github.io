@@ -3,7 +3,12 @@
   <head>
     <title></title>
   </head>
-<body>  
+<body>
+  
+<?php>
+  $sql = "SELECT * FROM visitors;";
+  $result = mysqli_query($conn, $sql);
+?>
 
 
 <?php
