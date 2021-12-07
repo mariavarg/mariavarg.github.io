@@ -9,8 +9,7 @@
         <link href="styles.css" rel="stylesheet">
         google-site-verification=lx9Buu8regrl5IfmZntGJ-oDlfmAMPucGl-y4_8W9RE
         <title>My Website</title>
-    </head>
-    <head>
+   
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 <style>
 body, h1 {
