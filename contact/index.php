@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-    
-  <form>
-
+  
 <html lang="en">
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -32,6 +30,5 @@ body, h1 {
   <input type="text" id="email" name="email" value="email"><br><br>
   <input type="submit" value="Submit">
 </form>
-
-    </form>
+</html>
   
