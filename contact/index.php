@@ -21,6 +21,8 @@ body, h1 {
     
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+  
+  <body>
     
 <form action="contact/submit.inc.php" method="POST">
   <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
@@ -30,5 +32,6 @@ body, h1 {
   <input type="text" id="email" name="email" value="email"><br><br>
   <input type="submit" value="Submit">
 </form>
+  </body>
 </html>
   
