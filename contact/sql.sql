@@ -6,7 +6,7 @@ CREATE DATABASE IF NOT EXISTS `db_contact` DEFAULT CHARACTER SET latin1 COLLATE 
 USE `db_contact`;
 
 --
--- Table structure for table `tbl_contact`
+-- 
 --
 
 DROP TABLE IF EXISTS `tbl_contact`;
@@ -20,7 +20,7 @@ CREATE TABLE `tbl_contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- 
 --
 
 --
@@ -30,7 +30,7 @@ ALTER TABLE `tbl_contact`
  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- 
 --
 
 --
