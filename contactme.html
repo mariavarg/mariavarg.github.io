@@ -56,14 +56,31 @@ body, h1 {
 <p><strong>Click on images to enlarge</strong></p>
 <h4>Contact me</h4>
     
-<form action="contact/submit.inc.php" methods="POST">
-  <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name" value="name"><br>
-  <label for="email">E-mail:</label><br>
-  <input type="text" id="email" name="email" value="E-mail"><br><br>
-  <input type="submit" name="submit" value="Submit">
-</form>
+<form name="frmContact" class="needs-validation " method="post" action="contact.php">
+    <p>
+      <label for="Name">Your Name </label>
+      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" required>
+	  <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+    </p>
+    <p>
+      <label for="email">Your Email</label>
+      <input type="text"  class="form-control"  name="txtEmail" id="txtEmail" placeholder="Email" value="" required>
+    </p>
+    <p>
+      <label for="subject">Subject</label>
+      <textarea name="txtSubject" class="form-control"  id="txtSubject"  placeholder="Subject" required></textarea>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+      <input type="submit" name="Submit" id="Submit" value="Click me to Contact"  class="btn btn-primary btn-lg btn-block">
+    </p>
+  </form>
+</fieldset>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
          
 <div class="content">
   <!-- Page content -->
@@ -81,8 +98,7 @@ body, h1 {
   </ul>
 </nav>
         
-</body>
-    
+</body>    
 
 <audio controls autoplay>
   <source src="U2-I Still Haven_t Found What I_m Looking For _Live_Gos.mp3" type="audio/mpeg">
