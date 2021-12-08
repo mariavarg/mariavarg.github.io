@@ -56,13 +56,13 @@ body, h1 {
 <p><strong>Click on images to enlarge</strong></p>
 <h4>Contact me</h4>
     
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
   <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name" value="name"><br>
   <label for="email">E-mail:</label><br>
   <input type="text" id="email" name="email" value="E-mail"><br><br>
-  <input type="submit" name="submit" value="Submit">
+  <input type="submit" name="submit" value="Submit" method="POST">
 </form>
          
 <div class="content">
