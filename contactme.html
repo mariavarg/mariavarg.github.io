@@ -56,7 +56,7 @@ body, h1 {
 <p><strong>Click on images to enlarge</strong></p>
 <h4>Contact me</h4>
     
-<form action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>
+<form action="contact/submit.inc.php" method="POST">
   <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name" value="name"><br>
