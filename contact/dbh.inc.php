@@ -4,6 +4,7 @@ $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
 $dbName = "loginsystem";
+$cfg['Console']['Mode'] = 'show';
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 ?>  
@@ -27,4 +28,5 @@ while($row = mysql_fetch_object($result)){
             <?php echo $row->email;?>  
         </td>          
         <tr>  
-            <? php } ?>  
+            <? php } ?>		
+
