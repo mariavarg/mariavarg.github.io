@@ -53,11 +53,11 @@ body, h1 {
 </div>
   
 <?php
-
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
 $dbName = "loginsystem";
+$cfg['Console']['Mode'] = 'show';
 
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 ?>    
