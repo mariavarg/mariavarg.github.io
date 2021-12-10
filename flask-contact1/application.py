@@ -8,3 +8,8 @@ def index():
 export FLASK_APP=application.py
 export FLASK_DEBUG=1
 flask run
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+  if not request.form.get("username")
+    return apology("must provide username")
