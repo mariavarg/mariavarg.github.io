@@ -27,6 +27,13 @@ db = SQL("sqlite:///templates.db")
 def login():
   if not request.form.get("username")
     return apology("must provide username")
+
+  def register():
+    if not email:
+        return render_template("error.html", message="Missing email")
+         = request.form.get(" ")
+    if  not in
+        return render_template("error.html", message="Invalid E-mail")
   
   if request method== "POST":
     return render_template("Success.html")
