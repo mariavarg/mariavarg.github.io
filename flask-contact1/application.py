@@ -12,6 +12,10 @@ app.config["MAIL_SERVER"] = smtp.gmail.com
 app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USERNAME"] = os.getenv("MAIL_USERNAME")
 mail = Mail(app)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
 
 @app.route("/")
 def index():
