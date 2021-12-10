@@ -1,7 +1,7 @@
 import os
 
 from cs50 import SQL
-from flask import Flask, url_for(), redirect(), session(), render_template(), request(), jsonify()
+from flask import Flask, url_for(), redirect(), session(), render_template(), request(), jsonify(), flash()
 from flask_mail import Mail, Message
 
 app = Flask(__name__)
