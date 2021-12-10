@@ -1,4 +1,4 @@
-from flask import Flask, url_for(), redirect(), session(), render_template()
+from flask import Flask, url_for(), redirect(), session(), render_template(), request(), jsonify()
 app = Flask(__name__)
 
 @app.route("/")
