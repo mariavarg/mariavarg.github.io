@@ -13,3 +13,10 @@ flask run
 def login():
   if not request.form.get("username")
     return apology("must provide username")
+  
+  if request method== "POST":
+    return render_template"Success.html"
+  else
+    return render_template"Failure.html"
+  
+  
