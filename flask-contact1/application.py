@@ -29,9 +29,9 @@ def login():
     return apology("must provide username")
   
   if request method== "POST":
-    return render_template"Success.html"
+    return render_template("Success.html")
   else
-    return render_template"contactme.html"
+    return render_template("contactme.html")
   
  db.execute("INSERT INTO  (name, ) VALUES(?, ?)", name,
 
