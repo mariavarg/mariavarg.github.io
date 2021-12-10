@@ -24,16 +24,33 @@ body, h1 {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
     
-<form action="contact/submit.inc.php" method="POST">
-  <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name" value="name"><br>
-  <label for="email">E-mail:</label><br>
-  <input type="text" id="email" name="email" value="email"><br><br>
-  <input type="submit" value="Submit">
-</form>
+  <div class="content">
+  <!-- Page content -->
+    
+<form name="frmContact" class="needs-validation" method="post" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
+    <p>
+      <label for="Name">Your Name </label>
+      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" required style="max-width: 500px;" margin: "auto;" form align: "center;">
 
-    </form>
+	  <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+    </p>
+    <p>
+      <label for="email">Your Email</label>
+      <input type="text"  class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" value="" required style="max-width: 500px;" margin: "auto;" form align: "center;">
+    </p>
+    <p>
+      <label for="subject">Subject</label>
+      <textarea name="txtSubject" class="form-control"  id="txtSubject"  placeholder="Subject" required></textarea>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+     <input type="submit" form="frmContact" name="Submit" id="Submit" value="Contact me" method:"POST">
+   </p>
+  </form>
+</fieldset>
+</div>
   
 <?php
 
