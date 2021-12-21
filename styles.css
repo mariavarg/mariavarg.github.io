@@ -3,6 +3,18 @@ body, h1 {
   margin:0;
 }
 
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+</style>
+<body>
+
+<div class="content">
+  <!-- Page content -->
+</div>
+
 .topnav {
   overflow: hidden;
   background-color: #333;
