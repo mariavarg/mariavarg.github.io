@@ -66,7 +66,7 @@ body, h1 {
 <form name="formContact" class="needs-validation" method="post" action="form.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your Name </label>
-      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" required style="max-width: 500px;" margin: "auto;" form align: "center;">
+      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" style="max-width: 500px;" margin: "auto;" form align: "center;">
 
 	  <div class="invalid-feedback">
                   Valid first name is required.
@@ -74,7 +74,10 @@ body, h1 {
     </p>
     <p>
       <label for="email">Your Email</label>
-      <input type="text"  class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" value="" required style="max-width: 500px;" margin: "auto;" form align: "center;">
+      <input type="text"  class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" value="" style="max-width: 500px;" margin: "auto;" form align: "center;">
+	     <div class="invalid-feedback">
+                  Valid Email is required.
+                </div>
     </p>
     <p>
       <label for="subject">Subject</label>
