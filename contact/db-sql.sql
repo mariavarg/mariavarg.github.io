@@ -1,23 +1,23 @@
 
 --
--- Database: `db_contact`
+-- Database: `mywebsite_firstdb`
 --
 
-CREATE DATABASE IF NOT EXISTS `db_contact` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `db_contact`;
+CREATE DATABASE IF NOT EXISTS `mywebsite_firstdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `mysql`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_contact`
+-- Table structure for table `contactform_entries`
 --
 
-DROP TABLE IF EXISTS `tbl_contact`;
-CREATE TABLE `tbl_contact` (
-  `id` int(11) NOT NULL,
-  `fldName` varchar(256) NOT NULL,
-  `fldEmail` varchar(256) NOT NULL,
-  `fldSubject` text NOT NULL
+DROP TABLE IF EXISTS `contactform_entries`;
+CREATE TABLE `contactform_entries` (
+  `id` int(20) NOT NULL,
+  `fldName` varchar(50) NOT NULL,
+  `fldEmail` varchar(50) NOT NULL,
+  `fldMessage` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -25,9 +25,9 @@ CREATE TABLE `tbl_contact` (
 --
 
 --
--- Indexes for table `tbl_contact`
+-- Indexes for table `contactform_entries`
 --
-ALTER TABLE `tbl_contact`
+ALTER TABLE `contactform_entries`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -35,7 +35,7 @@ ALTER TABLE `tbl_contact`
 --
 
 --
--- AUTO_INCREMENT for table `tbl_contact`
+-- AUTO_INCREMENT for table `contactform_entries`
 --
-ALTER TABLE `tbl_contact`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `contactform_entries`
+MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
