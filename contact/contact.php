@@ -2,8 +2,8 @@
 // database connection code
 if(isset($_POST['txtName']))
 {
-// $con = mysqli_connect('localhost', 'database_user', 'database_password','database');
-$con = mysqli_connect('localhost', 'root', '','db_contact');
+// $con = mysqli_connect('localhost', 'root', ' ', 'mywebsite_firstdb');
+$con = mysqli_connect('localhost', 'root', '', 'mywebsite_firstdb');
 
 // get the post records
 
@@ -12,7 +12,7 @@ $txtEmail = $_POST['txtEmail'];
 $txtSubject = $_POST['txtMessage'];
 
 // database insert SQL code
-$sql = "INSERT INTO `tbl_contact` (`Id`, `fldName`, `fldEmail`, `fldMessage`) VALUES ('0', '$txtName', '$txtEmail', '$txtMessage')";
+$sql = "INSERT INTO `contactform_entries` (`Id`, `fldName`, `fldEmail`, `fldMessage`) VALUES ('0', '$txtName', '$txtEmail', '$txtMessage')";
 
 // insert in database 
 $rs = mysqli_query($con, $sql);
