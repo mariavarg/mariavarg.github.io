@@ -72,15 +72,29 @@ function validateForm() {
   }
 }</script>	
 	
-  <form action="mailto:druna0156@gmail.com" method="POST">
-  <label for="fname">Full Name:</label><br>
-  <input type="text" id="fname" name="fname" value=" "><br>
-  <label for="email">E-mail:</label><br>
-  <input type="text" id="email" name="email" value=" "><br>
-  <label for="message">Message:</label><br>		    
-  <input type="text" id="message" name="message" method="POST" value=" "><br><br>
-  <input type="submit" value="Submit">
-</form>
+  <form name="formContact" class="needs-validation" method="POST" action="form.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
+    <p>
+      <label for="Name">Your Name </label>
+      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
+
+	  <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+    </p>
+    <p>
+      <label for="email">Your Email</label>
+      <input type="text" class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
+    </p>
+    <p>
+      <label for="message">Message</label>
+      <textarea name="txtMessage" class="form-control"  id="txtMessage"  placeholder="Message" required></textarea>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+     <button type="submit" form="formContact" name="Submit" id="myBtn" method:"POST">CONTACT ME</button>
+   </p>
+  </form>
+ </div>
 		
 <head><h5><a href="contents.html">This is Table of Contents</a></h5></head>
 
