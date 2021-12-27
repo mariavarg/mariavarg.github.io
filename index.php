@@ -24,16 +24,44 @@ body, h1 {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
     
-<form action="contact/submit.inc.php" method="POST">
-  <textarea name="subject" rows="10" cols="30">Subject:</textarea><br><br>
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name" value="name"><br>
-  <label for="email">E-mail:</label><br>
-  <input type="text" id="email" name="email" value="email"><br><br>
-  <input type="submit" value="Submit">
-</form>
+<head>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+        function sendData(){
+               var request = $.ajax({
+                  url: "contact.php",
+                  data: $("#formContact").serialize(),
+                  type: 'POST'
+               });
 
-    </form>
+            request.done(function(){
+                  $("#formContact").submit();
+             });
+        }
+        </script>
+    </head>
+	
+ <form name="formContact" class="needs-validation" method="POST" action="mailto:druna0156@gmail.com" style="max-width: 500px;" margin: "auto"; form align: "center";>
+    <p>
+      <label for="Name">Your Name </label>
+      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
+    </p>
+    <p>
+      <label for="email">Your Email</label>
+      <input type="text" class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
+    </p>
+    <p>
+      <label for="message">Message</label>
+      <textarea name="txtMessage" class="form-control"  id="txtMessage"  placeholder="Message" required></textarea>
+    </p>
+    <p>&nbsp;</p>
+    <p>
+     <a href="mailto:druna0156@gmail.com">
+     <button type="submit" form="formContact" name="Submit" button class="button" onclick="sendData()" method="POST">CONTACT ME</button>
+    </a>	    
+   </p>
+  </form>
+ </div>
   
 <?php
 
