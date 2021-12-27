@@ -78,9 +78,9 @@ body, h1 {
              });
         }
         </script>
-    </head>		
-		
- <form name="formContact" class="needs-validation" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
+    </head>
+	
+ <form name="formContact" class="needs-validation" method="POST" action="mailto:druna0156@gmail.com" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
@@ -96,7 +96,7 @@ body, h1 {
     <p>&nbsp;</p>
     <p>
      <a href="mailto:druna0156@gmail.com">
-     <button type="submit" form="formContact" name="Submit" button class="button" method="POST">CONTACT ME</button>
+     <button type="submit" form="formContact" name="Submit" button class="button" onclick="sendData()" method="POST">CONTACT ME</button>
     </a>	    
    </p>
   </form>
