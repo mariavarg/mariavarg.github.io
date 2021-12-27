@@ -70,5 +70,5 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "mywebsite_firstdb";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+$conn = mysqli_connect($dblocalhost, $root, $mywebsite_firstdb);
 ?>    
