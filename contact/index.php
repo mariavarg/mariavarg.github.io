@@ -41,7 +41,7 @@ body, h1 {
         </script>
     </head>
 	
- <form name="formContact" class="needs-validation" method="POST" action="mailto:druna0156@gmail.com" style="max-width: 500px;" margin: "auto"; form align: "center";>
+ <form name="formContact" class="form-control" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
@@ -56,13 +56,12 @@ body, h1 {
     </p>
     <p>&nbsp;</p>
     <p>
-     <a href="mailto:druna0156@gmail.com">
-     <button type="submit" form="formContact" name="Submit" button class="button" onclick="sendData()" method="POST">CONTACT ME</button>
+     <label for="submit">CONTACT ME</label>
+     <button type="submit" form="formContact" name="Submit" button class="button" value="Send" onclick="sendData()" method="POST"></button>
     </a>	    
    </p>
   </form>
  </div>
-  
 <?php
 
 $dbServername = "localhost";
