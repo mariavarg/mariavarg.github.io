@@ -63,14 +63,29 @@ body, h1 {
 	<div class="content">
   <!-- Page content -->
 		
-  <form name="formContact" class="needs-validation" method="POST" action="form.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
+<script>		
+function validateForm() {
+  let x = document.forms["formContact"]["txtName"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  let y = document.forms["formContact"]["txtEmail"].value;
+  if (y == "") {
+    alert("Email must be filled out");
+    return false;
+  }
+  let z = document.forms["formContact"]["txtMessage"].value;
+  if (z == "") {
+    alert("Message must be filled out");
+    return false;
+  }
+}</script>
+      		
+ <form name="formContact" class="needs-validation" method="POST" action="form.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
-
-	  <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
     </p>
     <p>
       <label for="email">Your Email</label>
