@@ -63,6 +63,23 @@ body, h1 {
 	<div class="content">
   <!-- Page content -->
 		
+<head>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+        function sendData(){
+               var request = $.ajax({
+                  url: "contact.php",
+                  data: $("#formContact").serialize(),
+                  type: 'POST'
+               });
+
+            request.done(function(){
+                  $("#formContact").submit();
+             });
+        }
+        </script>
+    </head>		
+		
  <form name="formContact" class="needs-validation" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your Name </label>
@@ -84,26 +101,7 @@ body, h1 {
    </p>
   </form>
  </div>
-	
-	<script>		
-function validateForm() {
-  let x = document.forms["formContact"]["txtName"].value;
-  if (x == "") {
-    alert("Name must be filled out");
-    return false;
-  }
-  let y = document.forms["formContact"]["txtEmail"].value;
-  if (y == "") {
-    alert("Email must be filled out");
-    return false;
-  }
-  let z = document.forms["formContact"]["txtMessage"].value;
-  if (z == "") {
-    alert("Message must be filled out");
-    return false;
-  }
-}</script>
-		
+			
 <head><h5><a href="contents.html">This is Table of Contents</a></h5></head>
 
 <div class="content">
