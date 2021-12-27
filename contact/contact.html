@@ -6,7 +6,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 
- <form name="formContact" class="needs-validation" method="POST" action="mailto:druna0156@gmail.com" style="max-width: 500px;" margin: "auto"; form align: "center";>
+ <form name="formContact" class="form-control" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
@@ -21,11 +21,10 @@
     </p>
     <p>&nbsp;</p>
     <p>
-     <a href="mailto:druna0156@gmail.com">
-     <button type="submit" form="formContact" name="Submit" button class="button" value="send" onclick="sendData()" method="POST">CONTACT ME</button>
+     <label for="submit">CONTACT ME</label>
+     <button type="submit" form="formContact" name="Submit" button class="button" value="Send" onclick="sendData()" method="POST"></button>
     </a>	    
    </p>
   </form>
  </div>
-
 </html>
