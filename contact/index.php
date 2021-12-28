@@ -40,11 +40,25 @@ body, h1 {
         }
         </script>
     </head>
-	
- <form name="formContact" class="form-control" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Contact Form - PHP/MySQL</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+   <div class="content">
+  <!-- Page content -->
+	  
+<form name="formContact" class="needs-validation" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
+
+	  <div class="invalid-feedback">
+                  Valid Full name is required.
+                </div>
     </p>
     <p>
       <label for="email">Your Email</label>
@@ -56,12 +70,13 @@ body, h1 {
     </p>
     <p>&nbsp;</p>
     <p>
-     <label for="submit">CONTACT ME</label>
-     <button type="submit" form="formContact" name="Submit" button class="button" value="Send" onclick="sendData()" method="POST"></button>
-    </a>	    
+     <button type="submit" form="formContact" name="Submit" id="myBtn" method="POST">CONTACT ME</button>
    </p>
   </form>
  </div>
+	
+</html>
+	
 <?php
 
 $dbServername = "localhost";
