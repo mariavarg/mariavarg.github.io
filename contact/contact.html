@@ -10,6 +10,10 @@
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
+
+	  <div class="invalid-feedback">
+                  Valid Full name is required.
+                </div>
     </p>
     <p>
       <label for="email">Your Email</label>
@@ -21,10 +25,9 @@
     </p>
     <p>&nbsp;</p>
     <p>
-     <label for="submit">CONTACT ME</label>
-     <button type="submit" form="formContact" name="Submit" button class="button" value="Send" onclick="sendData()" method="POST"></button>
-    </a>	    
+     <button type="submit" form="formContact" name="Submit" id="myBtn" method:"POST">CONTACT ME</button>
    </p>
   </form>
  </div>
+	
 </html>
