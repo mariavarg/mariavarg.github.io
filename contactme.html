@@ -61,20 +61,23 @@ body, h1 {
 <p><strong>Click on images to enlarge</strong></p>
 	
   <div class="content">
-  <!-- Page content -->
-	  
-<form name="formContact" class="needs-validation" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
+  <fieldset>
+  
+  <form name="frmContact" class="needs-validation " method="post" action="contact.php">
     <p>
       <label for="Name">Your Name </label>
-      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
-
+      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" required>
 	  <div class="invalid-feedback">
-                  Valid Full name is required.
+                  Valid first name is required.
                 </div>
     </p>
     <p>
       <label for="email">Your Email</label>
-      <input type="text" class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
+      <input type="text"  class="form-control"  name="txtEmail" id="txtEmail" placeholder="Email" value="" required>
+    </p>
+    <p>
+      <label for="phone">Your Phone</label>
+      <input type="text"  class="form-control" name="txtPhone" id="txtPhone" placeholder="Phone" value="" required>
     </p>
     <p>
       <label for="message">Message</label>
@@ -82,10 +85,11 @@ body, h1 {
     </p>
     <p>&nbsp;</p>
     <p>
-     <button type="submit" form="formContact" name="Submit" id="myBtn" method="POST">CONTACT ME</button>
-   </p>
+      <input type="submit" name="Submit" id="Submit" value="Click me to Contact"  class="btn btn-primary btn-lg btn-block">
+    </p>
   </form>
- </div>
+</fieldset>
+</div>
 	
 <h5><a href="contents.html">This is Table of Contents</a></h5>
 
