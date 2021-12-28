@@ -14,7 +14,7 @@ USE `mysql`;
 
 DROP TABLE IF EXISTS `contactform_entries`;
 CREATE TABLE `contactform_entries` (
-  `id` int(20) NOT NULL,
+  `id` int(11) NOT NULL,
   `fldName` varchar(50) NOT NULL,
   `fldEmail` varchar(50) NOT NULL,
   `fldMessage` text NOT NULL
@@ -38,4 +38,4 @@ ALTER TABLE `contactform_entries`
 -- AUTO_INCREMENT for table `contactform_entries`
 --
 ALTER TABLE `contactform_entries`
-MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
