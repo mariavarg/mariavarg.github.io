@@ -67,10 +67,6 @@ body, h1 {
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Full Name" style="max-width: 500px;" margin: "auto;" form align: "center;" value="" required>
-
-	  <div class="invalid-feedback">
-                  Valid Full Name is required.
-                </div>
     </p>
     <p>
       <label for="email">Your Email</label>
@@ -82,7 +78,9 @@ body, h1 {
     </p>
     <p>&nbsp;</p>
     <p>
-     <button type="submit" form="formContact" name="Submit" id="myBtn" method:"POST">CONTACT ME</button>
+     <label for="submit">CONTACT ME</label>
+     <button type="submit" form="formContact" name="Submit" button class="button" value="Send" onclick="sendData()" method="POST"></button>
+    </a>	    
    </p>
   </form>
  </div>
