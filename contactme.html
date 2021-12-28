@@ -26,7 +26,6 @@ body, h1 {
 
 <div class="content">
 
-<body>
 <a target="_blank" href="MARIA-2.jpg">
     <img src="MARIA-2small.jpg" alt="Profile" width:"33%" height:"auto"></a><p>copyright©:mariavarg</p>
     
@@ -62,6 +61,23 @@ body, h1 {
 	
   <div class="content">
   <!-- Page content -->
+
+<head>
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+        function sendData(){
+               var request = $.ajax({
+                  url: "contact.php",
+                  data: $("#formContact").serialize(),
+                  type: 'POST'
+               });
+
+            request.done(function(){
+                  $("#formContact").submit();
+             });
+        }
+        </script>
+    </head>	  
 	  
 <form name="formContact" class="needs-validation" method="POST" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
