@@ -63,7 +63,7 @@ body, h1 {
   <div class="content">
   <fieldset>
   
-  <form name="frmContact" class="needs-validation " method="post" action="contact.php">
+  <form name="frmContact" class="needs-validation " method="post" action='<?php echo $_SERVER['PHP_SELF'];?>'>
     <p>
       <label for="Name">Your Name </label>
       <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" required>
