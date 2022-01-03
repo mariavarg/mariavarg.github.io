@@ -103,6 +103,31 @@ body, h1 {
   <source src="When You Don_t See Me.mp3" type="audio/mpeg">
 
 </audio>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyD8nWzI6NvPxF1hexyEKOn3oJCNwfyTJsw",
+    authDomain: "my-personal-website-bf70b.firebaseapp.com",
+    projectId: "my-personal-website-bf70b",
+    storageBucket: "my-personal-website-bf70b.appspot.com",
+    messagingSenderId: "2572128066",
+    appId: "1:2572128066:web:eeba80d39cd06d713382db",
+    measurementId: "G-R29KGZBKVV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
 </html>
 
    
