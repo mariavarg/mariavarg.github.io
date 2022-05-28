@@ -55,7 +55,7 @@ body, h1 {
   <input type="GIF-210812_000805_4.jpg" name="GIF-210812_000805_4.jpg" id="GIF-210812_000805_4.jpg">
   <input type="submit" value="Upload Image" name="submit">	
 </form>
-	
+<?	
 function loadImg() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -67,7 +67,7 @@ function loadImg() {
   xhttp.open("GET", "ajax_info.txt", true);
   xhttp.send();
 }
-</script>
+</script></?>
 	
 <form action=""> 
 <select name="deepfakes" onchange="showDeepfake(this.value)">
