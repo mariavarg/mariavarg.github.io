@@ -53,18 +53,33 @@ function loadImg() {
 <form action=""> 
 <select name="deepfakes" onchange="showDeepfake(this.value)">
 <option value="">Select a deepfake:</option>
-<option value="272445983.jpg">272445983.jpg</option>
-<option value="GIF-210526_123840.jpg">GIF-210526_123840.jpg</option>
-<option value="GIF-210626_190949_4.jpg">GIF-210626_190949_4.jpg</option>
-<option value="GIF-210627_155744.jpg">GIF-210627_155744.jpg</option>
-<option value="GIF-210715_080704_4.jpg">GIF-210715_080704_4.jpg</option>	
-<option value="GIF-210726_231629_4.jpg">GIF-210726_231629_4.jpg</option>
-<option value="GIF-210730_152630_4.jpg">GIF-210730_152630_4.jpg</option>
-<option value="GIF-210812_000805_4.jpg">GIF-210812_000805_4.jpg</option>	
+<option value="272445983.jpg"><a target="_blank" href="272445983.jpg">
+  <img src="272445983.jpg" alt="LOTR" style="width:150px">
+</a></option>
+<option value="GIF-210526_123840.jpg"><a target="_blank" href="GIF-210526_123840.jpg">
+  <img src="GIF-210526_123840.jpg" alt="LOTR" style="width:150px">
+</a></option>
+<option value="GIF-210626_190949_4.jpg"><a target="_blank" href="GIF-210626_190949_4.jpg">
+  <img src="GIF-210626_190949_4.jpg" alt="LOTR" style="width:150px">
+</a></option>
+<option value="GIF-210627_155744.jpg"><a target="_blank" href="GIF-210627_155744.jpg">
+  <img src="GIF-210627_155744.jpg" alt="LOTR" style="width:150px">
+</a></option>
+<option value="GIF-210715_080704_4.jpg"><a target="_blank" href="GIF-210715_080704_4.jpg">
+  <img src="GIF-210715_080704_4.jpg" alt="LOTR" style="width:150px">
+</a></option>	
+<option value="GIF-210726_231629_4.jpg"><a target="_blank" href="GIF-210726_231629_4.jpg">
+  <img src="GIF-210726_231629_4.jpg" alt="LOTR" style="width:150px">
+</a></option>	
+<option value="GIF-210730_152630_4.jpg"><a target="_blank" href="GIF-210730_152630_4.jpg">
+  <img src="GIF-210730_152630_4.jpg" alt="LOTR" style="width:150px">
+</a></option>	
+<option value="GIF-210812_000805_4.jpg"><a target="_blank" href="GIF-210812_000805_4.jpg">
+  <img src="GIF-210812_000805_4.jpg" alt="LOTR" style="width:150px">
+</a></option>		
 </select>
 </form>
-<br>
-<div id="txtHint">Deepfake info will be listed here...</div>
+
 
 <script>
 function showDeepfake(str) {
