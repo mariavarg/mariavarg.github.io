@@ -31,6 +31,24 @@ body, h1 {
     <img src="MARIA-2small.jpg" alt="Profile" width:"33%" height:"auto"></a><p>copyright©:mariavarg</p>
     
 <head><h4>These are my Deepfakes:</h4></head>
+	
+<div id="deepfakes">
+<button type="button" onclick="loadImg()">Change Deepfakes</button>
+</div>
+
+<script>
+function loadImg() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("deepfakes").innerHTML =
+      this.responseImg;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+</script>	
 
 <br>
 <a target="_blank" href="Arwen-2.jpg">
