@@ -48,7 +48,40 @@ function loadImg() {
   xhttp.open("GET", "ajax_info.txt", true);
   xhttp.send();
 }
-</script>	
+</script>
+	
+<form action=""> 
+<select name="deepfakes" onchange="showDeepfake(this.value)">
+<option value="">Select a deepfake:</option>
+<option value="ALFKI">Alfreds Futterkiste</option>
+<option value="NORTS ">North/South</option>
+<option value="WOLZA">Wolski Zajazd</option>
+</select>
+</form>
+<br>
+<div id="txtHint">Deepfake info will be listed here...</div>
+
+<script>
+function showDeepfake(str) {
+  var xhttp;    
+  if (str == "") {
+    document.getElementById("imgHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseImg;
+    }
+  };
+  xhttp.open("GET", "getdeepfake.php?q="+str, true);
+  xhttp.send();
+}
+</script>
+	
+	
+	
+	
 
 <br>
 <a target="_blank" href="Arwen-2.jpg">
