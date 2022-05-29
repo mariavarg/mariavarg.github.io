@@ -61,7 +61,7 @@ function loadImg() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("deepfakes").innerHTML =
+      document.getElementById("image").innerHTML =
       this.responseImg;
     }
   };
@@ -71,8 +71,8 @@ function loadImg() {
 </script>
 	
 <form action="upload.php"> 
-<select name="deepfakes" onchange="showDeepfake(this.value)">
-<option value="">Select a deepfake:</option>
+<select name="images" onchange="showImage(this.value)">
+<option value="">Select an Image:</option>
 <option value="Arwen-2.jpg"><a target="_blank" href="Arwen-2.jpg">
   <img src="Arwen-2.jpg" alt="LOTR" style="width:150px">
   </a></option>
@@ -101,7 +101,7 @@ function loadImg() {
 
 
 <script>
-function showDeepfake(str) {
+function showImage(str) {
   var xhttp;    
   if (str == "") {
     document.getElementById("imgHint").innerHTML = "";
@@ -113,7 +113,7 @@ function showDeepfake(str) {
       document.getElementById("txtHint").innerHTML = this.responseImg;
     }
   };
-  xhttp.open("GET", "getdeepfake.php?q="+str, true);
+  xhttp.open("GET", "getimage.php?q="+str, true);
   xhttp.send();
 }
 </script>
