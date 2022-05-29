@@ -32,10 +32,6 @@ body, h1 {
     
 <head><h4>These are my Deepfakes:</h4></head>
 	
-<div id="images">
-<button type="button" onclick="loadImg()">Change Images</button>
-</div>
-	
 <form action="upload.php" method="post" enctype="multipart/form-data">
   Select image to upload:<br>
    <input type="submit" value="Upload Image" name="submit">
@@ -90,6 +86,10 @@ function loadImg() {
 </a></option>		
 </select>
 </form>
+	
+<div id="images">
+<button type="button" onclick="loadImg()">Change Images</button>
+</div>
 
 
 <script>
