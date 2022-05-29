@@ -107,13 +107,11 @@ function showImage(str) {
     document.getElementById("imgHint").innerHTML = "";
     return;
   }
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("txtHint").innerHTML = this.responseImg;
-    }
-  };
-  xhttp.open("GET", "upload.php?q="+str, true);
+ const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("txtHint").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "upload.php?q="+str);
   xhttp.send();
 }
 </script>
