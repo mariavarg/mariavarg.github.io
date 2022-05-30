@@ -28,7 +28,7 @@ function copy_files($from_dir, $to_dir){
 $host = "localhost";
 $user = "root";
 $pass = password;
-$database = "img_schema 1";
+$database = "words";
 
 $mysqli = new mysqli($host, $user, $pass, $database) or die(mysqli_error(mysqli));
 
