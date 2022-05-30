@@ -8,5 +8,9 @@
   E-mail: <input type="text" name="email" value="<?php echo $email;?>">
   <span class="error">* <?php echo $emailErr;?></span>
   <br><br>
+Comment: <textarea name="comment"><?php echo $comment;?></textarea>
+  <br><br>
+<input type="submit" name="submit" value="Contact me">  
+</form>
 
 ?>
