@@ -44,7 +44,7 @@ pre_r($files);
 for ($i=0;$i<count($files);$i++){
     $http_path = "local_http_dir/$files[$i]";
     $http_path = "preg_replace("! !","%20",$http_path);
-    $query = "INSERT IGNORE INTO words (word, image) VALUES ('words',$http_path)";
+    $query = "INSERT IGNORE INTO words (word, image) VALUES ('$words',$http_path)";
     $mysqli->query($query) or die($mysqli->error);
 }
 
