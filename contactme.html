@@ -32,11 +32,6 @@ body, h1 {
     
 <head><h4>These are my Deepfakes:</h4></head>
 	
-<form action="upload.php" method="post" enctype="multipart/form-data">
-  Select image to upload:<br>
-   <input type="submit" value="Upload Image" name="submit">
- </form>
-	
 <script>
 function loadImg() {
   var xhttp = new XMLHttpRequest();
@@ -51,88 +46,56 @@ function loadImg() {
 }
 </script>
 	
-<form action="upload.php"> 
-<select name="images" onchange="showImage(this.value)">
-<option value="">Select an Image to Replace:</option>
-<option value="Arwen-2.jpg">Arwen-2<a href="Arwen-2.jpg">
-  <img src="Arwen-2.jpg" alt="LOTR" style="width:150px">
-  </a></option>
-<option value="Arwen-3.jpg">Arwen-3<a href="Arwen-3.jpg">
-  <img src="Arwen-3.jpg" alt="LOTR" style="width:150px">
-  </a></option>
-<option value="Arwen-5.jpg">Arwen-5<a href="Arwen-5.jpg">
-  <img src="Arwen-5.jpg" alt="LOTR" style="width:150px">
-</a></option>
-<option value="Arwen-6.jpg">Arwen-6<a href="Arwen-6.jpg">
-  <img src="Arwen-6.jpg" alt="LOTR" style="width:150px">
-</a></option>
-<option value="Arwen-7.jpg">Arwen-7<a href="Arwen-7.jpg">
-  <img src="Arwen-7.jpg" alt="LOTR" style="width:150px">
-<option value="Arwen-8.jpg">Arwen-8<a href="Arwen-8.jpg">
-  <img src="Arwen-8.jpg" alt="LOTR" style="width:150px">
-</a></option>
-<option value="Elf Princess-1.jpg">Elf Princess-1<a href="Elf Princess-1.jpg">
-  <img src="Elf Princess-1.jpg" alt="LOTR" style="width:150px">
-</a></option>	
-<option value="Galadriel-2.jpg">Galadriel-2<a href="Galadriel-2.jpg">
-  <img src="Galadriel-2.jpg" alt="LOTR" style="width:150px">
-</a></option>		
-</select>
-</form>
-
-<img id="myImg" src = a>
-<script>
-function my Function() {
-document.getElementById("myImg").scr = b;
-}
-</script>
-
-<div id="myImg">
-<button type="button" onclick="loadImg(b)">Change Image</button>
-</div>
-
-<script>
-function showImage(str) {
-  var xhttp;    
-  if (str == "") {
-    document.getElementById("imgHint").innerHTML = "";
-    return;
-  }
- const xhttp = new XMLHttpRequest();
-  xhttp.onload = function() {
-    document.getElementById("txtHint").innerHTML = this.responseText;
-  }
-  xhttp.open("GET", "upload.php?q="+str);
-  xhttp.send();
-}
-</script>
-	
 <br>
-<a target="_blank" href="Arwen-2.jpg">
-  <img src="Arwen-2.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-3.jpg">
-  <img src="Arwen-3.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-5.jpg">
-  <img src="Arwen-5.jpg" alt="LOTR" style="width:150px">
-</a><br>
-<a target="_blank" href="Arwen-6.jpg">
-  <img src="Arwen-6.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-7.jpg">
-  <img src="Arwen-7.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Arwen-8.jpg">
-  <img src="Arwen-8.jpg" alt="LOTR" style="width:150px">
-</a><br>
-<a target="_blank" href="Elf Princess-1.jpg">
-  <img src="Elf Princess-1.jpg" alt="LOTR" style="width:150px">
-</a>
-<a target="_blank" href="Galadriel-2.jpg">
-  <img src="Galadriel-2.jpg" alt="LOTR" style="width:150px">
-</a>
+<?php
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  if($check !== false) {
+    echo "File is an image - " . $check["mime"] . ".";
+    $uploadOk = 1;
+  } else {
+    echo "File is not an image.";
+    $uploadOk = 0;
+  }
+}
+
+// Check if file already exists
+if (file_exists($target_file)) {
+  echo "Sorry, file already exists.";
+  $uploadOk = 0;
+}
+
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+  echo "Sorry, your file is too large.";
+  $uploadOk = 0;
+}
+
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+  echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+  $uploadOk = 0;
+}
+
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+  echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+  if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+  } else {
+    echo "Sorry, there was an error uploading your file.";
+  }
+}
+?>
 <p><strong>Click on images to enlarge</strong></p>
 	
 <div class="content">
