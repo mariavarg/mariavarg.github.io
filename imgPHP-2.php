@@ -18,6 +18,11 @@ function copy_files($from_dir, $to_dir){
             }
             else {
                 echo "Couldn't copy $files[$i]".BR;
+            }
+        }
+        else {
+            echo "$to_dir/$files[$i] exists!".BR;
+        }    
         
 
 $host = "localhost";
