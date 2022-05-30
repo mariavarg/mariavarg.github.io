@@ -27,9 +27,7 @@ body, h1 {
     
 <head><h4>These are my Deepfakes:</h4></head>
 	
-	<body>
-
-<br>
+ <br>
 <a target="_blank" href="Arwen-2.jpg">
   <img src="Arwen-2.jpg" alt="LOTR" style="width:150px">
 </a>
@@ -60,7 +58,7 @@ body, h1 {
 <?php
 <form action="upload.php" method="post" enctype="multipart/form-data">
   Select image to upload:
-  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="file" name="fileToUpload" id="fileToUpload"><br>
   <input type="submit" value="Upload Image" name="submit">
 </form>
 ?>
@@ -72,7 +70,7 @@ body, h1 {
 <form name="frmContact" class="needs-validation" method="post" action="contact.php" style="max-width: 500px;" margin: "auto"; form align: "center";>
     <p>
       <label for="Name">Your full Name </label>
-      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" required style="max-width: 500px;" margin: "auto;" form align: "center;">
+      <input type="text" class="form-control" name="txtName" id="txtName" placeholder="Name" value="" required, style="max-width: 500px;" margin: "auto;" form align: "center;">
 
 	  <div class="invalid-feedback">
                   Valid full Name is required.
@@ -80,7 +78,7 @@ body, h1 {
     </p>
     <p>
       <label for="email">Your Email</label>
-      <input type="text"  class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" value="" required style="max-width: 500px;" margin: "auto;" form align: "center;">
+      <input type="text"  class="form-control" name="txtEmail" id="txtEmail" placeholder="Email" value="" required, style="max-width: 500px;" margin: "auto;" form align: "center;">
     </p>
     <p>
       <label for="subject">Subject</label>
