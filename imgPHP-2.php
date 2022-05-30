@@ -1,6 +1,6 @@
 <?php
 
-require_once 'functions.php'
+require_once 'functions.php';
 
 function local_server_path_to_http($local_server_path){
     $http_path = preg_replace("!.*?\:\\\!","http://",$local_server_path);
@@ -8,6 +8,17 @@ function local_server_path_to_http($local_server_path){
     $http_path = preg_replace("!\\\!","/",$http_path);
     return $http_path;
 }
+
+function copy_files($from_dir, $to_dir){
+    $files = clean_scandir($from_dir);
+    for ($i=0;$i<count($files);$i++){
+        if (!file_exists("$to_dir/$files[$i]")){
+            if(copy("$from_dir/$files[$i]", "$to_dir/$files[$i]")){
+                echo "Copied $files[$i] to $to_dir/$files[$i]".BR;
+            }
+            else {
+                echo "Couldn't copy $files[$i]".BR;
+        
 
 $host = "localhost";
 $user = "root";
