@@ -33,7 +33,7 @@ $database = "words";
 $mysqli = new mysqli($host, $user, $pass, $database) or die(mysqli_error(mysqli));
 
 $local_dir = "D:\Maria Vargiakaki -5\Projects\DeepFake\Maria's -1\NEW\ΠΡΟΣ ΕΠΕΞΕΡΓΑΣΙΑ\FINAL\COLOUR\FINAL\BIG";
-$local_server_dir = "D:\Maria Vargiakaki -5\localhost\img";
+$local_server_dir = "D:\Program Files\Apache Directory Studio\localhost\img";
 $local_http_dir = local_server_path_to_http($local_server_dir);
 echo $local_http_dir;
 
