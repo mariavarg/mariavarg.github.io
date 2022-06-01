@@ -1,37 +1,12 @@
-const express = require("express");
+const express = require('express');
+const exphbs = require('express-handlebars');
 
 const app = express();
-const port =process.env.PORT || ;
+const post = process.enc.PORT || 5000;
 
 
+app.engine('hbs, exphbs({extname: *.hbs'}));
+app.set('view engine', 'hbs');
 
 
-
-
-
-
-
-
-
-
-
-
-{
-  "name": "express-file-uploads",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "start": "nodemode app.js"
-  "author": "",
-  "license": "ISC",
-  "dependencies"":{
-     ""mysql": "2.0.0";
-  }   
-    devDependencies": {
-    "nodemon": "^2.0.16"
-  }
-}
-
+app.listen(port, ()=> console.log(Listening on port ${port}));
