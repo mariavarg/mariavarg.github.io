@@ -1,4 +1,4 @@
-images/Background.jpg<!DOCTYPE html>
+images/Background.jpg
 <html lang="en">
 <head>
     <meta charset="UTF-8">
