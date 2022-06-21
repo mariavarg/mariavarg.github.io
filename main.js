@@ -6,8 +6,7 @@ images/Background.jpg
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Let 's get Creative</title>
     <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
-    <script src='https://d33wubrfki0l68.cloudfront.net/js/a7e91f5fed565d8f3b8a2b744ae81cd7a9b3d564/html2canvas.js'></script>
-        
+            
 </div>
 </head>
     
