@@ -1,4 +1,7 @@
-images/Background.jpg
+<!DOCTYPE html>
+<html>
+<body>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +9,7 @@ images/Background.jpg
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Let 's get Creative</title>
     <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+    <images/Background.jpg>     
             
 </div>
 </head>
