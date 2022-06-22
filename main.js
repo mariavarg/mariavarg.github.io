@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Let 's get Creative</title>
     <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
-           
+    <title>Javascript</title> 
+        
 </div>
 </head>
     
