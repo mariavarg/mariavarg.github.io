@@ -25,3 +25,11 @@ const analytics = getAnalytics(app);
 
 https://mariav-art.firebaseapp.com/__/auth/handler
 
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
