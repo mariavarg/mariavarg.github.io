@@ -19,6 +19,8 @@
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Brygada+1918:ital@1&family=Sofia&display=swap');
 </style>
+
+<script>
     
   canvas#poster-canvas(width='500px' height='700px')
     images/Background.jpg 
@@ -113,3 +115,4 @@ $.ajax({
     
   }        
  
+</script>
