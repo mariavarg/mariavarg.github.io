@@ -9,8 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Let 's get Creative</title>
     <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
-    <images/Background.jpg>     
-            
+           
 </div>
 </head>
     
@@ -21,6 +20,7 @@
 </style>
     
   canvas#poster-canvas(width='500px' height='700px')
+    images/Background.jpg 
     
     function initCanvas() {
   canvasCtx = document.getElementById("poster-canvas").getContext('2d');
