@@ -11,7 +11,6 @@
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <title>Javascript</title> 
         
-</div>
 </head>
     
 <body>
