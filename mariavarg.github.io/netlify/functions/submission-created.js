@@ -112,7 +112,12 @@ $.ajax({
   },
   error: function(err) {
     
-  }        
+  }  
+    
+    exports.handler = async function(trigger, poster-generator) {
+    run poster-generator}
+}
+
  
 </script>
 
