@@ -84,6 +84,19 @@ body, h1 {
     <p>&nbsp;</p>
     <p>
       <input type="submit" name="Submit" id="Submit" value="Contact Me">
+	    
+     <script>
+	    function runFunction(){
+	        document.getElementById("function").innerHTML = "Poster Generator";
+	    }   
+	    // get reference to button
+	    var btn = document.getElementById("Submit");
+	    // add event listener for the button, for action "click"
+	    btn.addEventListener("click", runFunction);
+    </script>
+	    
+	    
+</body>
     </p>
   </form>
 </fieldset>
