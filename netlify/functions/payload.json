@@ -1,0 +1,8 @@
+{
+  "payload": {
+    # information about the object that triggered the event
+  },
+  "site": {
+    # information about the associated site
+  }
+}
