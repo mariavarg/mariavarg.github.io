@@ -1,8 +1,7 @@
 {
   "payload": {
-    # information about the object that triggered the event
-  },
+    submission-created  },
   "site": {
-    # information about the associated site
+    mariav.art
   }
 }
