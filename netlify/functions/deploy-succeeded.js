@@ -105,8 +105,8 @@ $.ajax({
   type: 'POST',
   url: '/upload_poster_url',
   data: formdata,
-  contentType: true,
-  processData: true,
+  contentType: false,
+  processData: false,
   success: function(result) {
     
   },
