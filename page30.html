@@ -28,9 +28,9 @@ function initCanvas() {
     
     img.poster-background(src='images/Background.jpg')
     
-    $('img.poster-background').on('load', function () {
+   $('img.poster-background').on('load', function () {
   var backgroundImg = $('img.poster-background')[0];
-  canvasCtx.drawImage(backgroundImg, width='500px' 'height=700px;');
+  canvasCtx.drawImage(backgroundImg, 0, 0, 960, 1280);
   renderName();
 });
     
@@ -46,10 +46,10 @@ function initCanvas() {
   canvasCtx.fillStyle = "#de071b";
   canvasCtx.fillText(text);
         
-        a.upload-btn 
-  input#photo(type='file' name='photo' accept='image/jpeg, image/png, image/jpg, image/gif, image/psd')
-        
-        .upload-btn input {
+       a.upload-btn 
+  input#photo(type='file' name='photo' accept='image/jpeg, image/png')
+  | Upload your own photos to generate exclusive posters
+.upload-btn input {
   position: absolute;
   left: 0;
   top: 0;
@@ -59,11 +59,11 @@ function initCanvas() {
   cursor: pointer;
 }
         
-        $('#photo').on('change', function (e) {
+ $('#photo').on('change', function (e) {
   var file = e.target.files[0];
   var type = file.type;
-  if (type !== 'image/jpg' && type !== 'image/gif') {
-    window.toastr.error ('Please upload JPG or GIF format picture ');
+  if (type !== 'image/jpeg' && type !== 'image/png') {
+    window.toastr.error('Please upload jpg or png Pictures in format');
   } else {
     var formData = new FormData();
     formData.append('avatar', file);
@@ -77,46 +77,44 @@ function initCanvas() {
         var avatarUrl = result.data.url;
         $('img.avatar').attr('src', avatarUrl);
       },
+      error: function(err) {
         
-        document.getElementById("poster-canvas").toBlob(function (blob) {});
-        
-        var blob = dataURLtoBlob(document.getElementById("poster-canvas").toDataURL());
-
-function dataURLtoBlob(dataurl) {
-  if (dataurl.indexOf('base64') < 0) {
-    dataurl = 'data:image/jpeg;base64,' + dataurl;
+      }
+    });
   }
-  var arr = dataurl.split(',');
-  var mime = arr[0].match(/:(.*?);/)[1];
-  var bstr = atob(arr[1]);
-  var n = bstr.length;
-  var u8arr = new Uint8Array(n);
-  while (n --) {
-    u8arr[n] = bstr.charCodeAt(n);
+});
+        $('img.avatar').on('load', function () {
+  var avatarImg = $('img.avatar')[0];
+  var originWidth = avatarImg.width;
+  var originHeight = avatarImg.height;
+  var newWidth, cutStartX, cutStartY;
+
+  if (originWidth < originHeight) {
+    newWidth = originWidth;
+    cutStartX = 0;
+    cutStartY = (originHeight - originWidth) / 2;
+  } else if (originWidth > originHeight) {
+    newWidth = originHeight;
+    cutStartX = (originWidth - originHeight) / 2;
+    cutStartY = 0;
+  } else {
+    newWidth = originWidth;
+    cutStartX = 0;
+    cutStartY = 0;
   }
-  return new Blob([u8arr], {type: mime});
-}
+  
+  canvasCtx.drawImage(avatarImg, cutStartX, cutStartY, newWidth, newWidth, 0, 0, 960, 960);
+
+  uploadPoster();
+      
+});
+        canvasCtx.drawImage(backgroundImg, 0, 0, 960, 1280);
+
+canvasCtx.drawImage(avatarImg, cutStartX, cutStartY, newWidth, newWidth, 0, 0, 960, 960);
         
-        var formData = new FormData();
-formData.append('poster', blob);
-$.ajax({
-  type: 'POST',
-  url: '/upload_poster_url',
-  data: formdata,
-  contentType: false,
-  processData: false,
-  success: function(result) {
-    
-  },
-  error: function(err) {
-    
-  }  
-    
-}
-
- 
-</script>
-
+       document.getElementById("poster-canvas").toBlob(function (blob) {});
+        
+        
 </body>
 </html>
 
