@@ -114,9 +114,40 @@ canvasCtx.drawImage(avatarImg, cutStartX, cutStartY, newWidth, newWidth, 0, 0, 9
         
        document.getElementById("poster-canvas").toBlob(function (blob) {});
         
-    </script>
+        var blob = dataURLtoBlob(document.getElementById("poster-canvas").toDataURL());
+
+function dataURLtoBlob(dataurl) {
+  if (dataurl.indexOf('base64') < 0) {
+    dataurl = 'data:image/jpeg;base64,' + dataurl;
+  }
+  var arr = dataurl.split(',');
+  var mime = arr[0].match(/:(.*?);/)[1];
+  var bstr = atob(arr[1]);
+  var n = bstr.length;
+  var u8arr = new Uint8Array(n);
+  while (n --) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new Blob([u8arr], {type: mime});
+}
         
-        
+        var formData = new FormData();
+formData.append('poster', blob);
+$.ajax({
+  type: 'POST',
+  url: '/upload_poster_url',
+  data: formdata,
+  contentType: false,
+  processData: false,
+  success: function(result) {
+    
+  },
+  error: function(err) {
+    
+  }
+});
+        </script>
+      
 </body>
 </html>
 
