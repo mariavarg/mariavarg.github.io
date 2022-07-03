@@ -32,7 +32,7 @@ document.querySelector("textarea").addEventListener('keyup', function(){
         renderCanvas();
     }
     else {
-        quoteText.innerHTML = "Start typing </br>:)"
+        quoteText.innerHTML = "Start typing </br>"
     }
     
 });
