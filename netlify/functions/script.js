@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Let 's get Creative</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+        </style>
+    </head>
+
+<body>
+          <script>
+
 const image_input = document.querySelector("#image-input");
 
 image_input.addEventListener("change", function() {
@@ -35,3 +51,9 @@ document.querySelector("textarea").addEventListener('keyup', function(){
     }
     
 });
+
+</body>
+
+</script>
+
+</html>
