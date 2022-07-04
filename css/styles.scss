@@ -1,6 +1,5 @@
 body {
   margin:0;
-  font-family: 'Amatic SC', cursive;
   color: red;
   background-color: black;
 }
@@ -15,13 +14,13 @@ section {
   }
 
   img {
-    width: 100%;
     object-fit: cover;
     height: 700px;
+    width: 500px;  
   }
 
   #capture {
-    background-color: burlywood;
+    background-color: none;
     position: relative;
     font-size: 3em;
     overflow: hidden;
