@@ -12,7 +12,8 @@
     </head>
 
 <body>
-          <script>
+         
+            <script>
 
 const image_input = document.querySelector("#image-input");
 
