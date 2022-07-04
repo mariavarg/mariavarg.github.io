@@ -14,15 +14,16 @@
     
     <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg, image/gif">
             <div id="display-image"></div>
-    
-    <section>    
-                  <div id="capture">
+   
+    <section>
+        <div id="capture">
             <h1 id="quote__text">
-                Start typing </br>
-         </div>
-        <textarea>Start Typing</textarea>
-    
-          <button type="button" onClick="generate()">Generate</button>
+                Start typing <br>
+            </h1>
+            <img src="images/jean-carlo-emer-1640677-unsplash.jpg">
+        </div>
+        <textarea></textarea>
+        <button type="button" onClick="generate()">Generate</button>
   
         <a id="download" download="poster.png">
             <button type="button" onClick="download()">Download</button>
@@ -33,9 +34,8 @@
         </div>
     </section>
 
-
-    <script src="netlify/functions/script.js"></script>
-    <script src="netlify/functions/html2canvas.js"></script>
-
+    <script src="script.js"></script>
+    <script src="html2canvas.js"></script>
+    
 </body>
 </html>
