@@ -1,5 +1,3 @@
-<input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
-<div id="display-image"></div>
 
 const image_input = document.querySelector("#image-input");
 image_input.addEventListener("change", function() {
