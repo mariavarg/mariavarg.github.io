@@ -2,7 +2,7 @@
 
 body{margin: 0;
   color: red;
-  background-color: #272727;}
+  background-color: white;}
   
 
 #display-image{
@@ -27,7 +27,7 @@ section img {
 }
 
 section #capture {
-  background-color: red;
+  background-color: none;
   position: relative;
   font-size: 3em;
   overflow: visible;
