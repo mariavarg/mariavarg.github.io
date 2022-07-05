@@ -44,6 +44,5 @@ document.querySelector("textarea").addEventListener('keyup', function(){
     }
     
 });
-
 </body>
 </html>
