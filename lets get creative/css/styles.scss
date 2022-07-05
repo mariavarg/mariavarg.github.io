@@ -31,7 +31,15 @@ section {
     overflow: hidden;
     height: 700px;
     width: 500px;
-
+    
+    h1 {
+      margin: 0px;
+      position: absolute;
+      top: 0.5px;
+      left: 0.5px;
+      right: 0.5px;
+      bottom: 0.5px;
+    }
 
     #quote__text {
       position: absolute;
