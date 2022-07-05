@@ -2,7 +2,7 @@
 
 body{margin: 0;
   color: red;
-  background-color: none;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,7 +34,7 @@ section img {
 }
 
 section #capture {
-  background-color: none;
+  background-color: gray;
   position: relative;
   font-size: 3em;
   overflow: visible;
