@@ -27,10 +27,6 @@ image-input.addEventListener("change", function() {
   reader.readAsDataURL(this.files[0]);
 });
 
-const quoteText = document.getElementById("quote__text");
-const image-input = document.querySelector("#image-input");
-var uploaded-image = "";
-
 function generate() {
     document.getElementById("render").innerHTML = "";
     html2canvas(document.querySelector("#capture")).then(canvas => {
