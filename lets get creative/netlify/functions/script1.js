@@ -18,8 +18,6 @@ const quoteText = document.getElementById("quote__text");
 const image_input = document.querySelector("#image_input");
 var uploaded_image = "";
 
-const image_input = document.querySelector("#image-input");
-
 image_input.addEventListener("change", function() {
   const reader = new FileReader();
   reader.addEventListener("load", () => {
