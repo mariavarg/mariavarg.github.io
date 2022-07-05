@@ -15,14 +15,14 @@
          
             <script>
 const quoteText = document.getElementById("quote__text");
-const image_input = document.querySelector("#image_input");
-var uploaded_image = "";
+const image_input = document.querySelector("#image-input");
+var uploaded-image = "";
 
-image_input.addEventListener("change", function() {
+image-input.addEventListener("change", function() {
   const reader = new FileReader();
   reader.addEventListener("load", () => {
-    const uploaded_image = reader.result;
-    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+    const uploaded-image = reader.result;
+    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded-image})`;
   });
   reader.readAsDataURL(this.files[0]);
 });
