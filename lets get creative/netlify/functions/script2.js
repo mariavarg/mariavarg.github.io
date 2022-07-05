@@ -15,8 +15,8 @@
          
             <script>
 const quoteText = document.getElementById("quote__text");
-const image_input = document.querySelector("#image_input");
-var uploaded_image = "";
+const image-input = document.querySelector("#image-input");
+var uploaded-image = "";
 
 function generate() {
     document.getElementById("render").innerHTML = "";
