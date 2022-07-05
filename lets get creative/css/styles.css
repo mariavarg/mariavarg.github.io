@@ -37,7 +37,7 @@ section #capture {
   background-color: gray;
   position: relative;
   font-size: 3em;
-  overflow: visible;
+  overflow: hidden;
   height: 700px;
   width: 500px;
 }
