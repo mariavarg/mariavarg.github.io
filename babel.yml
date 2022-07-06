@@ -1,2 +1,0 @@
-- name: Transpiler-JS Action
-  uses: JossyDevers/transpiler-js@v1.0.1
