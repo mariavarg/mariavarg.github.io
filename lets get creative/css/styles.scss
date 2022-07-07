@@ -5,7 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 5px;
+  gap: 15px;
   height: 700px;
   width: 500px;
 }
@@ -27,6 +27,7 @@ section {
 
   #capture {
     background-color: initial;
+    position: relative;
     font-size: 3em;
     overflow: hidden;
     height: 700px;
