@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 
+body{margin: 0;
+  color: red;
+  background-color: initial;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 700px;
+  width: 500px;
+}
+
 section {
   display: -ms-grid;
   display: grid;
