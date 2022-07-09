@@ -49,14 +49,29 @@ body{margin: 0;
         
     </style>
 
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Poster Art Generator</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+    <script src="html2canvas.js"></script>
+</head>
+<body>
+
     <section>
+
         <div id="capture">
             <h1 id="quote__text">
-                Start typing <br>
+                Start typing </br>
             </h1>
-            <img src="lets get creative/images/default-small.jpg">
+            <img src="images/default-small.jpg">
         </div>
-        <textarea></textarea>
+        <textarea>Start Typing</textarea>
+
+  
         <button type="button" onClick="generate()">Generate</button>
   
         <a id="download" download="poster.png">
@@ -66,10 +81,11 @@ body{margin: 0;
         <div id="render">
             <h1>Render</h1>
         </div>
-    
-    <script src="lets get creative/netlify/functions/script.js"></script>
-    <script src="lets get creative/netlify/functions/html2canvas.js"></script>
-        
+    </section>
+
+
+    <script src="script.js"></script>
+
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item">
