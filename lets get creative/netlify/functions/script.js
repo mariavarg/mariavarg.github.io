@@ -14,9 +14,9 @@
 <body>
          
             <script>
-const image_input = document.querySelector("#image-input");
 var uploaded-image = "";
 const quoteText = document.getElementById("quote__text");
+const image_input = document.querySelector("#image-input");
 
 image_input.addEventListener("change", function() {
   const reader = new FileReader();
@@ -26,6 +26,7 @@ image_input.addEventListener("change", function() {
   });
   reader.readAsDataURL(this.files[0]);
 });
+
 
 function generate() {
     document.getElementById("render").innerHTML = "";
