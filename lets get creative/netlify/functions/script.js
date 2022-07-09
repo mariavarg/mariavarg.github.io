@@ -14,7 +14,6 @@
 <body>
          
             <script>
-var uploaded-image = "";
 const quoteText = document.getElementById("quote__text");
 
 function generate() {
@@ -43,3 +42,7 @@ document.querySelector("textarea").addEventListener('keyup', function(){
     }
     
 });
+</script>
+
+</body>
+</html>
