@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
-
 body {
   margin:0;
   color: red;
@@ -12,10 +10,6 @@ section {
   display: grid;
   // grid-template-columns: 1fr;
   justify-items: center;
-
-  textarea {
-
-  }
 
   img {
     width: 100%;
@@ -29,7 +23,7 @@ section {
     font-size: 3em;
     overflow: hidden;
     height: 700px;
-    width: 500px;
+    width: 600px;
 
 
     #quote__text {
@@ -42,7 +36,4 @@ section {
     }
   }
 
-  canvas {
-
-  }
 } 
