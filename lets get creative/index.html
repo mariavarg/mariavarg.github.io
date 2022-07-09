@@ -12,30 +12,27 @@
     </head>
 <body>
 
-    <style>
-   
-body{margin: 0;
-  color: red;
-  background-color: initial;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  height: 700px;
-  width: 500px;
-}               
-    </style>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Poster Art Generator</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/styles.css'>
+    <script src="html2canvas.js"></script>
+</head>
+<body>
 
-   <section>
+    <section>
 
         <div id="capture">
             <h1 id="quote__text">
                 Start typing </br>
             </h1>
-            <img src="lets get creative/images/PSX_20220709_194333.jpg">
+            <img src="images/default-small.jpg">
         </div>
-        <textarea>Start Typing</textarea>
+        <textarea></textarea>
 
   
         <button type="button" onClick="generate()">Generate</button>
@@ -51,8 +48,7 @@ body{margin: 0;
 
 
     <script src="script.js"></script>
-    <script src="html2canvas.js"></script>
-
+    
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item">
