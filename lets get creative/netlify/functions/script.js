@@ -53,8 +53,3 @@ document.querySelector("textarea").addEventListener('keyup', function(){
     }
     
 });
-
-</script>
-
-</body>
-</html>
