@@ -2,7 +2,7 @@
 
 body {
   margin:0;
-  color: red;
+  color: #fff;
   background-color: rgb(39, 39, 39);
 }
 
@@ -12,7 +12,7 @@ section {
   justify-items: center;
 
   img {
-    width: 500px;
+    width: 100%;
     object-fit: cover;
     height: 700px;
   }
@@ -27,7 +27,7 @@ section {
 
 
     #quote__text {
-      position: relative;
+      position: absolute;
       top: 10px;
       left: 40px;
       right: 40px;
