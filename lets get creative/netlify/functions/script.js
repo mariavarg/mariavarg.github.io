@@ -38,7 +38,7 @@ document.querySelector("textarea").addEventListener('keyup', function(){
         renderCanvas();
     }
     else {
-        quoteText.innerHTML = "Start typing </br>"
+        quoteText.innerHTML = "Start typing </br>:)"
     }
     
 });
@@ -46,5 +46,3 @@ document.querySelector("textarea").addEventListener('keyup', function(){
 
 </body>
 </html>
-
-
