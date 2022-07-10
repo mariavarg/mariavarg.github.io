@@ -73,3 +73,10 @@ function init () {
 }
 
 init();
+
+function download() {
+    const download = document.getElementById("download");
+    let image = document.querySelector("canvas").toDataURL("image/png")
+                        .replace("image/png", "image/octet-stream");
+    download.setAttribute("href", image);
+}
