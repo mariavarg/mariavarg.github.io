@@ -90,7 +90,7 @@ init();
 
 function download() {
     const download = document.getElementById("download");
-    let image = document.querySelector("canvas").toDataURL("image/png")
+    let image = document.querySelector("meme-canvas").toDataURL("image/png")
                         .replace("image/png", "image/octet-stream");
     download.setAttribute("href", image);
 }
