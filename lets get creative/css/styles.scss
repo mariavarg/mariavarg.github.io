@@ -11,6 +11,10 @@ section {
   // grid-template-columns: 1fr;
   justify-items: center;
 
+  textarea {
+
+  }
+
   img {
     width: 100%;
     object-fit: cover;
@@ -36,4 +40,7 @@ section {
     }
   }
 
+  canvas {
+
+  }
 } 
