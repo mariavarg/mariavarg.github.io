@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Meme Generator</title>
-        <link rel="stylesheet" href="meme-generator.css">
-        <style>
-@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
-</style>
-    </head>
-
-<body>
-
-<script>
 let topTextInput, bottomTextInput, topTextSizeInput, bottomTextSizeInput, imageInput, generateBtn, canvas, ctx;
 
 function generateMeme (img, topText, bottomText, topTextSize, bottomTextSize) {
@@ -87,10 +73,3 @@ function init () {
 }
 
 init();
-
-</script>
-
-</body>
-</html>
-
-
