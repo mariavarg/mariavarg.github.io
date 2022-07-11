@@ -7,6 +7,12 @@
     font-family: 'Sofia', cursive;
 }
 
+.content {
+  max-width: 500px;
+  margin: auto;
+  padding: 10px;
+}
+
 #meme-canvas {
     width: 500px;
     height: auto;
