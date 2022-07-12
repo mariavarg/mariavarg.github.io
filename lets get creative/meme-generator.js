@@ -1,6 +1,3 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
-</style>
 
 let topTextInput, bottomTextInput, topTextSizeInput, bottomTextSizeInput, imageInput, generateBtn, canvas, ctx;
 
