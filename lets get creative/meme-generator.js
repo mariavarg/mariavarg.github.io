@@ -16,7 +16,7 @@ function generateMeme (img, topText, bottomText, topTextSize, bottomTextSize) {
     ctx.fillStyle = 'white';
     ctx.strokeStyle = 'black';
     ctx.textAlign = 'center';
-    ctx.font: 'Sofia', cursive;
+    ctx.font = 'Sofia', cursive;
 
     // Top text font size
     fontSize = canvas.width * topTextSize;
