@@ -128,8 +128,8 @@ function talk(){
     <li class="nav-item">
       <a class="nav-link" href="intro.html">NEXT</a>
     </li>
-   </ul>
-</nav
+    </ul>
+    </nav>
     
 </body>
 </html>
