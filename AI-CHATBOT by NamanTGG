@@ -102,10 +102,10 @@ body{
     <script>
 function talk(){
     var know ={
-        "Hi":"Hello",
-        "How Are You?":"Great !",
-        "Bye":"Have A Nice Day !",
-        "Hello":"Hi , Whats Up"
+        "Hi":"Hello, how can I help you?",
+        " ":"First time here? !",
+        " ":"Would you like some assistance navigating?",
+        " ":"Please choose an option: 'eat me' or 'drink me' "
     };
     var user = document.getElementById('userBox').value;
     document.getElementById('chatLog').innerHTML = user + "<br>";
