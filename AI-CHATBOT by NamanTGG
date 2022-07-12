@@ -36,7 +36,7 @@ body{
     color: crimson;
     text-align: center;
     padding-top: 10px;
-    font-family: sans-serif;
+    font-family: 'Sofia', cursive;
 }
 .mid{
     width: 100%;
