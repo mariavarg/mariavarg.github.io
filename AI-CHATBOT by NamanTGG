@@ -126,7 +126,7 @@ function talk(){
       <a class="nav-link" href="index.html">HOME!</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="AI-CHATBOT by NamanTGG">NEXT</a>
+      <a class="nav-link" href="intro.html">NEXT</a>
     </li>
     
 </body>
