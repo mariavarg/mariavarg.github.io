@@ -12,8 +12,7 @@ body{
     height:100vh;
     overflow: hidden;
     position: relative;
-    background-color: paleturquoise;
-}
+    background-color: gray;
 .box{
     width: 490px;
     height: 350px;
@@ -42,7 +41,7 @@ body{
 .mid{
     width: 100%;
     height: 150px;
-    background: yellow;
+    background: white;
 }
 .mid .chat{
     width: 100%;
@@ -58,9 +57,9 @@ body{
     margin: 0;
     height: 30px;
     font-size: 28px;
-    color: blue;
+    color: skyblue;
     text-align: center;
-    background-color: yellow;
+    background-color: white;
     font-weight: 600;
     letter-spacing: 0.04em;
 }
