@@ -1,4 +1,3 @@
-
 let topTextInput, bottomTextInput, topTextSizeInput, bottomTextSizeInput, imageInput, generateBtn, canvas, ctx;
 
 function generateMeme (img, topText, bottomText, topTextSize, bottomTextSize) {
