@@ -188,13 +188,4 @@ body, h1 {
 <script src="mscbot/static/scripts/responses.js"></script>
 <script src="mscbot/static/scripts/chat.js"></script>
         
-        // Load the model.
-  qna.load().then(model => {
-    // Find the answers
-    model.findAnswers(question, passage).then(answers => {
-      console.log('Answers: ', answers);
-    });
-  });
-</script>  
-    
    </html>
