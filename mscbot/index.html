@@ -10,6 +10,16 @@
     <link rel="stylesheet" href="static/css/chat.css">
     <link rel="stylesheet" href="static/css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Make sure your page supports utf-8 characterset. -->
+    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Load TensorFlow.js. This is required to use the qna model. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+<!-- Load the qna model. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
+
+<!-- Place your code in the script tag below. You can also use an external .js file -->
+<script>
     
 </head>
 
@@ -65,4 +75,13 @@
 <script src="static/scripts/responses.js"></script>
 <script src="static/scripts/chat.js"></script>
     
-   </html>
+       // Load the model.
+  qna.load().then(model => {
+    // Find the answers
+    model.findAnswers(question, passage).then(answers => {
+      console.log('Answers: ', answers);
+    });
+  });
+</script>
+    
+      </html>
