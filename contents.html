@@ -187,5 +187,16 @@ body, h1 {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="mscbot/static/scripts/responses.js"></script>
 <script src="mscbot/static/scripts/chat.js"></script>
-        
-   </html>
+    
+</head>
+         
+       // Load the model.
+  qna.load().then(model => {
+    // Find the answers
+    model.findAnswers(question, passage).then(answers => {
+      console.log('Answers: ', answers);
+    });
+  });
+</script>
+    
+      </html>
