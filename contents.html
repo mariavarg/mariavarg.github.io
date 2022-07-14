@@ -115,16 +115,19 @@ body, h1 {
     
 <!DOCTYPE html>
 <html lang="en">
-    
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Bot</title>
+
     <link rel="stylesheet" href="static/css/chat.css">
     <link rel="stylesheet" href="static/css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Make sure your page supports utf-8 characterset. -->
+    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Load TensorFlow.js. This is required to use the qna model. -->
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
 <!-- Load the qna model. -->
@@ -132,10 +135,9 @@ body, h1 {
 
 <!-- Place your code in the script tag below. You can also use an external .js file -->
 <script>
- 
-
+    
 </head>
-
+      
 <body>
     <!-- CHAT BAR BLOCK -->
     <div class="chat-bar-collapsible">
@@ -183,11 +185,21 @@ body, h1 {
     </div>
 
 </body>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="mscbot/static/scripts/responses.js"></script>
-<script src="mscbot/static/scripts/chat.js"></script>
+<script src="static/scripts/responses.js"></script>
+<script src="static/scripts/chat.js"></script>
     
-</head>
-         
-        </html>
+    <script>   
+    // Load the model.
+  qna.load().then(model => {
+    // Find the answers
+    model.findAnswers(question, passage).then(answers => {
+      console.log('Answers: ', answers);
+    });
+  });
+</script>
+    
+    </script>
+    
+      </html>
