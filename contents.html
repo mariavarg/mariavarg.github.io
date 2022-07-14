@@ -8,8 +8,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         <link href="styles1.css" rel="stylesheet">
         <meta name="google-site-verification" content="lx9Buu8regrl5IfmZntGJ-oDlfmAMPucGl-y4_8W9RE" />
-        <meta name="mscbot" content="mscbot/index.html" />
-        <title>My Website</title>
+        <!-- Make sure your page supports utf-8 characterset. -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Load TensorFlow.js. This is required to use the qna model. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+<!-- Load the qna model. -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/qna"> </script>
+
+<!-- Place your code in the script tag below. You can also use an external .js file -->
+<script>
+ 
+      <title>My Website</title>
     </head>
 
   <head>
@@ -177,5 +186,14 @@ body, h1 {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="mscbot/static/scripts/responses.js"></script>
 <script src="mscbot/static/scripts/chat.js"></script>
+        
+        // Load the model.
+  qna.load().then(model => {
+    // Find the answers
+    model.findAnswers(question, passage).then(answers => {
+      console.log('Answers: ', answers);
+    });
+  });
+</script>  
     
    </html>
