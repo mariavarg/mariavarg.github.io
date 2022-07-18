@@ -51,6 +51,17 @@ div {
   margin: auto;
 }
 
+#Responsive-logo{
+  display: hidden;
+  width: 48px;
+  height: 48px;
+  background-size: 37px;
+}
+
+
+
+
+
 
 
 
