@@ -58,6 +58,23 @@ div {
   background-size: 37px;
 }
 
+media screen and (max-width: 500px){
+  *{
+    margin: 0;
+  }
+  {
+    #Responsive-logo{
+      display: inline-block;
+      background: gray;
+      border: 1px solid black;
+      border-radius: 1px;
+    }
+    
+  }  
+    
+    
+    
+
 
 
 
