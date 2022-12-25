@@ -154,7 +154,10 @@ if __name__ == '__main__':
             if query[0] == 'exit':
                 speak('Goodbye')
                 break
-
+                
+                <html>
+                <body>
+                
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <ul class="navbar-nav">
 <li class="nav-item">
