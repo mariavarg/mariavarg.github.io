@@ -154,3 +154,21 @@ if __name__ == '__main__':
             if query[0] == 'exit':
                 speak('Goodbye')
                 break
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<ul class="navbar-nav">
+<li class="nav-item">
+      <a class="nav-link" href="intro.html">PREVIOUS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="page1.html">NEXT</a>
+    </li>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="javascript:history.go(-1)">BACK</a>
+    </li>
+   </ul>
+  </nav>
+
+    </body>
+    </html>                    
