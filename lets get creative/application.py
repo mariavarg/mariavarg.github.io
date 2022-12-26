@@ -15,8 +15,8 @@ text = 'My Poster'
 text_width, text_height = draw.textsize(text, font)
 
 # Calculate the x and y coordinates for the text
-x = (image.width - text_width) / 2
-y = (image.height - text_height) / 2
+x = (image.width - text_width) / 500px
+y = (image.height - text_height) / 8000px
 
 # Set the text color
 color = (0, 0, 0)
@@ -30,7 +30,6 @@ This code opens an image, creates an ImageDraw object, selects a font and font s
 
 #create an HTML file with a form that allows the user to upload an image and enter some text. Here's an example of how you could do this:
 
-Copy code
 <form id="form">
   <label for="image">Choose an image:</label>
   <input type="file" id="image" accept="image/*">
@@ -44,9 +43,8 @@ Copy code
 <div id="preview"></div>
 This form includes an input for selecting an image file, an input for entering text, and a button to generate the poster. It also includes a div element with the ID "preview" where the generated poster will be displayed.
 
-Next, you'll need to create a JavaScript function to handle the form submission and generate the poster using the Python code from the previous example. Here's an example of how you could do this:
+create a JavaScript function to handle the form submission and generate the poster using the Python code from the previous example. Here's an example of how you could do this:
 
-Copy code
 function generatePoster() {
   // Get the image file and text from the form
   var imageFile = document.getElementById('image').files[0];
@@ -75,7 +73,6 @@ This function gets the image file and text from the form, creates a FormData obj
 
 Finally, you'll need to create a server-side script to handle the POST request and generate the poster using the Python code from the previous example. Here's an example of how you could do this using Python and the Flask web framework:
 
-Copy code
 from flask import Flask, request, send_file
 from PIL import Image, ImageDraw, ImageFont
 
@@ -95,11 +92,6 @@ def generate_poster():
 
 keep in mind that you may need to adjust the layout of the form to fit the smaller screen size of some mobile devices. You can use responsive design techniques such as media queries in your CSS to adjust the layout based on the width of the screen.
 
-I hope this helps! Let me know if you have any further questions.
-
-Certainly! Here's an example of how you could add an option for searching Google for an image to your poster generator form:
-
-Copy code
 <form id="form">
   <label for="image">Choose an image:</label>
   <input type="file" id="image" accept="image/*">
@@ -198,7 +190,3 @@ Copy code
     <li><a href="#" onclick="goNext()">Next</a></li>
   </ul>
 </div>
-This code creates a div element with the ID "nav" and an unordered list with three list items, each containing a link for navigating to the previous, next, and back pages.
-
-I hope this helps! Let me know if you have any further questions or if you'd like further assistance.
-
