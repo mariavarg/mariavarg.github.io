@@ -17,4 +17,18 @@
             --df-messenger-send-icon: black;
             --df-messenger-user-message: gray;
         }
-    </style>     
+    </style>
+        
+        <form id="form">
+  <label for="image">Choose an image:</label>
+  <input type="file" id="image" accept="image/*">
+  <br>
+  <label for="text">Enter some text:</label>
+  <input type="text" id="text">
+  <br>
+  <input type="button" value="Generate Poster" onclick="generatePoster()">
+</form>
+<br>
+<div id="preview"></div>
+This form includes an input for selecting an image file, an input for entering text, and a button to generate the poster. It also includes a div element with the ID "preview" where the generated poster will be displayed.
+
