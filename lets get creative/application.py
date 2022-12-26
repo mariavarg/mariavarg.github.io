@@ -203,13 +203,3 @@ This code creates a div element with the ID "nav" and an unordered list with thr
 
 I hope this helps! Let me know if you have any further questions or if you'd like further assistance.
 
-
-
-
-druna0156@gmail.com
-yes, that is exactly the code i have written for the navigation..... thanks again!!! i am copying this page for reffrence......!!!!
-You're welcome! I'm glad I could help. I'm always here to assist you if you have any further questions or need further assistance with your app.
-
-I hope you have a great time creating your app and that it turns out exactly as you envision it. If you have any questions or run into any issues along the way, don't hesitate to ask for help.
-
-Best of luck with your project!
