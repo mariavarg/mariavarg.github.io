@@ -8,8 +8,7 @@ image = Image.open('image.jpg')
 # Create an ImageDraw object
 draw = ImageDraw.Draw(image)
 
-# Choose a font and font size
-font = ImageFont.truetype('arial.ttf', 36)
+font = ImageFont.truetype('sofia.ttf', 36)
 
 # Get the size of the text
 text = 'My Poster'
