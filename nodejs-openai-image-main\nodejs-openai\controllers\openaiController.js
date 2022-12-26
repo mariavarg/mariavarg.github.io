@@ -1,59 +1,42 @@
-function onSubmit(e) {
-  e.preventDefault();
+const { Configuration, OpenAIApi } = require('openai');
 
-  document.querySelector('.msg').textContent = '';
-  document.querySelector('#image').src = '';
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
-  const prompt = document.querySelector('#prompt').value;
-  const size = document.querySelector('#size').value;
+const generateImage = async (req, res) => {
+  const { prompt, size } = req.body;
 
-  if (prompt === '') {
-    alert('Please add some text');
-    return;
-  }
+  const imageSize =
+    size === 'small' ? '256x256' : size === 'medium' ? '512x512' : '1024x1024';
 
-  generateImageRequest(prompt, size);
-}
-
-async function generateImageRequest(prompt, size) {
   try {
-    showSpinner();
-
-    const response = await fetch('/openai/generateimage', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        prompt,
-        size,
-      }),
+    const response = await openai.createImage({
+      prompt,
+      n: 1,
+      size: imageSize,
     });
 
-    if (!response.ok) {
-      removeSpinner();
-      throw new Error('That image could not be generated');
+    const imageUrl = response.data.data[0].url;
+
+    res.status(200).json({
+      success: true,
+      data: imageUrl,
+    });
+  } catch (error) {
+    if (error.response) {
+      console.log(error.response.status);
+      console.log(error.response.data);
+    } else {
+      console.log(error.message);
     }
 
-    const data = await response.json();
-    // console.log(data);
-
-    const imageUrl = data.data;
-
-    document.querySelector('#image').src = imageUrl;
-
-    removeSpinner();
-  } catch (error) {
-    document.querySelector('.msg').textContent = error;
+    res.status(400).json({
+      success: false,
+      error: 'The image could not be generated',
+    });
   }
-}
+};
 
-function showSpinner() {
-  document.querySelector('.spinner').classList.add('show');
-}
-
-function removeSpinner() {
-  document.querySelector('.spinner').classList.remove('show');
-}
-
-document.querySelector('#image-form').addEventListener('submit', onSubmit);
+module.exports = { generateImage };
