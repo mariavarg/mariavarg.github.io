@@ -1,59 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="styles.css" rel="stylesheet"> />
+function onSubmit(e) {
+  e.preventDefault();
 
-    <script src="js/main.js" defer></script>
-    <title>OpenAI Image Genrator</title>
-  </head>
-  <body>
-    <header>
-      <div class="navbar">
-        <div class="logo">
-          <h2>OpenAI Image Genrator</h2>
-        </div>
-        <div class="nav-links">
-          <ul>
-            <li>
-              <a href="https://beta.openai.com/docs" target="_blank"
-                >OpenAI API Docs</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
+  document.querySelector('.msg').textContent = '';
+  document.querySelector('#image').src = '';
 
-    <main>
-      <section class="showcase">
-        <form id="image-form">
-          <h1>Describe An Image</h1>
-          <div class="form-control">
-            <input type="text" id="prompt" placeholder="Enter Text" />
-          </div>
-          <!-- size -->
-          <div class="form-control">
-            <select name="size" id="size">
-              <option value="small">Small</option>
-              <option value="medium" selected>Medium</option>
-              <option value="large">Large</option>
-            </select>
-          </div>
-          <button type="submit" class="btn">Generate</button>
-        </form>
-      </section>
+  const prompt = document.querySelector('#prompt').value;
+  const size = document.querySelector('#size').value;
 
-      <section class="image">
-        <div class="image-container">
-          <h2 class="msg"></h2>
-          <img src="" alt="" id="image" />
-        </div>
-      </section>
-    </main>
+  if (prompt === '') {
+    alert('Please add some text');
+    return;
+  }
 
-    <div class="spinner"></div>
-  </body>
-</html>
+  generateImageRequest(prompt, size);
+}
+
+async function generateImageRequest(prompt, size) {
+  try {
+    showSpinner();
+
+    const response = await fetch('/openai/generateimage', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        prompt,
+        size,
+      }),
+    });
+
+    if (!response.ok) {
+      removeSpinner();
+      throw new Error('That image could not be generated');
+    }
+
+    const data = await response.json();
+    // console.log(data);
+
+    const imageUrl = data.data;
+
+    document.querySelector('#image').src = imageUrl;
+
+    removeSpinner();
+  } catch (error) {
+    document.querySelector('.msg').textContent = error;
+  }
+}
+
+function showSpinner() {
+  document.querySelector('.spinner').classList.add('show');
+}
+
+function removeSpinner() {
+  document.querySelector('.spinner').classList.remove('show');
+}
+
+document.querySelector('#image-form').addEventListener('submit', onSubmit);
