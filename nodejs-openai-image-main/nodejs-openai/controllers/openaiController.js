@@ -13,9 +13,9 @@ const generateImage = async (req, res) => {
 
   try {
     const response = await openai.createImage({
-      prompt,
+      prompt: a frog playing piano,
       n: 1,
-      size: imageSize,
+      size: medium,
     });
 
     const imageUrl = response.data.data[0].url;
