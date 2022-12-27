@@ -1,17 +1,3 @@
-:root {
-    font-family: 'https://fonts.googleapis.com/css2?family=Sofia&display=swap'
-    
-}
-
-* {
-    font-family: 'Sofia', cursive;
-}
-
-#meme-canvas {
-    width: 500px;
-    height: auto;
-}
-
 body, html {
   height:100%;
 }
@@ -45,120 +31,43 @@ div {
   border-radius: 10px;
 }
 
+.bg {
+  /* The image used */
+  background-image: url("HOMEPAGE1.jpg");
 
-.content {
-  max-width: 500px;
-  margin: auto;
-}
-
-body, h1 {
-  font-family: "Sofia", sans-serif;
-  margin:0;
-}
-
-<style>
-.content {
-  max-width: 500px;
-  margin: auto;
-}
-</style>
-<body>
-
-<div class="content">
-  <!-- Page content -->
-</div>
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.topnav .icon {
-  display: none;
-}
-
-@media screen and (max-width: 500px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-body, html {
+  /* Full height */
   height: 100%;
-  width: auto;
-  background: white;
-}
 
-div {
-  max-width: 500px;
-  margin: 10.5px;
-  text-align:center;
-}
+  /* Align and scale the image nicely */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: left;
 
-.responsive {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  align-items:center;
 }
 
 .content {
   max-width: 500px;
   margin: auto;
-  background: white;
-  padding: 10px;
-  text-align:center;
 }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+#Responsive-logo{
+  display: hidden;
+  width: 48px;
+  height: 48px;
+  background-size: 37px;
 }
 
-h1, h2, h3, h4, h5, h6, body, form, html {text-align: center;}
-p {text-align: center;}
-div {text-align: center;}
-nav {text-align:center;}
-ul {text-align:center;}
-
-ul{
-	list-style: none;
-}
+media screen and (max-width: 500px){
+  *{
+    margin: 0;
+  }
+  {
+    #Responsive-logo{
+      display: inline-block;
+      background: gray;
+      border: 1px solid black;
+      border-radius: 1px;
+    }
+    
+  }  
