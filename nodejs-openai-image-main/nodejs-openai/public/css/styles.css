@@ -31,22 +31,10 @@ div {
   border-radius: 10px;
 }
 
-.bg {
-  /* The image used */
-  background-image: url("HOMEPAGE1.jpg");
-
   /* Full height */
   height: 100%;
 
-  /* Align and scale the image nicely */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: left;
-
-}
-
-.content {
+ content {
   max-width: 500px;
   margin: auto;
 }
