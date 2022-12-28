@@ -1,61 +1,117 @@
-body, html {
-  height:100%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-div {
-  max-width: 500px;
-  margin: 10.5px;
-  text-align:center;
+:root {
+  --primary-color: #f9b64d;
 }
 
-.responsive {
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 1rem;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.navbar a:hover {
+  color: var(--primary-color);
+}
+
+/* Showcase */
+.showcase {
+  height: 450px;
   width: 100%;
-  max-width: 500px;
-  height: auto;
+  background: var(--primary-color);
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
+.showcase h1 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  padding: 1rem 0;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
-}
-
-  /* Full height */
+.showcase form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   height: 100%;
+  width: 100%;
+}
 
- content {
+.showcase form input,
+form select {
+  font-size: 20px;
+  width: 500px;
   max-width: 500px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+form button {
+  font-size: 20px;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+form button:hover {
+  transform: scale(1.1);
+}
+
+/* Image */
+
+.image {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+img {
+  display: block;
   margin: auto;
 }
 
-#Responsive-logo{
-  display: hidden;
-  width: 48px;
-  height: 48px;
-  background-size: 37px;
+.msg {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 1rem;
 }
-
-media screen and (max-width: 500px){
-  *{
-    margin: 0;
-  }
-  {
-    #Responsive-logo{
-      display: inline-block;
-      background: gray;
-      border: 1px solid black;
-      border-radius: 1px;
-    }
-    
-  }  
