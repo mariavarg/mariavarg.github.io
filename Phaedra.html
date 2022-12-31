@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Speech API Demo</title>
+</head>
+
+<style>
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+</style>
+
+<body>
+  <h1>Voice Assistant</h1>
+
+  <p>Click the button to start speaking:</p>
+  <button id="start-button">Start</button>
+  <button id="stop-button" disabled>Stop</button>
+
+  <div id="results"></div>
+
+  <script>
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 10;
+
+    let p = document.createElement('p');
+    const words = document.querySelector('#results');
+    words.appendChild(p);
+
+    recognition.addEventListener('result', e => {
+      const transcript = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+
+      p.textContent = transcript;
+      if (e.results[0].isFinal) {
+        p = document.createElement('p');
+        words.appendChild(p);
+      }
+    });
+
+    recognition.addEventListener('end', recognition.start);
+
+    document.querySelector('#start-button').addEventListener('click', () => {
+      recognition.start();
+    });
+
+    document.querySelector('#stop-button').addEventListener('click', () => {
+      recognition.stop();
+    });
+  </script>
+</body>
+</html>
