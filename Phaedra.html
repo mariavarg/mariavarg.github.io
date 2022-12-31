@@ -61,6 +61,14 @@
     });
   </script>
   
+  const SpeechSynthesis = window.speechSynthesis;
+const synth = new SpeechSynthesis();
+
+const speak = text => {
+  const utterance = new SpeechSynthesisUtterance(text);
+  synth.speak(utterance);
+};
+  
   <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item">
