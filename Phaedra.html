@@ -21,6 +21,11 @@ body, h1 {
 
        
        <script>
+           function startAssistant(){
+  var avatar = document.getElementById("avatar");
+  avatar.src = "path/to/avatar.jpg";
+  avatar.style.display = "block";
+                         
           document.addEventListener("keydown", function(event) {
   if (event.code === "Enter") {
     // Check the user's input for the trigger word
@@ -31,6 +36,14 @@ body, h1 {
     }
   }
 });
+               
+  // Identify the language of the user's input
+  function detectLanguage(text)             
+  var input = document.getElementById("input").value;
+  var language = detectLanguage(input);
+               
+  //Display the appropriate greeting
+  alert(responses[language]["greeting"])
 
 function startAssistant() {
   // var responses = {
@@ -43,20 +56,7 @@ function startAssistant() {
     "goodbye": "Αντίο! Να έχετε μία υπέροχη μέρα."
   }
 };
-
-function startAssistant(){
-  var avatar = document.getElementById("avatar");
-  avatar.src = "path/to/avatar.jpg";
-  avatar.style.display = "block";
-           
-  // Identify the language of the user's input
-  var input = document.getElementById("input").value;
-  var language = detectLanguage(input);
-
-  // Display the appropriate greeting
-  alert(responses[language]["greeting"]);
-
-  while (true) {
+                while (true) {
     // Get the user's next input
     input = prompt("What can I do for you?");
     if (input.toLowerCase() === "goodbye") {
@@ -69,10 +69,15 @@ function startAssistant(){
   }
 }
 
-function detectLanguage(text) {
-  // Code to detect the language of the text goes here
-}
-       
+
+           
+  
+
+  
+
+ 
+
+
        
     
    
