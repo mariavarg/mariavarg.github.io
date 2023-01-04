@@ -67,6 +67,28 @@ function startAssistant() {
       alert("I'm sorry, I didn't understand your request. Please try again.");
     }
   }
+}           
+           // Check for the trigger to exit the assistant
+    if (input.toLowerCase() === "goodbye") {
+      alert("Goodbye! Have a great day.");
+      break;
+    }
+
+    // Check for a request to upload training material
+    if (input.toLowerCase().startsWith("upload")) {
+      // Code to handle the upload request goes here
+    }
+
+    // Check for a request to search the web
+    if (input.toLowerCase().startsWith("search")) {
+      // Code to handle the search request goes here
+    }
+
+    // Otherwise, provide a default response
+    else {
+      alert("I'm sorry, I didn't understand your request. Please try again.");
+    }
+  }
 }
 
 
