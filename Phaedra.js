@@ -23,7 +23,7 @@ body, h1 {
        <script>
            function startAssistant(){
   var avatar = document.getElementById("avatar");
-  avatar.src = "path/to/avatar.jpg";
+  avatar.src = "avatar.jpg";
   avatar.style.display = "block";
                          
           document.addEventListener("keydown", function(event) {
