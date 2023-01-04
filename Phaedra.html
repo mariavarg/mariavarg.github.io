@@ -44,7 +44,11 @@ function startAssistant() {
   }
 };
 
-function startAssistant() {
+function startAssistant(){
+  var avatar = document.getElementById("avatar");
+  avatar.src = "path/to/avatar.jpg";
+  avatar.style.display = "block";
+           
   // Identify the language of the user's input
   var input = document.getElementById("input").value;
   var language = detectLanguage(input);
