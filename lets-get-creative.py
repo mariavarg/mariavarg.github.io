@@ -35,3 +35,5 @@ draw.text((x, y), text, font=font, fill=color)
 
 # Save the image
 image.save('poster.jpg')
+
+</py-script>
