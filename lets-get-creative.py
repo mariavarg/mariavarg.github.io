@@ -1,3 +1,4 @@
+ <py-script>
 pip install Pillow==5.3.0
 
 from PIL import Image, ImageDraw, ImageFont
