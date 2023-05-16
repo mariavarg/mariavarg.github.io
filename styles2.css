@@ -1,0 +1,70 @@
+1
+// Import the Botpress WebChat JavaScript file
+2
+<script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+3
+
+4
+// Initialize the Botpress WebChat with the required parameters
+5
+<script>
+6
+    window.botpressWebChat.init({
+7
+        // Replace <your-bot-id> and <your-client-id> with your actual bot and client IDs
+8
+        "botId": "<your-bot-id>",
+9
+        "clientId": "<your-client-id>",
+10
+
+11
+        // Set the URL for the Botpress WebChat JavaScript file and the messaging server
+12
+        "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+13
+        "messagingUrl": "https://messaging.botpress.cloud",
+14
+
+15
+        // Set the name of the bot that will be displayed in the WebChat interface
+16
+        "botName": "Test",
+17
+
+18
+        // Set the width of the WebChat container and layout to 100% (Full Screen)
+19
+        "containerWidth": "100%25",
+20
+        "layoutWidth": "100%25",
+21
+
+22
+        // Hide the widget and disable animations
+23
+        "hideWidget": true,
+24
+        "disableAnimations": true,
+25
+    });
+26
+
+27
+    // Opens up the Chatbot by default
+28
+    // This lets users start chatting with the Chatbot without needing to click any buttons or menus.
+29
+    window.botpressWebChat.onEvent(
+30
+        function () {
+31
+            window.botpressWebChat.sendEvent({ type: "show" });
+32
+        },
+33
+        ["LIFECYCLE.LOADED"]
+34
+    );
+35
+</script>
