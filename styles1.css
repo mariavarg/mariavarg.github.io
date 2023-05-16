@@ -81,4 +81,19 @@ media screen and (max-width: 500px){
     top: 0;
 }
     
-  }  
+  }
+  
+  .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chatbot {
+  /* CSS styles for your chatbot */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
