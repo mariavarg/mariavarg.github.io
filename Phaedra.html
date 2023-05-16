@@ -33,18 +33,75 @@ body, h1 {
 <div class="content">
   <!-- Page content -->
  
+1
+// Import the Botpress WebChat JavaScript file
+2
 <script src="https://cdn.botpress.cloud/webchat/v0/inject.js"></script>
+3
+
+4
+// Initialize the Botpress WebChat with the required parameters
+5
 <script>
-  window.botpressWebChat.init({
-      "botId": "f68fdea9-994e-49fc-aada-817edcb5c641",
-      "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
-      "messagingUrl": "https://messaging.botpress.cloud",
-      "clientId": "f68fdea9-994e-49fc-aada-817edcb5c641",
-      "botName": "Phaedra/Φαίδρα",
-      "avatarUrl": "https://drive.google.com/file/d/1JJQ4D6XRtmNSBBr0sPr1SM4NVBDyD1B2/view?usp=share_link",
-      "botConversationDescription": "The Soul of the website",
-      "stylesheet": "https://github.com/mariavarg/mariavarg.github.io/blob/cd686d89762b04149d44265dedd2f01f994641d6/styles1.css"
-  });
+6
+    window.botpressWebChat.init({
+7
+        // Replace <your-bot-id> and <your-client-id> with your actual bot and client IDs
+8
+        "botId": "<f68fdea9-994e-49fc-aada-817edcb5c641>",
+9
+        "clientId": "<539dd4de-aaa1-4a46-9218-95f32b2a1e3f>",
+10
+
+11
+        // Set the URL for the Botpress WebChat JavaScript file and the messaging server
+12
+        "hostUrl": "https://cdn.botpress.cloud/webchat/v0",
+13
+        "messagingUrl": "https://messaging.botpress.cloud",
+14
+
+15
+        // Set the name of the bot that will be displayed in the WebChat interface
+16
+        "botName": "Phaedra/Φαίδρα",
+17
+
+18
+        // Set the width of the WebChat container and layout to 100% (Full Screen)
+19
+        "containerWidth": "500px",
+20
+        "layoutWidth": "500px",
+21
+
+22
+        // Hide the widget and disable animations
+23
+        "hideWidget": true,
+24
+        "disableAnimations": true,
+25
+    });
+26
+
+27
+    // Opens up the Chatbot by default
+28
+    // This lets users start chatting with the Chatbot without needing to click any buttons or menus.
+29
+    window.botpressWebChat.onEvent(
+30
+        function () {
+31
+            window.botpressWebChat.sendEvent({ type: "show" });
+32
+        },
+33
+        ["LIFECYCLE.LOADED"]
+34
+    );
+35
 </script>
     
 <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
