@@ -84,16 +84,17 @@ media screen and (max-width: 500px){
   }
   
   .container {
-  display: flex;
-  flex-direction: column;
+  display: center;
+  flex-direction: center;
   align-items: center;
 }
 
 .chatbot {
   /* CSS styles for your chatbot */
-  position: absolute;
+  position: center;
   top: 0;
-  left: 50%;
+  left: auto;
+  right: auto; 
   transform: translateX(-50%);
 }
 
