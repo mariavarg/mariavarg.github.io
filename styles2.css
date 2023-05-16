@@ -13,9 +13,9 @@
 7
         // Replace <your-bot-id> and <your-client-id> with your actual bot and client IDs
 8
-        "botId": "<your-bot-id>",
+        "botId": "<98bfac17-a823-44ec-8653-acc85b89226b>",
 9
-        "clientId": "<your-client-id>",
+        "clientId": "<98bfac17-a823-44ec-8653-acc85b89226b>",
 10
 
 11
@@ -29,15 +29,15 @@
 15
         // Set the name of the bot that will be displayed in the WebChat interface
 16
-        "botName": "Test",
+        "botName": "Phaedra/ Φαίδρα",
 17
 
 18
         // Set the width of the WebChat container and layout to 100% (Full Screen)
 19
-        "containerWidth": "100%25",
+        "containerWidth": "500px",
 20
-        "layoutWidth": "100%25",
+        "layoutWidth": "500px",
 21
 
 22
