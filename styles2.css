@@ -68,3 +68,78 @@
     );
 35
 </script>
+
+
+.bpw-floating-button {
+2
+    /* Aligns the button to the right side of the container */
+3
+    float: center;
+4
+    /* Sets the fill color of the button icon */
+5
+    fill: rgb(255, 255, 255);
+6
+    /* Changes the cursor to a pointer when hovering over the button */
+7
+    cursor: pointer;
+8
+    /* Removes the outline around the button when clicked */
+9
+    outline: none;
+10
+
+11
+    /* Centers the icon inside the button element */
+12
+    display: flex;
+13
+    align-items: center;
+14
+    justify-content: center;
+15
+
+16
+    /* Sets the z-index to ensure the button is on top of other elements */
+17
+    z-index: 1;
+18
+    /* Sets the width and height of the button */
+19
+    width: 52px;
+20
+    height: 52px;
+21
+    /* Changes the cursor to a pointer when hovering over the button */
+22
+    cursor: pointer;
+23
+    /* Rounds the corners of the button */
+24
+    border-radius: 50%;
+25
+    /* Adds a shadow effect to the button */
+26
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+27
+    /* Clips any content that overflows the button */
+28
+    overflow: hidden;
+29
+
+30
+    /* Removes padding and borders from the button */
+31
+    padding: 0;
+32
+    border: none;
+33
+    background-clip: padding-box;
+34
+
+35
+    /* Adds a transition effect to the button when its size changes */
+36
+    transition: width 1s, height 1s;
+37
+}
