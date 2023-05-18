@@ -104,7 +104,8 @@ font-size:7px;
 
 .bpw-send-button {
 margin-bottom: 0.5rem;
-font-family: "Sofia", sans-serif;
+font-family: inherit;
+font-size: 12px;.
 }
 
 body >div:nth-child(3) {
