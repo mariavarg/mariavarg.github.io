@@ -1,17 +1,17 @@
 body {
-  font-size: 8px !important;
-  max-height: 73vh !important;
+  font-size: 6px !important;
+  max-height: auto !important;
 }
 .bpw-chat-container {
   border: 0.5px solid #9181f5;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
 }
 .bpw-header-container {
   border-top:none;
 }
 .bpw-header-container {
-  padding-left:0.5rem 
+  padding-left:auto 
 }
 #btn-delete-conversation {
   display:none;
@@ -33,27 +33,27 @@ body {
   border-bottom-left-radius: 4px;
 }
 .bpw-header-title {
-  font-size : 16px;
+  font-size : 10px;
 }
 .bpw-keyboard-quick_reply{
   background-color: transparent;
   padding: 0;
-  text-align: left;
+  text-align: center;
   border-top: none;
-  padding-left: 0.5rem;
+  padding-left: auto;
   padding-bottom:10px;
 }
 .bpw-keyboard-quick_reply button {
   padding: 6px 8px;
   background-color: var(--main-bg-color);
-  font-size: 12px;
-  min-width: initial;
-  min-height: initial;
+  font-size: 10px;
+  min-width: 500px;
+  min-height: auto;
   text-align: center;
   border: 1px solid currentColor;
   border-radius: 12px;
   cursor: pointer;
-  margin: 3px 2px;
+  margin: 2px 2px;
   text-transform: none;
   overflow: visible;
   color: #000;
@@ -99,7 +99,7 @@ padding-bottom:0;
 }
 
 .bpw-composer textarea{
-font-size:12px;
+font-size:10px;
 }
 
 .bpw-send-button {
@@ -133,13 +133,13 @@ width: 361px !important;
   background: none transparent;
   border: none;
   display: block;
-  font-size: 16px;
+  font-size: 10px;
   letter-spacing: 0;
   max-height: 78vh !important; 
-  max-width: 100vw;
+  max-width: 500px;
   opacity: 1;
   padding: 0;
-  position: fixed;
+  position: relative;
   transition: none;
   visibility: none;
   z-index: 20
@@ -149,8 +149,8 @@ width: 361px !important;
     bottom: 7px;
     right: 7px;
     top: unset;
-    width: 361px;
-    height: 80%!important;
+    width: 500px;
+    height: auto!important;
     z-index: 999;
   }
   .bpw-header-name {
@@ -163,10 +163,10 @@ width: 361px !important;
     font-size: 0.90rem!important;
   }
   .bp-widget-side{
-    height: 79% !important;
+    height: auto !important;
   }
   .bpw-composer textarea{
-    font-size:12px !important;
+    font-size:10px !important;
     }
     .bpw-chat-bubble-content{
       font-size: 0.6rem!important;
@@ -176,22 +176,22 @@ width: 361px !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .bp-widget {
-    font-size: 12px;
+    font-size: 10px;
     padding: 5px;
   }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   #webchat-frame {
     height: 100px;
   }
 }
 
 
-@media only screen and (min-device-width: 428px) and (max-device-width: 926px) and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (min-device-width: 500px) and (max-device-width: 500px) and (-webkit-device-pixel-ratio: 3) {
   #bp-widget.bp-widget-side {
     bottom: 7px;
     right: 7px;
@@ -201,19 +201,19 @@ width: 361px !important;
     z-index: 999;
   }
   .bpw-header-name {
-    font-size: 13px!important;
+    font-size: 10px!important;
   }
   .bpw-header-subtitle {
-    font-size: 12px!important;
+    font-size: 10px!important;
   }
   .bpw-send-button{
-    font-size: 13px!important;
+    font-size: 10px!important;
   }
   .bp-widget-side{
-    height: 79% !important;
+    height: auto !important;
   }
   .bpw-composer textarea{
-    font-size:13px !important;
+    font-size:10px !important;
     }
     .bpw-chat-bubble-content{
       font-size: 10px!important;
@@ -232,7 +232,7 @@ width: 361px !important;
       background: none transparent;
       border: none;
       display: block;
-      font-size: 15px;
+      font-size: 10px;
       letter-spacing: 0;
       max-height: 78vh !important; 
       max-width: 100vw;
@@ -265,7 +265,7 @@ width: 361px !important;
     }
 }
 
-@media only screen and (device-width: 360px) and (device-height: 740px) and (-webkit-device-pixel-ratio: 4) {
+@media only screen and (device-width: 500px) and (device-height: auto) and (-webkit-device-pixel-ratio: 4) {
   #bp-widget.bp-widget-side {
     bottom: 7px;
     right: 7px;
@@ -275,19 +275,19 @@ width: 361px !important;
     z-index: 999;
   }
   .bpw-header-name {
-    font-size: 11px!important;
+    font-size: 10px!important;
   }
   .bpw-header-subtitle {
     font-size: 10px!important;
   }
   .bpw-send-button{
-    font-size: 11px!important;
+    font-size: 10px!important;
   }
   .bp-widget-side{
     height: 79% !important;
   }
   .bpw-composer textarea{
-    font-size:12px !important;
+    font-size:10px !important;
     }
     .bpw-chat-bubble-content{
       font-size: 9px!important;
@@ -305,7 +305,7 @@ width: 361px !important;
       background: none transparent;
       border: none;
       display: block;
-      font-size: 16px;
+      font-size: 10px;
       letter-spacing: 0;
       max-height: 78vh !important; 
       max-width: 100vw;
@@ -338,29 +338,29 @@ width: 361px !important;
     }
 }
 /*SE */
-@media only screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+@media only screen and (device-width: 500px) and (device-height: auto) and (-webkit-device-pixel-ratio: 2) {
   #bp-widget.bp-widget-side {
     bottom: 7px;
     right: 7px;
     top: unset;
-    width: 361px;
-    height: 80%!important;
+    width: 500px;
+    height: auto!important;
     z-index: 999;
   }
   .bpw-header-name {
-    font-size: 11px!important;
+    font-size: 10px!important;
   }
   .bpw-header-subtitle {
     font-size: 10px!important;
   }
   .bpw-send-button{
-    font-size: 11px!important;
+    font-size: 10px!important;
   }
   .bp-widget-side{
-    height: 79% !important;
+    height: auto !important;
   }
   .bpw-composer textarea{
-    font-size:12px !important;
+    font-size:10px !important;
     }
     .bpw-chat-bubble-content{
       font-size: 9px!important;
@@ -369,7 +369,7 @@ width: 361px !important;
       bottom: 0;
     height: 79% !important;
     left: auto;
-    right: 0;
+    right: auto;
     top: 0;
     width: 361px !important;
     }
@@ -378,13 +378,13 @@ width: 361px !important;
       background: none transparent;
       border: none;
       display: block;
-      font-size: 16px;
+      font-size: 10px;
       letter-spacing: 0;
-      max-height: 78vh !important; 
+      max-height: auto !important; 
       max-width: 100vw;
       opacity: 1;
       padding: 0;
-      position: fixed;
+      position: relative;
       transition: none;
       visibility: none;
       z-index: 20
@@ -412,8 +412,8 @@ width: 361px !important;
 }
 
 @media only screen 
-  and (device-width: 428px) 
-  and (device-height: 926px) 
+  and (device-width: 500px) 
+  and (device-height: auto) 
   and (-webkit-device-pixel-ratio: 3)
   and (orientation: portrait) {
   #bp-widget.bp-widget-side {
@@ -425,23 +425,23 @@ width: 361px !important;
     z-index: 999;
   }
   .bpw-header-name {
-    font-size: 13px!important;
+    font-size: 10px!important;
   }
   .bpw-header-subtitle {
-    font-size: 12px!important;
+    font-size: 10px!important;
   }
   .bpw-send-button{
-    font-size: 13px!important;
+    font-size: 10px!important;
   }
   .bp-widget-side{
-    height: 79% !important;
+    height: auto !important;
   }
   .bpw-composer textarea{
-    font-size:13px !important;
+    font-size:10px !important;
     }
     .bpw-chat-bubble-content{
       font-size: 10px!important;
-      padding: 8px 11px!important;
+      padding: 8px 10px!important;
     }
     .bp-widget-side {
       bottom: 0;
@@ -456,13 +456,13 @@ width: 361px !important;
       background: none transparent;
       border: none;
       display: block;
-      font-size: 15px;
+      font-size: 10px;
       letter-spacing: 0;
       max-height: 78vh !important; 
-      max-width: 100vw;
+      max-width: 500px;
       opacity: 1;
       padding: 0;
-      position: fixed;
+      position: relative;
       transition: none;
       visibility: none;
       z-index: 20
