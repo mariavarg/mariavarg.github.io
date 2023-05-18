@@ -117,8 +117,8 @@ display:none;
   right: 7px;
   top: unset;
   width: 361px;
-  height: 80%!important;
-  z-index: 800;
+  height: auto!important;
+  z-index: 400;
 }
 
 .bp-widget-side {
@@ -152,7 +152,7 @@ width: 361px !important;
     top: unset;
     width: 500px;
     height: auto!important;
-    z-index: 800;
+    z-index: 400;
   }
   .bpw-header-name {
     font-size: 7px!important;
@@ -199,7 +199,7 @@ width: 361px !important;
     top: unset;
     width: 361px;
     height: auto !important;
-    z-index: 800;
+    z-index: 400;
   }
   .bpw-header-name {
     font-size: 7px!important;
@@ -273,7 +273,7 @@ width: 361px !important;
     top: unset;
     width: 361px;
     height: auto!important;
-    z-index: 800;
+    z-index: 400;
   }
   .bpw-header-name {
     font-size: 7px!important;
@@ -346,7 +346,7 @@ width: 361px !important;
     top: unset;
     width: 500px;
     height: auto!important;
-    z-index: 800;
+    z-index: 400;
   }
   .bpw-header-name {
     font-size: 7px!important;
@@ -423,7 +423,7 @@ width: 361px !important;
     top: unset;
     width: 361px;
     height: 80vh !important;
-    z-index: 800;
+    z-index: 400;
   }
   .bpw-header-name {
     font-size: 7px!important;
