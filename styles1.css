@@ -89,12 +89,3 @@ media screen and (max-width: 500px){
   align-items: center;
 }
 
-.chatbot {
-  /* CSS styles for your chatbot */
-  position: center;
-  top: 0;
-  left: auto;
-  right: auto; 
-  transform: translateX(-50%);
-}
-
