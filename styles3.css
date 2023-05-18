@@ -1,3 +1,19 @@
+.bpw-layout {
+  height: 300px;
+  position: fixed;
+  border: 1px solid #000;
+  border-radius: 5px;
+  z-index: 9999;
+}
+
+@media (max-width: 500px) {
+  .bpw-layout {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
+
 body {
   font-size: 8px !important;
   max-height: 73vh !important;
