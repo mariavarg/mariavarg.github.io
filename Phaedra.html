@@ -86,10 +86,27 @@ div {text-align: center;}
       "botConversationDescription": "The Soul of this Website",
       "stylesheet": "https://github.com/mariavarg/mariavarg.github.io/blob/d43e2121150bfd8b61991375e7aebb4d4dca3fe8/styles3.css"
   });
-</script>
     
-    <div id="playht-audioplayer-element"><script> !function(){var e,t,a,n,l="playht-plugin-styles";if(!document.getElementById(l)){var p=document.getElementsByTagName("head")[0],d=document.createElement("link");d.id=l,d.rel="stylesheet",d.type="text/css",d.href="https://static.play.ht/playht-pageplayer-plugin.css",d.media="print",d.onload=function(){this.media="all"},p.appendChild(d)}e="https://static.play.ht/playht-pageplayer-plugin.js",t=function(){window.playht.playerSettings({appId:"T7qBIh5Wux4",userId:"vPMT5Vb2dOXMHPp13VJZQvWmufy2", playerType: "pp", enableBuffering: false, listenBtnElement: "#playht-audioplayer-element"})},a=document.getElementsByTagName("head")[0],(n=document.createElement("script")).type="text/javascript",n.src=e,n.onreadystatechange=t,n.async=true,n.onload=t,a.appendChild(n)}();</script></div>
-            
+    import requests
+
+url = "https://play.ht/api/v2/tts"
+
+payload = {
+    "quality": "medium",
+    "output_format": "mp3",
+    "speed": 1,
+    "sample_rate": 24000
+}
+headers = {
+    "accept": "application/json",
+    "content-type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print(response.text) 
+    </script>
+    
     </body>
     </div>
     
