@@ -97,8 +97,8 @@ def convert_text_to_speech(text, output_file):
     client = texttospeech.TextToSpeechClient()
     synthesis_input = texttospeech.SynthesisInput(text=text)
     voice = texttospeech.VoiceSelectionParams(
-        language_code='en-US',  # Adjust the language code as needed
-        name='your-selected-voice'  # Replace with the voice name you want to use
+        language_code='en-US', 'el-GR'  # Adjust the language code as needed
+        name='el-GR-Wavenet-A'  # Replace with the voice name you want to use
     )
     audio_config = texttospeech.AudioConfig(
         audio_encoding=texttospeech.AudioEncoding.MP3  # Adjust audio encoding if needed
@@ -111,7 +111,7 @@ def convert_text_to_speech(text, output_file):
     with open(output_file, 'wb') as out:
         out.write(response.audio_content)
         print(f'Audio content written to file {output_file}')
-text = "Hi, my name is Phaedra, and I am the Soul of this Website... Welcome to my World!!!"
+text = "Hi, my name is Phaedra, and I am the Soul of this Website... Welcome to my World!!!, Γειά, το όνομά μου είναι Φαίδρα, και είμαι η Ψυχή αυτού του ιστότοπου... Καλώς ήρθατε στον κόσμο μου!!!"
 output_file = "output.mp3"
 convert_text_to_speech(text, output_file)
     </script>
