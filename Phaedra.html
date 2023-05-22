@@ -85,8 +85,35 @@ div {text-align: center;}
       "botName": "Phaedra/ Φαίδρα",
       "botConversationDescription": "The Soul of this Website",
       "stylesheet": "https://github.com/mariavarg/mariavarg.github.io/blob/d43e2121150bfd8b61991375e7aebb4d4dca3fe8/styles3.css"
-  });
+  });    
+    </script>
     
+    <script>
+        pip install google-cloud-texttospeech
+from google.cloud import texttospeech
+import io
+
+def convert_text_to_speech(text, output_file):
+    client = texttospeech.TextToSpeechClient()
+    synthesis_input = texttospeech.SynthesisInput(text=text)
+    voice = texttospeech.VoiceSelectionParams(
+        language_code='en-US',  # Adjust the language code as needed
+        name='your-selected-voice'  # Replace with the voice name you want to use
+    )
+    audio_config = texttospeech.AudioConfig(
+        audio_encoding=texttospeech.AudioEncoding.MP3  # Adjust audio encoding if needed
+    )
+
+    response = client.synthesize_speech(
+        input=synthesis_input, voice=voice, audio_config=audio_config
+    )
+
+    with open(output_file, 'wb') as out:
+        out.write(response.audio_content)
+        print(f'Audio content written to file {output_file}')
+text = "Hi, my name is Phaedra, and I am the Soul of this Website... Welcome to my World!!!"
+output_file = "output.mp3"
+convert_text_to_speech(text, output_file)
     </script>
         
     </body>
