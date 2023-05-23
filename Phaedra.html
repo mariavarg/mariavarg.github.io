@@ -97,6 +97,12 @@ import playsound
 from gtts import gTTS
 import os
 import time
+import pyttsx3
+
+engine_english = pyttsx3.init()
+engine_english.setProperty('voice', '<https://drive.google.com/file/d/1CjNGNOXvr1qsh3esxZZ3X6KVcCOogCeT/view?usp=share_link>')
+engine_greek = pyttsx3.init()
+engine_greek.setProperty('voice', '<https://drive.google.com/file/d/1YGNf_B0mbroQfVGEBVsGUv14yvlvVRl4/view?usp=share_link>')
 
 class Person:
     def __init__(self):
