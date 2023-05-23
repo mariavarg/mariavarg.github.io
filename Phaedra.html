@@ -130,7 +130,7 @@ def record_audio(ask=False):
 
 # get string and make a audio file to be played
 def speak(audio_string):
-    tts = gTTS(text=audio_string, lang='en') # text to speech(voice)
+    tts = gTTS(text=audio_string, lang='en') # text to speech(voice_female)
     r = random.randint(1,20000000)
     audio_file = 'audio' + str(r) + '.mp3'
     tts.save(audio_file) # save as mp3
