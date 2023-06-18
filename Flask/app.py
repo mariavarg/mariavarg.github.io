@@ -95,9 +95,4 @@ if __name__ == '__main__':
         
         </body>
 
-<audio controls autoplay>
-  <source src="Metallica - Fade to Black (Official Video).m4a">
-
-</audio>
-
 </html>
