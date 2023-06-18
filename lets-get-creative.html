@@ -72,55 +72,6 @@ body, h2, h4 {
    </ul>
 </nav>
 
-        <div id="terminal">
-  <pre id="output"></pre>
-  <input id="input" type="text" autofocus />
-</div>
-
-        <style>
-#terminal {
-  background-color: #000;
-  color: #fff;
-  padding: 10px;
-}
-        
-#output {
-  font-family: monospace;
-}
-
-#input {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-family: monospace;
-  outline: none;
-}
-        </style>
-
-        <script>const terminalOutput = document.getElementById('output');
-const terminalInput = document.getElementById('input');
-
-function handleUserInput(event) {
-  if (event.key === 'Enter') {
-    const command = terminalInput.value;
-    executeCommand(command);
-    terminalInput.value = '';
-  }
-}
-
-function executeCommand(command) {
-  // Perform desired actions based on the command
-  const outputText = `Command executed: ${command}`;
-  appendToTerminal(outputText);
-}
-
-function appendToTerminal(output) {
-  terminalOutput.innerHTML += `<div>${output}</div>`;
-}
-
-terminalInput.addEventListener('keydown', handleUserInput);
-</script>
-
         <audio controls autoplay>
   <source src="Starry starry Night.mp3" type="audio/mpeg">
 </audio>
