@@ -1,6 +1,16 @@
+from flask import Flask, render_template
 from PIL import Image, ImageDraw, ImageFont
 
-def process_image(image_file):
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/process_image')
+def process_image():
+    image_file = 'path_to_your_image.jpg'
+
     # Open the image
     image = Image.open(image_file)
 
@@ -12,7 +22,7 @@ def process_image(image_file):
 
     # Get the size of the text
     text = 'My Poster'
-    text_width, text_height = draw.textsize(text, font=ARIAL.TTF)
+    text_width, text_height = draw.textsize(text, font=font)
 
     # Calculate the x and y coordinates for the text
     x = (image.width - text_width) / 2
@@ -28,7 +38,10 @@ def process_image(image_file):
     output_image_path = 'static/poster.jpg'
     image.save(output_image_path)
 
-    return output_image_path
+    return render_template('result.html', image_path=output_image_path)
+
+if __name__ == '__main__':
+    app.run()
 
 <!DOCTYPE html>
 
