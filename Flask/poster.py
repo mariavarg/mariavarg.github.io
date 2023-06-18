@@ -46,7 +46,7 @@ def process_image(image_file):
       <a class="nav-link" href="Flask/poster.py">NEXT</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="page20.html">PREVIOUS</a>
+      <a class="nav-link" href="Iphigeneia.html">PREVIOUS</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="javascript:history.go(-1)">BACK</a>
