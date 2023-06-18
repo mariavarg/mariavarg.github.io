@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lets get Creative/title>
+  <script>
+    function processImage() {
+      var fileInput = document.getElementById('image');
+      var file = fileInput.files[0];
+
+      var formData = new FormData();
+      formData.append('image', file);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/process_image', true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          document.getElementById('result').src = 'poster.jpg';
+          document.getElementById('result').style.display = 'block';
+        }
+      };
+      xhr.send(formData);
+    }
+  </script>
+</head>
+<body>
+  <h1>Lets get Creative</h1>
+  <form>
+    <label for="image">Choose an image:</label>
+    <input type="file" id="image" accept="image/*">
+    <br>
+    <input type="button" value="Process Image" onclick="processImage()">
+  </form>
+  <img id="result" style="display: none;">
+</body>
+</html>
