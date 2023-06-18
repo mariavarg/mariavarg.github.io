@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lets get Creative/title>
+  <title>Lets get Creative</title>
   <script>
     function processImage() {
       var fileInput = document.getElementById('image');
@@ -14,15 +14,15 @@
       xhr.open('POST', '/process_image', true);
       xhr.onload = function() {
         if (xhr.status === 200) {
-          document.getElementById('result').src = 'poster.png';
-          document.getElementById('result').style.display = 'block';
+          var resultImage = document.getElementById('result');
+          resultImage.src = xhr.responseText;
+          resultImage.style.display = 'block';
         }
       };
       xhr.send(formData);
     }
   </script>
 </head>
-  
 <body>
   <h1>Lets get Creative</h1>
   <form>
@@ -33,6 +33,8 @@
   </form>
   <img id="result" style="display: none;">
 </body>
+</html>
+
 
   <body>
   
