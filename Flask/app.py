@@ -1,16 +1,6 @@
-from flask import Flask, render_template
 from PIL import Image, ImageDraw, ImageFont
 
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-@app.route('/process_image')
-def process_image():
-    image_file = 'Flask/static/images/Desdemona by mariavarg.png'
-
+def process_image(image_file):
     # Open the image
     image = Image.open(image_file)
 
@@ -18,7 +8,7 @@ def process_image():
     draw = ImageDraw.Draw(image)
 
     # Choose a font and font size
-    font = ImageFont.truetype('ARIAL.TTF', 36)
+    font = ImageFont.truetype('arial.ttf', 36)
 
     # Get the size of the text
     text = 'My Poster'
@@ -35,11 +25,7 @@ def process_image():
     draw.text((x, y), text, font=font, fill=color)
 
     # Save the image
-    output_image_path = 'static/poster.png'
+    output_image_path = '/workspaces/75952007/Flask/static/images/poster.jpg'
     image.save(output_image_path)
 
-    return render_template('result.html', image_path=output_image_path)
-
-if __name__ == '__main__':
-    app.run()
-
+    return output_image_path
