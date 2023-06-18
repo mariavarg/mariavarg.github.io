@@ -9,7 +9,7 @@ def home():
 
 @app.route('/process_image')
 def process_image():
-    image_file = 'path_to_your_image.jpg'
+    image_file = 'Flask/static/images/Desdemona by mariavarg.png'
 
     # Open the image
     image = Image.open(image_file)
@@ -35,7 +35,7 @@ def process_image():
     draw.text((x, y), text, font=font, fill=color)
 
     # Save the image
-    output_image_path = 'static/poster.jpg'
+    output_image_path = 'static/poster.png'
     image.save(output_image_path)
 
     return render_template('result.html', image_path=output_image_path)
