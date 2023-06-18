@@ -43,7 +43,7 @@ def process_image(image_file):
       <a class="nav-link" href="about.html">ABOUT</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="Flask/poster.py">NEXT</a>
+      <a class="nav-link" href="about.html">NEXT</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="Iphigeneia.html">PREVIOUS</a>
