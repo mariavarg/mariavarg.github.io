@@ -26,7 +26,7 @@ def process_image(image_file):
     draw.text((x, y), text, font=font, fill=color)
 
     # Save the image
-    output_image_path = '/workspaces/75952007/Flask/static/images/poster.jpg'
+    output_image_path = '/workspaces/75952007/Flask/static/images/poster.png'
     image.save(output_image_path)
 
     return output_image_path
