@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<meta name="viewport" content="width=device-width-10, initial-scale=1.0">
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles1.css" rel="stylesheet">
+        <title>My Website</title>
+    </head>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
+body, h2, h4 {
+  font-family: "Sofia", sans-serif;
+}
+</style>
+</head>
+
+<!-- Page content -->
+</div>
+<div class="content">
+
+<style>
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+</style>
+   
+<html>
+<head>
+  <title>Image Processing</title>
+</head>
+<body>
+  <form action="/process_image" method="POST" enctype="multipart/form-data">
+    <label for="image">Choose an image:</label>
+    <input type="file" id="image" name="image" accept="image/*">
+    <br>
+    <input type="submit" value="Process Image">
+  </form>
+</body>
+</html>
+
+    
+   <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
+<ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">HOME!</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="contactme.html">CONTACT</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="about.html">ABOUT</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="about.html">NEXT</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="Iphigeneia.html">PREVIOUS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="javascript:history.go(-1)">BACK</a>
+    </li>
+   </ul>
+
+</nav>
+
+<div id="terminal">
+  <pre id="output"></pre>
+  <input id="input" type="text" autofocus />
+</div>
+
+<style>
+    #terminal {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+}
+
+#output {
+  font-family: monospace;
+}
+
+#input {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: monospace;
+  outline: none;
+}
+</style>
+
+<script>const terminalOutput = document.getElementById('output');
+const terminalInput = document.getElementById('input');
+
+function handleUserInput(event) {
+  if (event.key === 'Enter') {
+    const command = terminalInput.value;
+    executeCommand(command);
+    terminalInput.value = '';
+  }
+}
+
+function executeCommand(command) {
+  // Perform desired actions based on the command
+  const outputText = `Command executed: ${command}`;
+  appendToTerminal(outputText);
+}
+
+function appendToTerminal(output) {
+  terminalOutput.innerHTML += `<div>${output}</div>`;
+}
+    terminalInput.addEventListener('keydown', handleUserInput);
+</script>
+
+</body>
+
+       </html>
+

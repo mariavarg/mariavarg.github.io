@@ -1,0 +1,90 @@
+body, html {
+    height:100%;
+  }
+
+  head, div {
+    max-width: 500px;
+    margin: 10.5px;
+    text-align:center;
+  }
+
+  .responsive {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+
+  .bg {
+    /* The image used */
+    background-image: url("Flask/static/images/Desdemona by mariavarg.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Align and scale the image nicely */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: left;
+
+  }
+
+  .content {
+    max-width: 500px;
+    margin: auto;
+  }
+
+  #Responsive-logo{
+    display: hidden;
+    width: 48px;
+    height: 48px;
+    background-size: 37px;
+  }
+
+  media screen and (max-width: 500px){
+    *{
+      margin: 0;
+    }
+    {
+      #Responsive-logo{
+        display: inline-block;
+        background: gray;
+        border: 1px solid black;
+        border-radius: 1px;
+      }
+
+      .bp-widget {
+      max-width: 500px;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+  }
+
+    }
+
+    .container {
+    display: center;
+    flex-direction: center;
+    align-items: center;
+  }
