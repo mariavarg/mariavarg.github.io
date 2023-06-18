@@ -8,7 +8,8 @@ def process_image(image_file):
     draw = ImageDraw.Draw(image)
 
     # Choose a font and font size
-    font = ImageFont.truetype('arial.ttf', 36)
+    font = ImageFont.truetype('
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia', 36)
 
     # Get the size of the text
     text = 'My Poster'
