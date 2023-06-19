@@ -3,7 +3,7 @@ import openai  # pip install openai
 import urllib.request
 from datetime import datetime
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("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")
 
 user_prompt = input("Write your prompt for DALL-E 2: ")
 
