@@ -54,30 +54,31 @@
             let canvas = document.getElementById("meme-canvas");
             let ctx = canvas.getContext("2d");
 
-            function generateMeme(image, topText, bottomText, topTextSize, bottomTextSize) {
-                // Clear the canvas
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+           function generateMeme(image, topText, bottomText, topTextSize, bottomTextSize) {
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                // Draw the image on the canvas
-                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    // Draw the image on the canvas with auto height
+    ctx.drawImage(image, 0, 0, canvas.width, image.height * (canvas.width / image.width));
 
-                // Set the text properties
-                ctx.font = `${topTextSize * canvas.height}px Impact`;
-                ctx.fillStyle = 'white';
-                ctx.strokeStyle = 'black';
-                ctx.lineWidth = canvas.height / 100;
+    // Set the text properties
+    ctx.font = `${topTextSize * canvas.height}px Impact`;
+    ctx.fillStyle = 'white';
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = canvas.height / 100;
 
-                // Draw the top text
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'top';
-                ctx.fillText(topText, canvas.width / 2, 0, canvas.width);
-                ctx.strokeText(topText, canvas.width / 2, 0, canvas.width);
+    // Draw the top text
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    ctx.fillText(topText, canvas.width / 2, 0, canvas.width);
+    ctx.strokeText(topText, canvas.width / 2, 0, canvas.width);
 
-                // Draw the bottom text
-                ctx.textBaseline = 'bottom';
-                ctx.fillText(bottomText, canvas.width / 2, canvas.height, canvas.width);
-                ctx.strokeText(bottomText, canvas.width / 2, canvas.height, canvas.width);
-            }
+    // Draw the bottom text
+    ctx.textBaseline = 'bottom';
+    ctx.fillText(bottomText, canvas.width / 2, canvas.height, canvas.width);
+    ctx.strokeText(bottomText, canvas.width / 2, canvas.height, canvas.width);
+}
+
 
             generateBtn.addEventListener("click", function() {
                 // Get the values from the inputs
