@@ -1,151 +1,22 @@
 <!DOCTYPE html>
-
-<meta name="viewport" content="width=device-width-10, initial-scale=1.0">
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-        <link href="styles1.css" rel="stylesheet">
-        <title>My Website</title>
-    </head>
 <head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-<style>
-body, h2, h4 {
-  font-family: "Sofia", sans-serif;
-}
-</style>
-</head>
-
-<meta name="viewport" content="width=device-width-10, initial-scale=1.0">
-<style>
-.body {
-  background: #555;
-}
-
-.content {
-   max-width: 500px;
-   margin: auto;
-   background: white;
-   padding: 10px;
-   align: center;
-   }
-:root {
-   font-family: "Sofia", sans-serif;
-   font-size: 14px;
-}
-
-* {
-   font: inherit;
-}
-
-#meme-canvas {
-   width:500px;
-}
+    <meta charset="utf-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link href="styles1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+        body, h2, h4 {
+            font-family: "Sofia", sans-serif;
+        }
     </style>
-
-
-</div>
-<div class="content">
-    
-    <head>
-        <head>
+</head>
+<body>
+    <div class="content">
         <h4>Poster Generator</h4>
-            
-<script>
-
-    let topTextInput, bottomTextInput, topTextSizeInput, bottomTextSizeInput, imageInput, generateBtn, canvas, ctx;
-
-function generateMeme (img, topText, bottomText, topTextSize, bottomTextSize) {
-    let fontSize;
-
-    // Size canvas to image
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // Draw main image
-    ctx.drawImage(img, 0, 0);
-
-    // Text style: white with black borders
-    ctx.fillStyle = 'white';
-    ctx.strokeStyle = 'black';
-    ctx.textAlign = 'center';
-
-    // Top text font size
-    fontSize = canvas.width * topTextSize;
-    ctx.font = fontSize + 'px Impact';
-    ctx.lineWidth = fontSize / 20;
-
-    // Draw top text
-    ctx.textBaseline = 'top';
-    topText.split('\n').forEach(function (t, i) {
-        ctx.fillText(t, canvas.width / 2, i * fontSize, canvas.width);
-        ctx.strokeText(t, canvas.width / 2, i * fontSize, canvas.width);
-    });
-
-    // Bottom text font size
-    fontSize = canvas.width * bottomTextSize;
-    ctx.font = fontSize + 'px Impact';
-    ctx.lineWidth = fontSize / 20;
-
-    // Draw bottom text
-    ctx.textBaseline = 'bottom';
-    bottomText.split('\n').reverse().forEach(function (t, i) { // .reverse() because it's drawing the bottom text from the bottom up
-        ctx.fillText(t, canvas.width / 2, canvas.height - i * fontSize, canvas.width);
-        ctx.strokeText(t, canvas.width / 2, canvas.height - i * fontSize, canvas.width);
-    });
-}
-
-function init () {
-    // Initialize variables
-    topTextInput = document.getElementById('top-text');
-    bottomTextInput = document.getElementById('bottom-text');
-    topTextSizeInput = document.getElementById('top-text-size-input');
-    bottomTextSizeInput = document.getElementById('bottom-text-size-input');
-    imageInput = document.getElementById('image-input');
-    generateBtn = document.getElementById('generate-btn');
-    canvas = document.getElementById('meme-canvas');
-    
-    ctx = canvas.getContext('2d');
-
-    canvas.width = canvas.height = 0;
-
-    // Default/Demo text
-    topTextInput.value = bottomTextInput.value = 'Demo\nText';
-
-    // Generate button click listener
-    generateBtn.addEventListener('click', function () {
-        // Read image as DataURL using the FileReader API
-        let reader = new FileReader();
-        reader.onload = function () {
-            let img = new Image;
-            img.src = reader.result;
-            generateMeme(img, topTextInput.value, bottomTextInput.value, topTextSizeInput.value, bottomTextSizeInput.value);
-        };
-        reader.readAsDataURL(imageInput.files[0]);
-    });
-}
-
-init();
-</script>
-            <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="styles1.css">
-    </head>
-    <body>
-
-        <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Meme Generator</title>
-        <link rel="stylesheet" href="meme-generator.css">
-    </head>
-    <body>
         <p>
             <textarea id="top-text"></textarea>
             Text size: <input type="range" id="top-text-size-input" min="0.05" max="0.25" value="0.15" step="0.01">
@@ -163,7 +34,11 @@ init();
         <p>
             <canvas id="meme-canvas" title="Right click -> &quot;Save image as...&quot;"></canvas>
         </p>
-        <script src="meme-generator.js"></script>
+    </div>
+    <script>
+        let topTextInput, bottomTextInput, topTextSizeInput, bottomTextSizeInput, imageInput, generateBtn, canvas, ctx;
+
+        function generateMeme(img, topText, bottomText, topTextSize
     </body>
 </html>
         
