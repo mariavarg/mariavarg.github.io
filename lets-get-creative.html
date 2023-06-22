@@ -59,6 +59,8 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw the image on the canvas with auto height
+    canvas.width = desiredWidth;
+    canvas.height = desiredHeight;          
     ctx.drawImage(image, 0, 0, canvas.width, image.height * (canvas.width / image.width));
 
     // Set the text properties
