@@ -25,7 +25,10 @@
     <div class="content">
         <h4>Poster Generator</h4>
         <p>
-            
+            <textarea id="top-text"></textarea>
+            Text size: <input type="range" id="top-text-size-input" min="0.05" max="0.25" value="0.15" step="0.01">
+        </p>
+        <p>
             <textarea id="bottom-text"></textarea>
             Text size: <input type="range" id="bottom-text-size-input" min="0.05" max="0.25" value="0.15" step="0.01">
         </p>
@@ -39,7 +42,6 @@
             <canvas id="meme-canvas" title="Right click -> &quot;Save image as...&quot;"></canvas>
         </p>
     </div>
-    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let topTextInput = document.getElementById("top-text");
@@ -48,11 +50,13 @@
             let bottomTextSizeInput = document.getElementById("bottom-text-size-input");
             let imageInput = document.getElementById("image-input");
             let generateBtn = document.getElementById("generate-btn");
-            canvas = document.getElementById('meme-canvas');
-
-            ctx = canvas.getContext('2d');
+            let canvas = document.getElementById('meme-canvas');
+    
+    ctx = canvas.getContext('2d');
 
     canvas.width = canvas.height = 0;
+
+
 
             generateBtn.addEventListener("click", function() {
                 // Get the values from the inputs
@@ -60,19 +64,23 @@
                 let bottomText = bottomTextInput.value;
                 let topTextSize = topTextSizeInput.value;
                 let bottomTextSize = bottomTextSizeInput.value;
-
                 let reader = new FileReader();
-        reader.onload = function () {
-            let img = new Image;
-            img.src = reader.result;
-            generateMeme(img, topTextInput.value, bottomTextInput.value, topTextSizeInput.value, bottomTextSizeInput.value);
+                reader.onload = function () {
+                    let img = new Image;
+                    img.src = reader.result;
+                    generateMeme(img, topTextInput.value, bottomTextInput.value, topTextSizeInput.value, bottomTextSizeInput.value);
         };
-        reader.readAsDataURL(imageInput.files[0]);
-    });
-}
+                reader.readAsDataURL(imageInput.files[0]);
+                });
+            }
+            init();                                  
 
-init();    
-     });
+                // Example: Log the input values
+                console.log("Top Text:", topText);
+                console.log("Bottom Text:", bottomText);
+                console.log("Top Text Size:", topTextSize);
+                console.log("Bottom Text Size:", bottomTextSize);
+            });
         });
     </script>
     
@@ -108,5 +116,3 @@ init();
 </body>
 </html>
 
-        
-  
