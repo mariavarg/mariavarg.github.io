@@ -50,6 +50,13 @@
             let bottomTextSizeInput = document.getElementById("bottom-text-size-input");
             let imageInput = document.getElementById("image-input");
             let generateBtn = document.getElementById("generate-btn");
+            canvas = document.getElementById('meme-canvas');
+
+            ctx = canvas.getContext('2d');
+
+    canvas.width = canvas.height = 0;
+
+
 
             generateBtn.addEventListener("click", function() {
                 // Get the values from the inputs
@@ -58,10 +65,18 @@
                 let topTextSize = topTextSizeInput.value;
                 let bottomTextSize = bottomTextSizeInput.value;
 
-                // Perform the desired action or generate the poster using the provided values
-                // You can write your code here to generate the poster or perform any other action
+                let reader = new FileReader();
+        reader.onload = function () {
+            let img = new Image;
+            img.src = reader.result;
+            generateMeme(img, topTextInput.value, bottomTextInput.value, topTextSizeInput.value, bottomTextSizeInput.value);
+        };
+        reader.readAsDataURL(imageInput.files[0]);
+    });
+}
 
-                // Example: Log the input values
+init();
+    
                 console.log("Top Text:", topText);
                 console.log("Bottom Text:", bottomText);
                 console.log("Top Text Size:", topTextSize);
