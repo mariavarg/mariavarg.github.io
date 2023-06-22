@@ -67,7 +67,11 @@
 
 
     // Set the text properties
-    ctx.font = `${topTextSize * canvas.height}px Impact`;
+    ctx.font = `${topTextSize * canvas.height}px "Sofia", sans-serif`;
+ctx.fillStyle = 'white';
+ctx.strokeStyle = 'black';
+ctx.lineWidth = canvas.height / 100;
+
     ctx.fillStyle = 'white';
     ctx.strokeStyle = 'black';
     ctx.lineWidth = canvas.height / 100;
