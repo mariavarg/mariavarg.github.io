@@ -51,7 +51,23 @@
             let imageInput = document.getElementById("image-input");
             let generateBtn = document.getElementById("generate-btn");
 
-            
+            generateBtn.addEventListener("click", function() {
+                // Get the values from the inputs
+                let topText = topTextInput.value;
+                let bottomText = bottomTextInput.value;
+                let topTextSize = topTextSizeInput.value;
+                let bottomTextSize = bottomTextSizeInput.value;
+
+                // Perform the desired action or generate the poster using the provided values
+                // You can write your code here to generate the poster or perform any other action
+
+                // Example: Log the input values
+                console.log("Top Text:", topText);
+                console.log("Bottom Text:", bottomText);
+                console.log("Top Text Size:", topTextSize);
+                console.log("Bottom Text Size:", bottomTextSize);
+            });
+        });
     </script>
     
     </head>
@@ -82,10 +98,9 @@
         <audio controls autoplay>
   <source src="Starry starry Night.mp3" type="audio/mpeg">
 </audio>
-    
 
 </body>
 </html>
-        
+
         
   
