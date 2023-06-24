@@ -54,34 +54,39 @@
             let canvas = document.getElementById("meme-canvas");
             let ctx = canvas.getContext("2d");
 
-   function generateMeme(image, topText, bottomText, topTextSize, bottomTextSize) {
-    // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+            function generateMeme(image, topText, bottomText, topTextSize, bottomTextSize) {
+                // Clear the canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Set the canvas width and height
-    canvas.width = 500;
-    canvas.height = image.height * (canvas.width / image.width);
+                // Set the canvas width and height
+                canvas.width = 500;
+                canvas.height = image.height * (canvas.width / image.width);
 
-    // Draw the image on the canvas with auto height
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+                // Draw the image on the canvas with auto height
+                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-    // Set the text properties
-    ctx.font = `${topTextSize * canvas.height}px "Sofia", sans-serif`;
-    ctx.fillStyle = 'white';
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = canvas.height / 200;
+                // Set the text properties
+                let topTextFontSize = topTextSize * canvas.height;
+                let bottomTextFontSize = bottomTextSize * canvas.height;
 
-    // Draw the top text
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
-    ctx.fillText(topText, canvas.width / 2, 0, canvas.width);
-    ctx.strokeText(topText, canvas.width / 2, 0, canvas.width);
+                ctx.font = `${topTextFontSize}px "Sofia", sans-serif`;
+                ctx.fillStyle = 'white';
+                ctx.strokeStyle = 'black';
+                ctx.lineWidth = canvas.height / 200;
 
-    // Draw the bottom text
-    ctx.textBaseline = 'bottom';
-    ctx.fillText(bottomText, canvas.width / 2, canvas.height, canvas.width);
-    ctx.strokeText(bottomText, canvas.width / 2, canvas.height, canvas.width);
-}
+                // Draw the top text
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText(topText, canvas.width / 2, 0, canvas.width);
+                ctx.strokeText(topText, canvas.width / 2, 0, canvas.width);
+
+                // Draw the bottom text
+                ctx.textBaseline = 'bottom';
+                ctx.font = `${bottomTextFontSize}px "Sofia", sans-serif`;
+                ctx.fillText(bottomText, canvas.width / 2, canvas.height, canvas.width);
+                ctx.strokeText(bottomText, canvas.width / 2, canvas.height, canvas.width);
+            }
+
             generateBtn.addEventListener("click", function() {
                 // Get the values from the inputs
                 let topText = topTextInput.value;
@@ -133,3 +138,4 @@
     </audio>
 </body>
 </html>
+
