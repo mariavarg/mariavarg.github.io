@@ -21,11 +21,59 @@
             text-align: center;
         }
     </style>
+    
+<py-script>class Tetris:
+  def __init__(self):
+    self.border = np.zeros((7,7))
+    self.borderback = self.border.copy()
+    self.recshape = np.array([[1,1,1,1]])
+    self.sshape = np.array([[0,1],[1,1],[1,0]])
+    self.stshape = np.array([[1,0],[1,1],[0,1]])
+    self.squshape = np.array([[1,1],[1,1]])
+    self.tshape = np.array([[0,1,0],[1,1,1]])
+    self.lshape = np.array([[1,1],[1,0],[1,0]])
+    self.ltshape = np.array([[1,1],[0,1],[0,1]])
+    
+    self.allshapes = [self.recshape, self.squshape, self.sshape, self.stshape, 
+                      self.tshape, self.lshape, self.ltshape]
+    
+    self.runProgram = True
+    
+    
+  def getspace(self):
+    return np.sum(self.borderback, axis=0)
 
-    <head>
-    <div class="content"><script src="https://gist.github.com/chmodsss/615b82234f6cf35fe5deab6d6e2e9bfe.js"></script></div>
-</head>
+  def getpose(self, box, piece):
+    fitspace = []
+    for i in range(len(box) - len(piece)+1):
+      boxcopy = box.copy()
+      boxcopy[i:i+len(piece)] += piece
+      fitspace.append(boxcopy)
+    boxheight = np.max(fitspace, axis=1)
+    position = np.where(boxheight == min(boxheight))
+    return position[0][0]
 
+
+  def setpiece(self, piece):
+    (px,py) = piece.shape
+    (bx,by) = self.border.shape
+    spaceleft = self.getspace()
+    pieceback = np.ones(piece.shape)
+    pieceweight = np.sum(pieceback, axis=0)
+    xpose = self.getpose(spaceleft, pieceweight)
+    ypose = int(spaceleft[xpose])
+    if bx-(px+ypose) >= 0:
+      self.border[bx-(px+ypose):bx-ypose, xpose:py+xpose] = piece
+      self.borderback[bx-(px+ypose):bx-ypose, xpose:py+xpose] = pieceback
+    else:
+      print("No space left. End of program....")
+      self.runProgram = False
+
+  def runtetris(self,piece):
+    self.setpiece(piece)
+    print(self.border)</py-script>
+   
+    
 <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item">
