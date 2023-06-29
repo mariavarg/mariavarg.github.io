@@ -86,5 +86,43 @@ def main():
                 p = (pos[0], pos[1])
                 locked_positions[p] = current_piece.color
             current_piece = next_piece
+            next_piece = get_shape()
+            change_piece = False
 
+            # call four times to check for multiple clear rows
+            if clear_rows(grid, locked_positions):
+                score += 10
+
+        draw_window(win)
+        draw_next_shape(next_piece, win)
+        pygame.display.update()
+
+        # Check if user lost
+        if check_lost(locked_positions):
+            run = False
+
+    draw_text_middle("You Lost", 40, (255,255,255), win)
+    pygame.display.update()
+    pygame.time.delay(2000)
+
+
+def main_menu():
+    run = True
+    while run:
+        win.fill((0,0,0))
+        draw_text_middle('Press any key to begin.', 60, (255, 255, 255), win)
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+
+            if event.type == pygame.KEYDOWN:
+                main()
+    pygame.quit()
+
+
+win = pygame.display.set_mode((s_width, s_height))
+pygame.display.set_caption('Tetris')
+
+main_menu()  # start game
     pygame.mixer.music.stop()
