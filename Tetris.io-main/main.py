@@ -6,7 +6,7 @@ import pygame.mixer
 
 def main():
     def main():
-      global grid
+    global grid
 
     pygame.mixer.music.load("06-Kashmir.mp3")
     pygame.mixer.music.play(-1)
