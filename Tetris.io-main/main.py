@@ -5,12 +5,13 @@ import pygame.mixer
 # Rest of the code...
 
 def main():
+    def main():
     global grid
 
-    pygame.mixer.music.load("06-Kashmir.mp3")  # Replace "path_to_kashmir.mp3" with the actual file path of the "Kashmir" song
-    pygame.mixer.music.play(-1)  # -1 indicates that the music should loop indefinitely
+    pygame.mixer.music.load("06-Kashmir.mp3")
+    pygame.mixer.music.play(-1)
 
-    locked_positions = {}  # (x,y):(255,0,0)
+    locked_positions = {}
     grid = create_grid(locked_positions)
 
     change_piece = False
@@ -25,7 +26,7 @@ def main():
     
     while run:
         # Rest of the game loop
-          grid = create_grid(locked_positions)
+        grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
         level_time += clock.get_rawtime()
         clock.tick()
