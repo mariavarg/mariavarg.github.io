@@ -3,3 +3,5 @@ name: run main.py
 - name: Setup Python
   uses: actions/setup-python@v3.1.4
 
+- name: Gradle CMD
+  uses: puredevops/sample-action@v1.3
