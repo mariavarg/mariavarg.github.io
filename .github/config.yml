@@ -2,3 +2,5 @@
   uses: JossyDevers/transpiler-js@v1.0.1
 - name: compress-action
   uses: Charlesworth/compress-action@1.0.0
+- name: Gradle CMD
+  uses: puredevops/sample-action@v1.3
