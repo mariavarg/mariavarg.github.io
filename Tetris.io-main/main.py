@@ -3,7 +3,6 @@ import random
 import pygame.mixer
 
 def main():
-    def main():
     global grid
 
     pygame.mixer.music.load("06-Kashmir.mp3")
