@@ -2,8 +2,6 @@ import pygame
 import random
 import pygame.mixer
 
-# Rest of the code...
-
 def main():
     def main():
     global grid
