@@ -126,4 +126,4 @@ win = pygame.display.set_mode((s_width, s_height))
 pygame.display.set_caption('Tetris')
 
 main_menu()  # start game
-    pygame.mixer.music.stop()
+pygame.mixer.music.stop()
