@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-
-<meta name="viewport" content="width=device-width-10, initial-scale=1.0">
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-        <link href="styles1.css" rel="stylesheet">
-        <title>My Website</title>
-        <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-<script defer src="https://pyscript.net/latest/pyscript.js"></script>
-    <link href="Tetris.io-main/styles1.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="styles1.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <style>
         body, h1 {
             font-family: "Sofia", sans-serif;
         }
     </style>
-    
 </head>
 <body>
-    <meta name="viewport" content="width=device-width-10, initial-scale=1.0">
-
     <div class="content">
-        <py-script src="main.py"></py-script>
+        <canvas id="gameCanvas" width="450" height="auto"></canvas>
+    </div>
+
+    <script type="text/javascript" src="https://pyodide.org/pyodide.js"></script>
+    <script type="text/javascript" src="https://pyscript.net/latest/pyscript.js"></script>
+    <script type="text/javascript">
+        async function loadAndRunPygame() {
+            await languagePluginLoader;
+
+            // Initialize Pyodide
+            const pyodide = await loadPyodide({ indexURL: 'https://pyodide.org/v0.18.0/full/' });
+
+            // Load Pygame and other required modules
+            await pyodide.loadPackage(['pygame']);
+
+            // Run your Python code
+            pyodide.runPython(`
+                import pygame
+
+                # Your Pygame code here
+            `);
+        }
+
+        loadAndRunPygame();
+    </script>
+</body>
+</html>
     </div>
 
  <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
