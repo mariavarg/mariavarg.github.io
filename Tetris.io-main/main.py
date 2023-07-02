@@ -296,7 +296,7 @@ def main():
 # Setting up The Window
 # The last thing we need to do for this tutorial is setup the pygame window and give it a caption. This will go at the very end of the program, not within any function.
 
-win = pygame.display.set_mode((s_width=450, s_height))
+win = pygame.display.set_mode((s_width, s_height))
 pygame.display.set_caption(\'Tetris\')
 Testing The Program
 If you'd like to test the program you can simply call main() at the very end of the program like so.
