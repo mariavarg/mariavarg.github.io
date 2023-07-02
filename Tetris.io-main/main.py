@@ -2,8 +2,9 @@ import pygame
 import random
 import pygame.mixer
 
-    pygame.mixer.music.load("06-Kashmir.mp3")
-    pygame.mixer.music.play(-1)
+
+pygame.mixer.music.load("06-Kashmir.mp3")
+pygame.mixer.music.play(-1)
 
 # creating the data structure for pieces
 # setting up global vars
