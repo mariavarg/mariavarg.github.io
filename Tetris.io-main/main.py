@@ -287,6 +287,8 @@ def check_lost(positions):
 
 def main():
     global grid
+    score = 0
+    last_score = max_score()  
 
     locked_positions = {}  # (x,y):(255,0,0)
     grid = create_grid(locked_positions)
@@ -296,8 +298,15 @@ def main():
     next_piece = get_shape()
     clock = pygame.time.Clock()
     fall_time = 0
+    level_time = 0  
 
     while run:
+    level_time += clock.get_rawtime()
+
+    if level_time/1000 > 5:
+        level_time = 0
+        if level_time > 0.12:
+            level_time -= 0.005
         fall_speed = 0.27
         
         grid = create_grid(locked_positions)
@@ -384,6 +393,7 @@ def clear_rows(grid, locked):
         # Check if user lost
         if check_lost(locked_positions):
             run = False
+    return inc      
 
 def draw_next_shape(shape, surface):
     font = pygame.font.SysFont('comicsans', 30)
