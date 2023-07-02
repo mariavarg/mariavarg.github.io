@@ -232,9 +232,48 @@ def get_shape():
             pygame.draw.rect(surface, grid[i][j], (top_left_x + j* 30, top_left_y + i * 30, 30, 30), 0)
  
     # draw grid and border
-    draw_grid(surface, 20, 10)
-    pygame.draw.rect(surface, (255, 0, 0), (top_left_x, top_left_y, play_width, play_height), 5)
-    pygame.display.update()
+    def draw_grid(surface, row, col):
+# This function draws the grey grid lines that we see
+    sx = top_left_x
+    sy = top_left_y
+    for i in range(row):
+        pygame.draw.line(surface, (128,128,128), (sx, sy+ i*30), (sx + play_width, sy + i * 30))  # horizontal lines
+        for j in range(col):
+            pygame.draw.line(surface, (128,128,128), (sx + j * 30, sy), (sx + j * 30, sy + play_height))  # vertical lines
+
+def convert_shape_format(shape):
+    positions = []
+    format = shape.shape[shape.rotation % len(shape.shape)]
+ 
+    for i, line in enumerate(format):
+        row = list(line)
+        for j, column in enumerate(row):
+            if column == \'0\':
+                positions.append((shape.x + j, shape.y + i))
+ 
+    for i, pos in enumerate(positions):
+        positions[i] = (pos[0] - 2, pos[1] - 4)
+ 
+    return positions
+
+def valid_space(shape, grid):
+    accepted_positions = [[(j, i) for j in range(10) if grid[i][j] == (0,0,0)] for i in range(20)]
+    accepted_positions = [j for sub in accepted_positions for j in sub]
+    formatted = convert_shape_format(shape)
+ 
+    for pos in formatted:
+        if pos not in accepted_positions:
+            if pos[1] > -1:
+                return False
+ 
+    return True
+
+def check_lost(positions):
+    for pos in positions:
+        x, y = pos
+        if y < 1:
+            return True
+    return False
 # The Game Loop
 # In every game we have something called a game loop or a main loop. This is what will be running constantly and checking to see if events occur. Our game loop will go inside the main() function.
 
@@ -248,47 +287,84 @@ def get_shape():
 
 def main():
     global grid
- 
+
     locked_positions = {}  # (x,y):(255,0,0)
     grid = create_grid(locked_positions)
- 
     change_piece = False
     run = True
     current_piece = get_shape()
     next_piece = get_shape()
     clock = pygame.time.Clock()
     fall_time = 0
- 
+
     while run:
+        # -------NEW CODE---------
+        fall_speed = 0.27
+        
+        grid = create_grid(locked_positions)
+        fall_time += clock.get_rawtime()
+        clock.tick()
+    
+        # PIECE FALLING CODE
+        if fall_time/1000 >= fall_speed:
+            fall_time = 0
+            current_piece.y += 1
+            if not (valid_space(current_piece, grid)) and current_piece.y > 0:
+                current_piece.y -= 1
+                change_piece = True
+        # --------END NEW CODE---------
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.display.quit()
                 quit()
- 
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     current_piece.x -= 1
                     if not valid_space(current_piece, grid):
                         current_piece.x += 1
- 
+
                 elif event.key == pygame.K_RIGHT:
                     current_piece.x += 1
                     if not valid_space(current_piece, grid):
                         current_piece.x -= 1
                 elif event.key == pygame.K_UP:
                     # rotate shape
-                    current_piece.rotation = (current_piece.rotation + 1) % len(current_piece.shape)
+                    current_piece.rotation = current_piece.rotation + 1 % len(current_piece.shape)
                     if not valid_space(current_piece, grid):
                         current_piece.rotation = current_piece.rotation - 1 % len(current_piece.shape)
- 
+
                 if event.key == pygame.K_DOWN:
                     # move shape down
                     current_piece.y += 1
                     if not valid_space(current_piece, grid):
                         current_piece.y -= 1
-       
-# Setting up The Window
+
+        shape_pos = convert_shape_format(current_piece)
+
+        # add color of piece to the grid for drawing
+        for i in range(len(shape_pos)):
+            x, y = shape_pos[i]
+            if y > -1: # If we are not above the screen
+                grid[y][x] = current_piece.color
+       # IF PIECE HIT GROUND
+       if change_piece:
+            for pos in shape_pos:
+                p = (pos[0], pos[1])
+                locked_positions[p] = current_piece.color
+            current_piece = next_piece
+            next_piece = get_shape()
+            change_piece = False
+
+        draw_window(win, grid)
+
+        # Check if user lost
+        if check_lost(locked_positions):
+            run = False
+      
+Setting up The Window
 # The last thing we need to do is setup the pygame window and give it a caption. This will go at the very end of the program, not within any function.
 
 win = pygame.display.set_mode((s_width, s_height))
