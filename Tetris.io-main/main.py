@@ -183,8 +183,8 @@ def main_menu():
     pass
 
 main_menu()  # start game
-Piece Class
-Since we will be creating multiple shapes it makes sense to create a piece class that can store some information about each shape.
+# Piece Class
+# Since we will be creating multiple shapes it makes sense to create a piece class that can store some information about each shape.
 
 class Piece(object):
     rows = 20  # y
@@ -196,10 +196,10 @@ class Piece(object):
         self.shape = shape
         self.color = shape_colors[shapes.index(shape)]
         self.rotation = 0  # number from 0-3
-Creating a Grid
-The way that we will keep track of pieces in the game is using a grid data structure. We will create a multidimensional list that contains 20 lists of 10 elements (rows and columns). Each element in the lists will be a tuple representing the color of the piece in that current position. This will allow us to draw all of the colored squares quite easily as we can simply loop through the multidimensional list.
+# Creating a Grid
+# The way that we will keep track of pieces in the game is using a grid data structure. We will create a multidimensional list that contains 20 lists of 10 elements (rows and columns). Each element in the lists will be a tuple representing the color of the piece in that current position. This will allow us to draw all of the colored squares quite easily as we can simply loop through the multidimensional list.
 
-The locked position parameter will contain a dictionary of key value pairs where each key is a position of a piece that has already fallen and each value is its color. We will loop through these locked positions and modify our blank grid to show these pieces.
+# The locked position parameter will contain a dictionary of key value pairs where each key is a position of a piece that has already fallen and each value is its color. We will loop through these locked positions and modify our blank grid to show these pieces.
 
 def create_grid(locked_positions={}):
     grid = [[(0,0,0) for x in range(10)] for x in range(20)]
@@ -210,17 +210,17 @@ def create_grid(locked_positions={}):
                 c = locked_positions[(j,i)]
                 grid[i][j] = c
     return grid
-Getting a Random Shape
-Since we will be dropping shapes down the screen at random we need to generate a random shape. This will be done in the get_shape() function.
+# Getting a Random Shape
+# Since we will be dropping shapes down the screen at random we need to generate a random shape. This will be done in the get_shape() function.
 
 def get_shape():
     global shapes, shape_colors
  
     return Piece(5, 0, random.choice(shapes))
-Drawing the Grid
-I am not going to explain all of the pygame functions and methods I use as if you are familair with pygame you should know them. However, if you'd like to learn more about the basics of pygame click here!
+# Drawing the Grid
+# I am not going to explain all of the pygame functions and methods I use as if you are familair with pygame you should know them. However, if you'd like to learn more about the basics of pygame click here!
 
-We will simply be calling the function below to draw all of our objects to the screen. In this function we call some functions that we will be coding later.
+# We will simply be calling the function below to draw all of our objects to the screen. In this function we call some functions that we will be coding later.
 
     surface.fill((0,0,0))
     # Tetris Title
@@ -237,16 +237,16 @@ We will simply be calling the function below to draw all of our objects to the s
     draw_grid(surface, 20, 10)
     pygame.draw.rect(surface, (255, 0, 0), (top_left_x, top_left_y, play_width, play_height), 5)
     pygame.display.update()
-The Game Loop
-In every game we have something called a game loop or a main loop. This is what will be running constantly and checking to see if events occur. Our game loop will go inside the main() function.
+# The Game Loop
+# In every game we have something called a game loop or a main loop. This is what will be running constantly and checking to see if events occur. Our game loop will go inside the main() function.
 
-In this function we will start by defining some variables and then move into the while loop. Inside the while loop we will check for key press events and see if the user wants to exit the game.
+# In this function we will start by defining some variables and then move into the while loop. Inside the while loop we will check for key press events and see if the user wants to exit the game.
 
-When the user presses the up arrow key the piece will rotate. We can do this by simply increasing our shapes rotation attribute to be the next shape in the list we set up at the beginning of the program.
+# When the user presses the up arrow key the piece will rotate. We can do this by simply increasing our shapes rotation attribute to be the next shape in the list we set up at the beginning of the program.
 
-When the user hits the left or right arrow keys we will move accordingly bu changing the x value of our piece.
+# When the user hits the left or right arrow keys we will move accordingly bu changing the x value of our piece.
 
-Finally when the user hist the down arrow key we will move down one square allowing the user to increase the speed at which the shape falls.
+# Finally when the user hist the down arrow key we will move down one square allowing the user to increase the speed at which the shape falls.
 
 def main():
     global grid
@@ -290,11 +290,11 @@ def main():
                     if not valid_space(current_piece, grid):
                         current_piece.y -= 1
 
-        draw_window(win)
-We will be adding more to this function in the future.
+        # draw_window(win)
+# We will be adding more to this function in the future.
 
-Setting up The Window
-The last thing we need to do for this tutorial is setup the pygame window and give it a caption. This will go at the very end of the program, not within any function.
+# Setting up The Window
+# The last thing we need to do for this tutorial is setup the pygame window and give it a caption. This will go at the very end of the program, not within any function.
 
 win = pygame.display.set_mode((s_width=450px, s_height))
 pygame.display.set_caption(\'Tetris\')
