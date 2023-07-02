@@ -1,5 +1,5 @@
 body, html {
-  height:100%;
+  height:auto;
 }
 
 div {
@@ -47,7 +47,7 @@ div {
 }
 
 .content {
-  max-width: 500px;
+  max-width: 450px;
   margin: auto;
 }
 
@@ -71,8 +71,8 @@ media screen and (max-width: 500px){
     }
     
     .bp-widget {
-    max-width: 500px;
-    width: 100%;
+    max-width: 450px;
+    width: auto;
     height: 100%;
     position: fixed;
     bottom: 0;
