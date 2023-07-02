@@ -218,8 +218,6 @@ def get_shape():
  
     return Piece(5, 0, random.choice(shapes))
 # Drawing the Grid
-# I am not going to explain all of the pygame functions and methods I use as if you are familair with pygame you should know them. However, if you'd like to learn more about the basics of pygame click here!
-
 # We will simply be calling the function below to draw all of our objects to the screen. In this function we call some functions that we will be coding later.
 
     surface.fill((0,0,0))
@@ -289,12 +287,9 @@ def main():
                     current_piece.y += 1
                     if not valid_space(current_piece, grid):
                         current_piece.y -= 1
-
-        # draw_window(win)
-# We will be adding more to this function in the future.
-
+       
 # Setting up The Window
-# The last thing we need to do for this tutorial is setup the pygame window and give it a caption. This will go at the very end of the program, not within any function.
+# The last thing we need to do is setup the pygame window and give it a caption. This will go at the very end of the program, not within any function.
 
 win = pygame.display.set_mode((s_width, s_height))
 pygame.display.set_caption(\'Tetris\')
