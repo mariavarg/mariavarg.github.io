@@ -222,7 +222,7 @@ def get_shape():
 
     surface.fill((0,0,0))
     # Tetris Title
-    font = pygame.font.SysFont('Agdasima-Bold.ttf', 60)
+    font = pygame.font.Font("./Agdasima-Bold.ttf", 60)
     label = font.render('TETRIS', 1, (255,255,255))
  
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
@@ -278,7 +278,7 @@ def main():
                         current_piece.x -= 1
                 elif event.key == pygame.K_UP:
                     # rotate shape
-                    current_piece.rotation = current_piece.rotation + 1 % len(current_piece.shape)
+                    current_piece.rotation = (current_piece.rotation + 1) % len(current_piece.shape)
                     if not valid_space(current_piece, grid):
                         current_piece.rotation = current_piece.rotation - 1 % len(current_piece.shape)
  
