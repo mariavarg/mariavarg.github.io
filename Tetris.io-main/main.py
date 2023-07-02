@@ -224,7 +224,8 @@ def get_shape():
 
     surface.fill((0,0,0))
     # Tetris Title
-    font = pygame.font.SysFont(\'Sofia\', 60)
+    font = pygame.font.SysFont(\'Sofia\',
+    60)
     label = font.render(\'TETRIS\', 1, (255,255,255))
  
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
