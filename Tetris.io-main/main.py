@@ -1,4 +1,3 @@
-pip install pygame
 import pygame
 import random
 import pygame.mixer
@@ -392,8 +391,8 @@ def main_menu(win):  # *
 
 win = pygame.display.set_mode((s_width, s_height))
 pygame.display.set_caption('Tetris')
-
 main_menu(win)
+pygame.mixer.music.stop()
 
 
 win = pygame.display.set_mode((s_width, s_height))
