@@ -298,7 +298,6 @@ def main():
     fall_time = 0
 
     while run:
-        # -------NEW CODE---------
         fall_speed = 0.27
         
         grid = create_grid(locked_positions)
@@ -312,8 +311,7 @@ def main():
             if not (valid_space(current_piece, grid)) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
-        # --------END NEW CODE---------
-
+      
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -349,6 +347,7 @@ def main():
             x, y = shape_pos[i]
             if y > -1: # If we are not above the screen
                 grid[y][x] = current_piece.color
+                  
        # IF PIECE HIT GROUND
        if change_piece:
             for pos in shape_pos:
