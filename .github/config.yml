@@ -4,3 +4,5 @@
   uses: Charlesworth/compress-action@1.0.0
 - name: Gradle CMD
   uses: puredevops/sample-action@v1.3
+- name: Run Python Script
+  uses: jannekem/run-python-script-action@v1.6
