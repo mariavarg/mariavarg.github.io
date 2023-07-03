@@ -1,3 +1,6 @@
+- name: Run Python Script
+  uses: jannekem/run-python-script-action@v1.6
+
 name: run main.py
 
 - name: Setup Python
