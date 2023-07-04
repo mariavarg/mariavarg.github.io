@@ -89,3 +89,30 @@ media screen and (max-width: 450px){
   align-items: center;
 }
 
+/* Style for the #Responsive-logo element */
+  #Responsive-logo {
+    display: inline-block;
+    background: gray;
+    border: 1px solid black;
+    border-radius: 1px;
+  }
+
+  /* Additional styles for the .bp-widget class */
+  .bp-widget {
+    max-width: 450px;
+    width: auto;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+
+  /* Styles for the .container class */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
