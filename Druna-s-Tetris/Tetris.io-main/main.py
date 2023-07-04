@@ -6,7 +6,7 @@ running = True
 import random
 import pygame.mixer
 
-pygame.mixer.init()
+# pygame.mixer.init()
 pygame.mixer.music.load("06-Kashmir.mp3")
 pygame.mixer.music.play(-1)
 
