@@ -88,7 +88,7 @@ class Tetris():
             if all(self.is_cell_free(r, c) for (r, c) in tetromino_coord):
                 self.tetromino, self.tetromino_offset = rotated_tetromino, wallkick_offset
 
-class Application(tk.Frame):
+class Application(Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.tetris = Tetris()
