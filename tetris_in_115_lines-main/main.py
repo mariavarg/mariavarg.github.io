@@ -1,4 +1,3 @@
-import tkinter as tk
 import random
 from threading import Lock
 
@@ -129,6 +128,6 @@ class Application(tk.Frame):
         self.status_msg['text'] = "Score: {}\nLevel: {}".format(self.tetris.score, self.tetris.level)
         self.game_over_msg['text'] = "GAME OVER.\nPress UP\nto reset" if self.tetris.game_over else ""
 
-root = tk.Tk()
+
 app = Application(master=root)
 app.mainloop()
