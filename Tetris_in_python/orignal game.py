@@ -19,8 +19,8 @@ background = pygame.image.load('front.jpg ')
 back = pygame.image.load('back2.jpg ')
 try_again = pygame.image.load('try.jpg ')
 
-#music = pygame.mixer.music.load('music.mp3')
-#pygame.mixer.music.play(-1)
+music = pygame.mixer.music.load('music.mp3')
+pygame.mixer.music.play(-1)
 
 
 
