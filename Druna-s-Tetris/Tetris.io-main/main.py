@@ -1,12 +1,11 @@
-import pygame
+ pygame
+import random
+
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
-import random
-import pygame.mixer
 
-# pygame.mixer.init()
 pygame.mixer.music.load("06-Kashmir.mp3")
 pygame.mixer.music.play(-1)
 
@@ -15,8 +14,8 @@ pygame.font.init()
 # GLOBALS VARS
 s_width = 450
 s_height = 600
-play_width = 300  # meaning 300 // 10 = 30 width per block
-play_height = 600  # meaning 600 // 20 = 30 height per block
+play_width = 300
+play_height = 600
 block_size = 30
 
 top_left_x = (s_width - play_width) // 2
