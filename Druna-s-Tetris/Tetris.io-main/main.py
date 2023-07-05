@@ -6,6 +6,7 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
+pygame.mixer.init()
 pygame.mixer.music.load("06-Kashmir.mp3")
 pygame.mixer.music.play(-1)
 
