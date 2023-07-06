@@ -2,7 +2,7 @@ pip install pygame
 import pygame
 import random
 pygame.mixer.init()
-pygame.mixer.music.load("06-Kashmir.mp3")
+pygame.mixer.music.load("Druna-s-Tetris/Tetris.io-main/06-Kashmir.mp3")
 pygame.mixer.music.play(-1)
 
 pygame.font.init()
