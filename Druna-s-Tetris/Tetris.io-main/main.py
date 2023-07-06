@@ -128,7 +128,7 @@ shapes = [S, Z, I, O, J, L, T]
 shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
 
 # Load Font
-font = None  # Specify the font file path and size here
+font = Font(Druna-s-Tetris/Tetris.io-main/Agdasima-Bold.ttf, 30)
 
 
 class Piece(object):
