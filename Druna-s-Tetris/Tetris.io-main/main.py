@@ -12,8 +12,6 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
-
-
 # GLOBALS VARS
 s_width = 10
 s_height = 20
