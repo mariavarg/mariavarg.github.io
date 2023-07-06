@@ -11,6 +11,14 @@ def play_background_music():
 music_thread = threading.Thread(target=play_background_music)
 music_thread.start()
 
+def main():
+    locked_positions = {}
+    grid = create_grid(locked_positions)
+
+    change_piece = False
+    run = True
+    current_piece = get_shape()
+
 # GLOBALS VARS
 s_width = 10
 s_height = 20
@@ -215,13 +223,7 @@ def clear_rows(grid, locked):
     return inc
 
 
-def main():
-    locked_positions = {}
-    grid = create_grid(locked_positions)
 
-    change_piece = False
-    run = True
-    current_piece = get_shape()
     
 
 
