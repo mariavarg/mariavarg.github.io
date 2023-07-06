@@ -222,6 +222,14 @@ def clear_rows(grid, locked):
 
     return inc
 
+    def main():
+    locked_positions = {}
+    grid = create_grid(locked_positions)
+
+    change_piece = False
+    run = True
+    current_piece = get_shape()
+
 
 
     
