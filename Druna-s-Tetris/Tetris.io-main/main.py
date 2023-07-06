@@ -1,4 +1,15 @@
 import random
+import winsound
+import threading
+
+# Function to play the background music in a separate thread
+def play_background_music():
+    # Replace 'kashmir.wav' with the path to your audio file
+    winsound.PlaySound('kashmir.wav', winsound.SND_LOOP | winsound.SND_ASYNC)
+
+# Start playing the background music in a separate thread
+music_thread = threading.Thread(target=play_background_music)
+music_thread.start()
 
 # GLOBALS VARS
 s_width = 10
@@ -143,3 +154,9 @@ def create_grid(locked_pos={}):
 def convert_shape_format(piece):
     positions = []
     shape
+
+ # Check for game exit condition
+    if game_over:
+        # Stop the background music
+        winsound.PlaySound(None, winsound.SND_PURGE)
+        break
