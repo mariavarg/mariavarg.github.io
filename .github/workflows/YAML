@@ -1,4 +1,4 @@
-on:
+AMLon:
   workflow_dispatch:
     inputs:
       chosen-os:
