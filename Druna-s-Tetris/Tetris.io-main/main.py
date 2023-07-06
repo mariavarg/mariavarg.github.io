@@ -1,22 +1,24 @@
 pip install pygame
 import pygame
 import random
-pygame.mixer.init()
-pygame.mixer.music.load("Druna-s-Tetris/Tetris.io-main/06-Kashmir.mp3")
-pygame.mixer.music.play(-1)
 
 pygame.font.init()
 pygame.init()
-
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
+pygame.mixer.init()
+pygame.mixer.music.load("06-Kashmir.mp3")
+pygame.mixer.music.play(-1)
+
+pygame.font.init()
+
 # GLOBALS VARS
-s_width = 10
-s_height = 20
-play_width = 10
-play_height = 20
+s_width = 450
+s_height = 600
+play_width = 300
+play_height = 600
 block_size = 30
 
 top_left_x = (s_width - play_width) // 2
@@ -127,12 +129,12 @@ T = [['.....',
 
 shapes = [S, Z, I, O, J, L, T]
 shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
+# index 0 - 6 represent shape
 
 # Load Font
-font = Font(Druna-s-Tetris/Tetris.io-main/Agdasima-Bold.ttf, 30)
+font = pygame.font.Font("Agdasima-Bold.ttf", 40)
 
-
-class Piece(object):
+class Piece(object):  # *
     def __init__(self, x, y, shape):
         self.x = x
         self.y = y
@@ -141,8 +143,8 @@ class Piece(object):
         self.rotation = 0
 
 
-def create_grid(locked_pos={}):
-    grid = [[(0, 0, 0) for _ in range(play_width)] for _ in range(play_height)]
+def create_grid(locked_pos={}):  # *
+    grid = [[(0, 0, 0) for _ in range(10)] for _ in range(20)]
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
@@ -152,7 +154,7 @@ def create_grid(locked_pos={}):
     return grid
 
 
-def convert_shape_format(piece):
+def convert_shape_format(piece):  # *
     positions = []
     shape_format = piece.shape[piece.rotation % len(piece.shape)]
 
@@ -168,7 +170,7 @@ def convert_shape_format(piece):
     return positions
 
 
-def valid_space(piece, grid):
+def valid_space(piece, grid):  # *
     accepted_positions = [[(j, i) for j in range(10) if grid[i][j] == (0, 0, 0)] for i in range(20)]
     accepted_positions = [j for sub in accepted_positions for j in sub]
 
@@ -181,7 +183,7 @@ def valid_space(piece, grid):
     return True
 
 
-def check_lost(positions):
+def check_lost(positions):  # *
     for pos in positions:
         x, y = pos
         if y < 1:
