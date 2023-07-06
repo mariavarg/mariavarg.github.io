@@ -1,4 +1,4 @@
-name: Python package
+AMLname: Python package
 
 on: [push]
 
