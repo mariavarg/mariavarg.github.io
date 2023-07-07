@@ -5,6 +5,9 @@ import pygame
 import random
 import pygame.mixer
 
+pygame.font.init()
+pygame.init()
+
 def main():
     global grid
 
