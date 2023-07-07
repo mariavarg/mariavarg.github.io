@@ -11,6 +11,10 @@ pygame.init()
 def main():
     global grid
 
+    background = pygame.image.load('front.jpg ')
+back = pygame.image.load('back2.jpg ')
+try_again = pygame.image.load('try.jpg ')
+
     pygame.mixer.music.load("06-Kashmir.mp3")
     pygame.mixer.music.play(-1)
 
