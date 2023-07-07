@@ -1,4 +1,5 @@
 pip install pygame
+pip install pyodide
 import pygame
 import random
 import pygame.mixer
