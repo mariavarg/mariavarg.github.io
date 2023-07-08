@@ -1,5 +1,4 @@
-pip install pygame
-pip install pyodide
+import pyodide
 import pygame
 import random
 
