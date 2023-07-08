@@ -538,23 +538,25 @@ def main(win):  # *
 
 
 def main_menu():
-    run = True
-    while run:
-        win.blit(back, (0, 0))
-        draw_text_middle(win, 'Press any key to PLAY', 60, (255, 255, 255))
+    pygame.init()
+    win = pygame.display.set_mode((s_width, s_height))
+    pygame.display.set_caption('Tetris')
+
+    gameintro = True
+    while gameintro:
+        win.blit(background, (0, 0))
+
+        message('TETRIS', red, 100, (s_width / 2 - 200), 100)
+        message("It Doesn't Stop Until You Die", white, 50, (s_width / 2 - 300), 200)
+        button(100, 400, 70, 30, 'GO!', white, bright_red, red, 25, 106, 406, gameloop, win)
+        button(600, 400, 70, 30, 'QUIT', white, bright_green, green, 25, 606, 406, quit1, win)
+
         pygame.display.update()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
-            if event.type == pygame.KEYDOWN:
-                main(win)
-                run = False
+                gameintro = False
 
-    pygame.display.quit()
-    quit()
-
-
-win = pygame.display.set_mode((s_width, s_height))
-pygame.display.set_caption('Tetris')
+    pygame.quit()
 
 main_menu()
