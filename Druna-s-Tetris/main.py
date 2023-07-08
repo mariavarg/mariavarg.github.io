@@ -1,5 +1,5 @@
-import pyodide
 import pygame
+import pyodide
 import random
 
 pygame.font.init()
