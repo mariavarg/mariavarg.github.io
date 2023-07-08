@@ -17,9 +17,9 @@ top_left_y = 50
 top_left_x = (s_width - play_width) // 2
 top_left_y = s_height - play_height
 
-background = pygame.image.load('front.jpg')
-back = pygame.image.load('back2.jpg')
-try_again = pygame.image.load('try.jpg')
+background = pygame.image.load('/front.jpg')
+back = pygame.image.load('/back2.jpg')
+try_again = pygame.image.load('/try.jpg')
 
 music = pygame.mixer.music.load('kasmir.mp3')
 pygame.mixer.music.play(-1)
