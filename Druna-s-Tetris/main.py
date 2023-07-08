@@ -225,6 +225,9 @@ def button(x, y, w, h, mess, mess_color, actc, noc, size, tx, ty, func):
 
 
 def quit1():
+Here's the continuation of the `main.py` code with the modifications:
+
+```python
     pygame.mixer.music.stop()
     pygame.quit()
     quit()
@@ -412,7 +415,10 @@ def max_score():
     return score
 
 
-def draw_window(surface, grid, score=0, last_score=0):
+def draw_window(surface, gridApologies, I mistakenly truncated the code. Here's the continuation of the `main.py` code with the modifications:
+
+```python
+, score=0, last_score=0):
     win.blit(back, (0, 0))
 
     pygame.font.init()
@@ -546,24 +552,5 @@ def main(win):  # *
 
 def main_menu():
     pygame.init()
-    win = pygame.display.set_mode((s_width, s_height))
-    pygame.display.set_caption('Tetris')
+    win = pygame.display.set_mode((s_width,
 
-    gameintro = True
-    while gameintro:
-        win.blit(background, (0, 0))
-
-        message('TETRIS', red, 100, (s_width / 2 - 200), 100)
-        message("It Doesn't Stop Until You Die", white, 50, (s_width / 2 - 300), 200)
-        button(100, 400, 70, 30, 'GO!', white, bright_red, red, 25, 106, 406, gameloop, win)
-        button(600, 400, 70, 30, 'QUIT', white, bright_green, green, 25, 606, 406, quit1, win)
-
-        pygame.display.update()
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                gameintro = False
-
-    pygame.quit()
-
-main_menu()
