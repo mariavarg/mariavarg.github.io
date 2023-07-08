@@ -1,64 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Game Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
     <!-- Include necessary CSS stylesheets -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="game.css">
     <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet">
     <style>
         /* Additional styles for the game page */
-        body {
-            font-family: "Sofia", sans-serif;
-        }
         #game-container {
             max-width: 450px;
             margin: 0 auto;
+            margin-top: 50px;
         }
-        .logo {
-            max-width: 100%;
-            height: auto;
+        canvas {
+            border: 1px solid black;
         }
     </style>
 </head>
 <body>
     <div id="game-container">
-        <img class="logo" src="logo.png" alt="Logo">
-        <h1>My Game</h1>
-        <button onclick="runPythonScript()">Start Game</button>
+        <!-- Include the game canvas here -->
+        <canvas id="game-canvas"></canvas>
     </div>
 
     <!-- Include necessary scripts -->
     <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
     <script>
-        // Load Pyodide and execute the Python script
-        function runPythonScript() {
-            languagePluginLoader.then(() => {
-                // Fetch the Python script file
-                fetch('main.py')
-                    .then(response => response.text())
-                    .then(pythonCode => {
-                        pyodide.runPython(pythonCode);
-                    });
-            });
-        }
-    </script>
-    <script>
-        // Initialize music
-        const audio = new Audio('kasmir.mp3');
-        audio.loop = true;
-
-        function playMusic() {
-            audio.play();
-        }
-
-        function stopMusic() {
-            audio.pause();
-            audio.currentTime = 0;
-        }
-
-        // Play music when the game starts
-        playMusic();
+        // Load Pyodide and execute the game code
+        languagePluginLoader.then(() => {
+            // Load the Python code from an external file
+            return fetch('main.py')
+                .then(response => response.text())
+                .then(pyCode => pyodide.runPythonAsync(pyCode));
+        }).then(() => {
+            console.log("Game script executed successfully.");
+        }).catch((err) => {
+            console.error("An error occurred while executing the game script:", err);
+        });
     </script>
 </body>
 </html>
