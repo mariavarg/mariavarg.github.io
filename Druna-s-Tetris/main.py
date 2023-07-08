@@ -230,18 +230,22 @@ def quit1():
     quit()
 
 
-def gameloop():
+def gameloop(win):
+    pygame.mixer.music.load('kasmir.mp3')
+    pygame.mixer.music.play(-1)
+
     x = 300
     y = 400
     x_change = 0
     y_change = 0
-    global game_over
     game_over = False
 
     while not game_over:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over = True
+                pygame.quit()
+                quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     x_change = -10
@@ -256,6 +260,9 @@ def gameloop():
 
         pygame.display.update()
 
+    pygame.mixer.music.stop()
+    quit()
+   
 
 def create_grid(locked_pos={}):  # *
     grid = [[(black) for _ in range(10)] for _ in range(20)]
