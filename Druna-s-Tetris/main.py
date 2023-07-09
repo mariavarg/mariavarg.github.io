@@ -191,7 +191,7 @@ def draw_grid(surface, row, col):
             pygame.draw.line(surface, gray, (top_left_x + j * block_size, top_left_y),
                              (top_left_x + j * block_size, top_left_y + play_height))
 
-def draw_window(surface):
+def draw_window(surface, grid):
     surface.fill(black)
     pygame.font.init()
     font = pygame.font.SysFont('Sofia, sans sherif', 60)
@@ -206,6 +206,7 @@ def draw_window(surface):
 
     draw_grid(surface, 20, 10)
     pygame.display.update()
+
 
 def main():
     locked_positions = {}
