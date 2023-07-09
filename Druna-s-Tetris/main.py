@@ -291,3 +291,8 @@ def start_server_endpoint(request):
     server_thread.start()
     return "Server started successfully!", 200
 
+if __name__ == '__main__':
+    # Add your server initialization code here, if any
+    print("Ready to start the server...")
+
+
