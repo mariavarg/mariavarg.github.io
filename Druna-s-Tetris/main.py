@@ -194,7 +194,7 @@ def draw_grid(surface, row, col):
 def draw_window(surface):
     surface.fill(black)
     pygame.font.init()
-    font = pygame.font.SysFont('comicsans', 60)
+    font = pygame.font.SysFont('Sofia, sans sherif', 60)
     label = font.render('Tetris', 1, white)
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
 
