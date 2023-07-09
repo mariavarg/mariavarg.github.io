@@ -275,7 +275,25 @@ def main():
 
     pygame.display.quit()
 
+import http.server
+import socketserver
+import threading
+
+def start_server():
+    handler = http.server.SimpleHTTPRequestHandler
+    with socketserver.TCPServer(("", 8000), handler) as httpd:
+        print("Server is starting...")
+        httpd.serve_forever()
+
+def start_server_endpoint(request):
+    # Start the server in a separate thread
+    server_thread = threading.Thread(target=start_server)
+    server_thread.start()
+    return "Server started successfully!", 200
+
 if __name__ == '__main__':
-    main()
+    # Add your server initialization code here, if any
+    print("Ready to start the server...")
+
 
 
