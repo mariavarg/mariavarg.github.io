@@ -272,7 +272,7 @@ def main():
             current_piece = Piece(5, 0, random.choice(shapes))
             change_piece = False
 
-        draw_window(win)
+        draw_window(surface, grid)
 
     pygame.display.quit()
 
