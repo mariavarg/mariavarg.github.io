@@ -299,7 +299,7 @@ def start_server_endpoint(request):
     return "Server started successfully!", 200
 
 if __name__ == '__main__':
-    # Add your server initialization code here, if any
+    Python 3 — python -m http. server 8000.
     print("Ready to start the server...")
   
         // Initialize the game
