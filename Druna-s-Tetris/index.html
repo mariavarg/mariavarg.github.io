@@ -62,27 +62,9 @@
         <h3>Druna's Tetris</h3>
     </div>
 
-   <button id="startServerBtn">Start Server and Game</button>
-
-<script>
-    document.getElementById("startServerBtn").onclick = function () {
-        // Send an HTTP request to the server initialization endpoint
-        fetch('/start-server')
-            .then(response => {
-                if (response.ok) {
-                    console.log('Server started successfully!');
-                } else {
-                    console.error('Failed to start the server.');
-                }
-            })
-            .catch(error => {
-                console.error('An error occurred:', error);
-            });
-    };
-</script>
-
-
     <div class="content">
+        <button id="startServerBtn">Start Server and Game</button>
+
         <button id="myBtn">Click Me</button>
 
         <div id="myModal" class="modal">
@@ -132,6 +114,23 @@
                 initializeGame();
             }
 
+            document.getElementById("startServerBtn").onclick = function () {
+                // Send an HTTP request to the server and game initialization endpoint
+                fetch('/start-server-and-game')
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Server and game started successfully!');
+                            modal.style.display = "block";
+                            initializeGame();
+                        } else {
+                            console.error('Failed to start the server and game.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('An error occurred:', error);
+                    });
+            };
+
             span.onclick = function () {
                 modal.style.display = "none";
             }
@@ -146,3 +145,4 @@
 </body>
 
 </html>
+
