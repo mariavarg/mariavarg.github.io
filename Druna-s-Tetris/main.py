@@ -307,6 +307,3 @@ def start_server_endpoint(request):
 
 if __name__ == '__main__':
     start_server()
-
-
-
