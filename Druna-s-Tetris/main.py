@@ -1,7 +1,7 @@
-pip install pygame
+pip install pygame, asyncio
 import pygame
 import random
-
+import asyncio
 pygame.font.init()
 pygame.init()
 
