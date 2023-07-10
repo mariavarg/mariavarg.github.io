@@ -36,6 +36,40 @@
 </head>
 
 <body>
+  <div class="content">
+    <button id="startButton" onclick="startServerAndGame()">Start Server & Game</button>
+    <p id="warningMessage" style="display: none;">By clicking "Start Server & Game," you acknowledge that we may collect and store certain non-personally identifiable information for analytics purposes.</p>
+  </div>
+
+  <script>
+    function startServerAndGame() {
+      // Display the warning message
+      var warningMessage = document.getElementById("warningMessage");
+      warningMessage.style.display = "block";
+
+    function startServerAndGame() {
+      // Create an AJAX request to start the Python server
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            alert('Server started successfully!');
+            // Start the game or perform other actions here
+          } else {
+            alert('Failed to start the server. Check the console for more details.');
+            console.error(xhr.responseText);
+          }
+        }
+      };
+
+      xhr.open('GET', '/start_server', true);
+      xhr.send();
+    }
+  </script>
+
+    }
+  </script>
+        
     <div class="container">
         <h1>My Website</h1>
         <h3>Druna's Tetris</h3>
