@@ -299,11 +299,5 @@ def start_server():
         print("Server is starting...")
         httpd.serve_forever()
 
-def start_server_endpoint(request):
-    # Start the server in a separate thread
-    server_thread = threading.Thread(target=start_server)
-    server_thread.start()
-    return "Server started successfully!", 200
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     start_server()
