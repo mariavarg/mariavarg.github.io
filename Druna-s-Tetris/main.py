@@ -306,14 +306,7 @@ def start_server_endpoint(request):
     return "Server started successfully!", 200
 
 if __name__ == '__main__':
-    Python 3 — python -m http. server 8000.
-    print("Ready to start the server...")
+    start_server()
 
-// Initialize the game
-        pygame.init()
-        const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-    `);
-});
 
 
