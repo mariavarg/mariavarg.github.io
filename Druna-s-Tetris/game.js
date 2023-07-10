@@ -4,7 +4,13 @@ languagePluginLoader.then(() => {
         import pygame
         
         pygame.init()
+// Get the canvas element
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
 
+// Event listener for the start button
+const startButton = document.getElementById('startButton');
+startButton.addEventListener('click', startGame);
 
 # GLOBALS VARS
 s_width = 450
