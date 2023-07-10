@@ -301,4 +301,8 @@ def start_server():
         httpd.serve_forever()
 
 if __name__ == "__main__":
-    start_server()
+    start_server
+
+await.asyncio.sleep()
+
+asyncio.run(main())
