@@ -206,7 +206,8 @@ def draw_window(surface, grid):
 
     draw_grid(surface, 20, 10)
     pygame.display.update()
-
+      
+async def main():
 
 def main():
     locked_positions = {}
