@@ -298,6 +298,7 @@ if __name__ == '__main__':
   
         // Initialize the game
         pygame.init()
-        // ...
+        const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
     `);
 });
