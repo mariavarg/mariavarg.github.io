@@ -273,7 +273,21 @@ def main():
 
         draw_window(surface, grid)
 
-    pygame.display.quit()
+      
+    # Check for win condition
+    if win_condition:
+        # Perform win condition actions
+        win = True
+        pygame.mixer.music.stop()  # Stop the music
+        break
+
+        for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+            pygame.mixer.music.stop()  # Stop the music
+            break
+
+        pygame.display.quit()
 
 import http.server
 import socketserver
