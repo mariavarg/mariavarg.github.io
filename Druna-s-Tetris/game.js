@@ -1,16 +1,10 @@
 // Load Pyodide and execute the game code
 languagePluginLoader.then(() => {
     pyodide.runPython(`
-        // Import necessary modules and run the game code
         import pygame
-        import random
         
-        pip install pygame
-import pygame
-import random
+        pygame.init()
 
-pygame.font.init()
-pygame.init()
 
 # GLOBALS VARS
 s_width = 450
