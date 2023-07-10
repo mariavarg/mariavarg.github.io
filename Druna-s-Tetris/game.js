@@ -302,9 +302,3 @@ if __name__ == '__main__':
     Python 3 — python -m http. server 8000.
     print("Ready to start the server...")
   
-        // Initialize the game
-        pygame.init()
-        const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
-    `);
-});
