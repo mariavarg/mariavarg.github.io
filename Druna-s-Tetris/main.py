@@ -1,7 +1,6 @@
-pip install pygame, asyncio
 import pygame
 import random
-import asyncio
+
 pygame.font.init()
 pygame.init()
 
@@ -14,9 +13,6 @@ block_size = play_width // 10
 
 top_left_x = (s_width - play_width) // 2
 top_left_y = 50
-
-top_left_x = (s_width - play_width) // 2
-top_left_y = s_height - play_height
 
 # color
 gray = (119, 118, 110)
@@ -182,6 +178,9 @@ def convert_shape_format(shape):
 
 def valid_space(shape, grid):
     accepted_pos = [[(j, i) for j in range(10) if grid[i][j] == (black)] for i in range(20)]
+    # You should return a value indicating whether the shape's positions are accepted or not
+    return all(accepted_pos)
+
 
 def draw_grid(surface, row, col):
     for i in range(row):
@@ -191,12 +190,13 @@ def draw_grid(surface, row, col):
             pygame.draw.line(surface, gray, (top_left_x + j * block_size, top_left_y),
                              (top_left_x + j * block_size, top_left_y + play_height))
 
+
 def draw_window(surface, grid):
     surface.fill(black)
     pygame.font.init()
     font = pygame.font.SysFont('Sofia, sans sherif', 60)
     label = font.render('Tetris', 1, white)
-    surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
+    surface.blit(label, (top_left_x + play_width // 2 - label.get_width() // 2, 30))
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
@@ -206,8 +206,7 @@ def draw_window(surface, grid):
 
     draw_grid(surface, 20, 10)
     pygame.display.update()
-      
-async def main():
+
 
 def main():
     locked_positions = {}
@@ -223,12 +222,15 @@ def main():
     while run:
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
+Apologies for the interruption. Here's the rest of the code:
+
+```python
         clock.tick()
 
         if fall_time / 1000 >= fall_speed:
             fall_time = 0
             current_piece.y += 1
-            if not (valid_space(current_piece, grid)) and current_piece.y > 0:
+            if not valid_space(current_piece, grid) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
 
@@ -274,35 +276,8 @@ def main():
 
         draw_window(surface, grid)
 
-      
-    # Check for win condition
-    if win_condition:
-        # Perform win condition actions
-        win = True
-        pygame.mixer.music.stop()  # Stop the music
-        break
-
-        for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
-            pygame.mixer.music.stop()  # Stop the music
-            break
-
-        pygame.display.quit()
-
-import http.server
-import socketserver
-import threading
-
-def start_server():
-    handler = http.server.SimpleHTTPRequestHandler
-    with socketserver.TCPServer(("", 8000), handler) as httpd:
-        print("Server is starting...")
-        httpd.serve_forever()
 
 if __name__ == "__main__":
-    start_server
-
-await.asyncio.sleep()
-
-asyncio.run(main())
+    pygame.display.set_caption("Tetris")
+    surface = pygame.display.set_mode((s_width, s_height))
+    main()
