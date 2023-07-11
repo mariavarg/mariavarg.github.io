@@ -7,15 +7,13 @@ div {
   margin: 10.5px;
   text-align: center;
   font-family: "Sofia", sans-serif;
-  position: absolute;
-}
+  }
 
 .responsive {
   width: 100%;
   max-width: 500px;
   height: auto;
-  position: absolute;
-}
+ }
 
 /* width */
 ::-webkit-scrollbar {
