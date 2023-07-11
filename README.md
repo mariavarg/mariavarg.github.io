@@ -2,4 +2,3 @@
 
 This is my Personal Website!
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/26190663-1ad8-47ca-8feb-10bae190ba9e/deploy-status)](https://app.netlify.com/sites/mariavarg/deploys)
