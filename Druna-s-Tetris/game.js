@@ -234,7 +234,7 @@ def main():
         if fall_time / 1000 >= fall_speed:
             fall_time = 0
             current_piece.y += 1
-            if not (valid_space(current_piece, grid)) and current_piece.y > 0:
+            if not valid_space(current_piece, grid) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
 
@@ -279,8 +279,6 @@ def main():
             change_piece = False
 
         draw_window(surface, grid)
-
-    pygame.display.quit()
 
 import http.server
 import socketserver
