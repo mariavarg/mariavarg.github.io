@@ -6,7 +6,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
         if self.path == '/start_server':
             # Start the Python server
             try:
-                with socketserver.TCPServer(("", 8000), http.server.SimpleHTTPRequestHandler) as httpd:
+                with socketserver.TCPServer(("", 8000), MyHandler) as httpd:
                     print("Server started on port 8000")
                     httpd.serve_forever()
             except OSError as e:
@@ -25,3 +25,7 @@ if __name__ == "__main__":
     with socketserver.TCPServer(("", 8080), MyHandler) as httpd:
         print("Server started on port 8080")
         httpd.serve_forever()
+
+
+
+     
