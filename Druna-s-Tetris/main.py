@@ -222,9 +222,6 @@ def main():
     while run:
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
-Apologies for the interruption. Here's the rest of the code:
-
-```python
         clock.tick()
 
         if fall_time / 1000 >= fall_speed:
