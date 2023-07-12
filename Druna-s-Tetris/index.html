@@ -50,27 +50,27 @@ body, h1 {
 
   <script>
     function startServerAndGame() {
-      // Display the warning message
-      var warningMessage = document.getElementById("warningMessage");
-      warningMessage.style.display = "block";
+  // Display the warning message
+  var warningMessage = document.getElementById("warningMessage");
+  warningMessage.style.display = "block";
 
-      // Create an AJAX request to start the Python server
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            alert('Server started successfully!');
-            // Start the game or perform other actions here
-          } else {
-            alert('Failed to start the server. Check the console for more details.');
-            console.error(xhr.responseText);
-          }
-        }
-      };
-
-      xhr.open('GET', '/start_server', true);
-      xhr.send();
+  // Create an AJAX request to start the Python server
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        alert('Server started successfully!');
+        // Start the game or perform other actions here
+      } else {
+        alert('Failed to start the server. Check the console for more details.');
+        console.error(xhr.responseText);
+      }
     }
+  };
+
+  xhr.open('GET', '/start_server', true);
+  xhr.send();
+}
   </script>
 
   <div class="container">
