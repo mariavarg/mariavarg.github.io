@@ -10,10 +10,16 @@ div {
 }
 
 .responsive {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
+  display: block;
+  margin: 0 auto;
 }
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* width */
 ::-webkit-scrollbar {
