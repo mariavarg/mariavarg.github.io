@@ -1,9 +1,6 @@
 import pygame
 import random
 
-pygame.font.init()
-pygame.init()
-
 # GLOBALS VARS
 s_width = 450
 s_height = 700
@@ -206,6 +203,7 @@ def draw_window(surface, grid):
 
     draw_grid(surface, 20, 10)
     pygame.display.update()
+      surface = pygame.display.set_mode((s_width, s_height))
 
 
 def main():
