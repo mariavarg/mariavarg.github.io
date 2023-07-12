@@ -89,3 +89,20 @@ media screen and (max-width: 500px){
   flex-direction: center;
   align-items: center;
 }
+
+/* Styles for mobile screens */
+@media (max-width: 700px) {
+  canvas {
+    width: 100%; /* Adjust the width as needed */
+    height: auto; /* Adjust the height as needed */
+  }
+}
+
+/* Styles for laptop screens */
+@media (min-width: 768px) {
+  canvas {
+    width: 80%; /* Adjust the width as needed */
+    height: auto; /* Adjust the height as needed */
+    /* Add additional positioning or margin rules to keep the canvas within the page area */
+  }
+}
