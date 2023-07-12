@@ -83,6 +83,16 @@ body, h1 {
         <canvas id="gameCanvas" width="300" height="auto"></canvas>
         <const gameCanvas = document.getElementById("gameCanvas");>
         <const ctx = gameCanvas.getContext("2d");>
+          <script>
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Set the canvas width and height
+                canvas.width = 500;
+                canvas.height = image.height * (canvas.width / image.width);
+
+                // Draw the image on the canvas with auto height
+                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+          </script>          
         </div>
 
 <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
