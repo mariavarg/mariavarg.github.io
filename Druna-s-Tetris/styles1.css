@@ -40,18 +40,19 @@ div {
 
 .bg {
   /* The image used */
-  background-image: url("HOMEPAGE1.jpg");
+  background-image: url("/unsplash.png");
 
   /* Full height */
   height: 100%;
+  width: 450px;
 
   /* Align and scale the image nicely */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-position: left;
-
-}
+  background-position: center center;
+  
+</style>
 
 .content {
   max-width: 500px;
@@ -97,7 +98,7 @@ media screen and (max-width: 500px){
 }
 
 /* Styles for mobile screens */
-@media (max-width: 700px) {
+@media (max-width: 500px) {
   canvas {
     width: 100%; /* Adjust the width as needed */
     height: auto; /* Adjust the height as needed */
@@ -105,7 +106,7 @@ media screen and (max-width: 500px){
 }
 
 /* Styles for laptop screens */
-@media (min-width: 768px) {
+@media (max-width: 500px) {
   canvas {
     width: 80%; /* Adjust the width as needed */
     height: auto; /* Adjust the height as needed */
