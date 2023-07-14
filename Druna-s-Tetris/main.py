@@ -1,5 +1,3 @@
-python
-Copy code
 import pygame
 import random
 import asyncio
