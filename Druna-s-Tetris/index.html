@@ -12,7 +12,6 @@
   <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
   <script src="https://pyscript.net/latest/logger.js"></script>
   <script src="https://pyscript.net/latest/language.js"></script>
- 
 
   <link href="/styles1.css" rel="stylesheet">
   <style>
@@ -72,33 +71,20 @@
       <canvas id="gameCanvas"></canvas>
       <div id="game-container"></div>
       <script>
-  // Load the game files from the server
-  const gameScript = document.createElement('script');
-  <script>
-  // Load the game files from the server
-  const gameScript = document.createElement('script');
-  gameScript.src = 'game.js';
-  document.head.appendChild(gameScript);
+        // Load the game files from the server
+        const gameScript = document.createElement('script');
+        gameScript.src = 'game.js';
+        document.head.appendChild(gameScript);
 
-  // Initialize the game
-  window.addEventListener('load', () => {
-    // Game initialization code...
-  });
-</script>
-
-  document.head.appendChild(gameScript);
-
-  // Initialize the game
-  window.addEventListener('load', () => {
-    const gameConfig = {
-      // Define your game configuration here (e.g., width, height, scene, etc.)
-      // ...
-    };
-    const game = new Phaser.Game(gameConfig);
-  });
-</script>
-
-
+        // Initialize the game
+        window.addEventListener('load', () => {
+          const gameConfig = {
+            // Define your game configuration here (e.g., width, height, scene, etc.)
+            // ...
+          };
+          const game = new Phaser.Game(gameConfig);
+        });
+      </script>
     </div>
   </div>
 
@@ -133,12 +119,12 @@
     crossorigin="anonymous"></script>
 
   <script>
-function startServerAndGame() {
-  // Display the warning message
-  var warningMessage = document.getElementById("warningMessage");
-  warningMessage.style.display = "block";
+    function startServerAndGame() {
+      // Display the warning message
+      var warningMessage = document.getElementById("warningMessage");
+      warningMessage.style.display = "block";
 
-      // Open a new tab or window to start the server
+      // Open a new tab or window to start the server (Update the URL if necessary)
       window.open("http://localhost:8000", "/index.html");
 
       // Alert the user that the server has started
@@ -154,116 +140,114 @@ function startServerAndGame() {
         pyodide.runPython(`
           import pygame
           import base64
-          import io')}
+          import io
 
-// Load Pyodide and execute the game code
-languagePluginLoader.then(() => {
-  pyodide.runPython(`
-    
-    pygame.init()
+          pygame.init()
 
-    // Get the canvas element
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
+          # Get the canvas element
+          const canvas = document.getElementById('gameCanvas');
+          const ctx = canvas.getContext('2d');
 
-    // Rest of the game code...
+          // Rest of the game code...
 
-    // Base64-encoded audio data
-    const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
+          // Base64-encoded audio data
+          const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
 
-    // Create an audio element and play the audio
-    const audio = new Audio(audioData);
-    audio.play();
+          // Create an audio element and play the audio
+          const audio = new Audio(audioData);
+          audio.play();
 
-    // Base64-encoded audio data
-    const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
+          // Base64-encoded audio data
+          const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
 
-    // Create an audio element and play the audio
-    const audio = new Audio(audioData);
-    audio.play();        
+          // Create an audio element and play the audio
+          const audio = new Audio(audioData);
+          audio.play();
 
-    function draw_window(surface, grid) {
-      surface.fillStyle = black;
-      surface.fillRect(0, 0, s_width, s_height);
-      surface.font = '60px "Sofia", sans-serif';
-      surface.fillStyle = white;
-      surface.textAlign = 'center';
-      surface.fillText('Tetris', top_left_x + play_width / 2, 30);
+          function draw_window(surface, grid) {
+            surface.fillStyle = black;
+            surface.fillRect(0, 0, s_width, s_height);
+            surface.font = '60px "Sofia", sans-serif';
+            surface.fillStyle = white;
+            surface.textAlign = 'center';
+            surface.fillText('Tetris', top_left_x + play_width / 2, 30);
 
-      for (let i = 0; i < grid.length; i++) {
-        for (let j = 0; j < grid[i].length; j++) {
-          surface.fillStyle = grid[i][j];
-          surface.fillRect(top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size);
-        }
-      }
-
-      surface.strokeStyle = red;
-      surface.lineWidth = 4;
-      surface.strokeRect(top_left_x, top_left_y, play_width, play_height);
-
-      draw_grid(surface, 20, 10);
-    }
-    
-function main() {
-  // Game logic goes here
-  function main() {
-  let locked_positions = {};
-  let grid = create_grid(locked_positions);
-
-      let change_piece = false;
-      let run = true;
-      let current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
-      let fall_time = 0;
-      const fall_speed = 0.27;
-
-      function update() {
-        grid = create_grid(locked_positions);
-        fall_time += 1;
-        if (fall_time / 1000 >= fall_speed) {
-          fall_time = 0;
-          current_piece.y += 1;
-          if (!valid_space(current_piece, grid) && current_piece.y > 0) {
-            current_piece.y -= 1;
-            change_piece = true;
-          }
-        }
-
-        if (change_piece) {
-          for (const [x, y] of convert_shape_format(current_piece)) {
-            if (y >= 0) {
-              grid[y][x] = current_piece.color;
+            for (let i = 0; i < grid.length; i++) {
+              for (let j = 0; j < grid[i].length; j++) {
+                surface.fillStyle = grid[i][j];
+                surface.fillRect(top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size);
+              }
             }
+
+            surface.strokeStyle = red;
+            surface.lineWidth = 4;
+            surface.strokeRect(top_left_x, top_left_y, play_width, play_height);
+
+            draw_grid(surface, 20, 10);
           }
 
-          for (const [x, y] of convert_shape_format(current_piece)) {
-            const key = `${x},${y}`;
-            locked_positions[key] = current_piece.color;
+          function main() {
+            let locked_positions = {};
+            let grid = create_grid(locked_positions);
+
+            let change_piece = false;
+            let run = true;
+            let current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+            let fall_time = 0;
+            const fall_speed = 0.27;
+
+            function update() {
+              grid = create_grid(locked_positions);
+              fall_time += 1;
+              if (fall_time / 1000 >= fall_speed) {
+                fall_time = 0;
+                current_piece.y += 1;
+                if (!valid_space(current_piece, grid) && current_piece.y > 0) {
+                  current_piece.y -= 1;
+                  change_piece = true;
+                }
+              }
+
+              if (change_piece) {
+                for (const [x, y] of convert_shape_format(current_piece)) {
+                  if (y >= 0) {
+                    grid[y][x] = current_piece.color;
+                  }
+                }
+
+                for (const [x, y] of convert_shape_format(current_piece)) {
+                  const key = `${x},${y}`;
+                  locked_positions[key] = current_piece.color;
+                }
+
+                current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+                change_piece = false;
+              }
+
+              draw_window(ctx, grid);
+
+              if (run) {
+                requestAnimationFrame(update);
+              }
+            }
+
+            update();
           }
 
-          current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
-          change_piece = false;
-        }
-
-        draw_window(ctx, grid);
-
-        if (run) {
-          requestAnimationFrame(update);
-        }
-      }
-
-      update();
-    }
-
-function startGame() {
-  const warningMessage = document.getElementById('warningMessage');
-  warningMessage.style.display = 'block';
-  alert('Server started successfully!');
-    }
- main();
+          startGame();
         `);
       });
     }
-  </script>
 
+    function startGame() {
+      const warningMessage = document.getElementById('warningMessage');
+      warningMessage.style.display = 'block';
+      alert('Server started successfully!');
+    }
+
+    // Initial game startup
+    startServerAndGame();
+  </script>
 </body>
 </html>
+
