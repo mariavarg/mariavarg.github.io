@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
+  <script src="https://pyscript.net/latest/logger.js"></script>
+  <script src="https://pyscript.net/latest/language.js"></script>
+ 
 
   <link href="/styles1.css" rel="stylesheet">
   <style>
@@ -70,7 +74,18 @@
       <script>
   // Load the game files from the server
   const gameScript = document.createElement('script');
-  gameScript.src = 'http://localhost:8080/game/game.js';
+  <script>
+  // Load the game files from the server
+  const gameScript = document.createElement('script');
+  gameScript.src = 'game.js';
+  document.head.appendChild(gameScript);
+
+  // Initialize the game
+  window.addEventListener('load', () => {
+    // Game initialization code...
+  });
+</script>
+
   document.head.appendChild(gameScript);
 
   // Initialize the game
@@ -118,10 +133,10 @@
     crossorigin="anonymous"></script>
 
   <script>
-    function startServerAndGame() {
-      // Display the warning message
-      var warningMessage = document.getElementById("warningMessage");
-      warningMessage.style.display = "block";
+function startServerAndGame() {
+  // Display the warning message
+  var warningMessage = document.getElementById("warningMessage");
+  warningMessage.style.display = "block";
 
       // Open a new tab or window to start the server
       window.open("http://localhost:8000", "/index.html");
@@ -189,12 +204,11 @@ languagePluginLoader.then(() => {
       draw_grid(surface, 20, 10);
     }
     
-
-    function main() {
-      // Game logic goes here
-        function main() {
-      let locked_positions = {};
-      let grid = create_grid(locked_positions);
+function main() {
+  // Game logic goes here
+  function main() {
+  let locked_positions = {};
+  let grid = create_grid(locked_positions);
 
       let change_piece = false;
       let run = true;
@@ -240,10 +254,10 @@ languagePluginLoader.then(() => {
       update();
     }
 
-    function startGame() {
-      const warningMessage = document.getElementById('warningMessage');
-      warningMessage.style.display = 'block';
-      alert('Server started successfully!');
+function startGame() {
+  const warningMessage = document.getElementById('warningMessage');
+  warningMessage.style.display = 'block';
+  alert('Server started successfully!');
     }
  main();
         `);
