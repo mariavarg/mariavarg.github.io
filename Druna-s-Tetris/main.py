@@ -36,7 +36,6 @@ start_server = websockets.serve(websocket_handler, '0.0.0.0', 8765)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
 
-def run_game():
     pygame.font.init()
     pygame.init()
 
@@ -311,4 +310,5 @@ def main():
 
 
 if __name__ == "__main__":
-    run_game()
+    main()
+   
