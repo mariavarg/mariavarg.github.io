@@ -212,14 +212,57 @@ def run_game():
         draw_window(surface, grid)
 
           function main() {
-            // Game logic goes here
-            // ...
+      let locked_positions = {};
+      let grid = create_grid(locked_positions);
 
-            // Example usage
-            draw_window(ctx, grid);
+      let change_piece = false;
+      let run = true;
+      let current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+      let fall_time = 0;
+      const fall_speed = 0.27;
 
+      function update() {
+        grid = create_grid(locked_positions);
+        fall_time += 1;
+        if (fall_time / 1000 >= fall_speed) {
+          fall_time = 0;
+          current_piece.y += 1;
+          if (!valid_space(current_piece, grid) && current_piece.y > 0) {
+            current_piece.y -= 1;
+            change_piece = true;
+          }
+        }
+
+        if (change_piece) {
+          for (const [x, y] of convert_shape_format(current_piece)) {
+            if (y >= 0) {
+              grid[y][x] = current_piece.color;
+            }
           }
 
+          for (const [x, y] of convert_shape_format(current_piece)) {
+            const key = `${x},${y}`;
+            locked_positions[key] = current_piece.color;
+          }
+
+          current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+          change_piece = false;
+        }
+
+        draw_window(ctx, grid);
+
+        if (run) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      update();
+    }
+
+    function startGame() {
+      const warningMessage = document.getElementById('warningMessage');
+      warningMessage.style.display = 'block';
+      alert('Server started successfully!');
           main();
         `);
       });
