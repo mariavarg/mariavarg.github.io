@@ -67,6 +67,22 @@
     <div id="canvas-container">
       <canvas id="gameCanvas"></canvas>
       <div id="game-container"></div>
+      <script>
+  // Load the game files from the server
+  const gameScript = document.createElement('script');
+  gameScript.src = 'http://localhost:8080/game/game.js';
+  document.head.appendChild(gameScript);
+
+  // Initialize the game
+  window.addEventListener('load', () => {
+    const gameConfig = {
+      // Define your game configuration here (e.g., width, height, scene, etc.)
+      // ...
+    };
+    const game = new Phaser.Game(gameConfig);
+  });
+</script>
+
 
     </div>
   </div>
