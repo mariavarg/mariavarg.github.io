@@ -24,7 +24,7 @@ async def websocket_handler(websocket, path):
 clients = []
 
 # Start the WebSocket server
-start_server = websockets.serve(websocket_handler, 'localhost', 8765)
+start_server = websockets.serve(websocket_handler, '0.0.0.0', 8765)
 
 # Run the server
 asyncio.get_event_loop().run_until_complete(start_server)
