@@ -30,8 +30,9 @@ start_server = websockets.serve(websocket_handler, '0.0.0.0', 8765)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
 
-pygame.font.init()
-pygame.init()
+def run_game():
+    pygame.font.init()
+    pygame.init()
 
 # GLOBALS VARS
 s_width = 450
