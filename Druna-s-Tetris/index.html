@@ -241,15 +241,6 @@ languagePluginLoader.then(() => {
 
         
 
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size))
-
-    pygame.draw.rect(surface, red, (top_left_x, top_left_y, play_width, play_height), 4)
-
-    draw_grid(surface, 20, 10)
-    pygame.display.update()
-
 
 def run_game():
     locked_positions = {}
@@ -343,25 +334,6 @@ def run_game():
             if (y >= 0) {
               grid[y][x] = current_piece.color;
             }
-          }
-
-          for (const [x, y] of convert_shape_format(current_piece)) {
-            const key = `${x},${y}`;
-            locked_positions[key] = current_piece.color;
-          }
-
-          current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
-          change_piece = false;
-        }
-
-        draw_window(ctx, grid);
-
-        if (run) {
-          requestAnimationFrame(update);
-        }
-      }
-
-      update();
-    }
+          }    }
 
 
