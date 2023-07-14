@@ -304,6 +304,4 @@ def main():
 
 
 if __name__ == "__main__":
-    pygame.display.set_caption("Tetris")
-    surface = pygame.display.set_mode((s_width, s_height))
     main()
