@@ -23,20 +23,20 @@ languagePluginLoader.then(() => {
     const top_left_x = (s_width - play_width) / 2;
     const top_left_y = 50;
 
-    // color
-    const gray = (119, 118, 110);
-    const white = (255, 255, 255);
-    const black = (0, 0, 0);
-    const red = (200, 0, 0);
-    const green = (0, 200, 0);
-    const blue = (0, 255, 255);
-    const bright_red = (255, 0, 0);
-    const bright_green = (0, 255, 0);
-    const sea_green = (0, 255, 255);
-    const orange = (255, 165, 0);
-    const yellow = (255, 255, 0);
-    const purple = (128, 0, 128);
-    const light_red = (255, 0, 0);
+      // color
+const gray = [119, 118, 110];
+const white = [255, 255, 255];
+const black = [0, 0, 0];
+const red = [200, 0, 0];
+const green = [0, 200, 0];
+const blue = [0, 255, 255];
+const bright_red = [255, 0, 0];
+const bright_green = [0, 255, 0];
+const sea_green = [0, 255, 255];
+const orange = [255, 165, 0];
+const yellow = [255, 255, 0];
+const purple = [128, 0, 128];
+const light_red = [255, 0, 0];
 
     const shape_colors = [
       (0, 255, 0),
