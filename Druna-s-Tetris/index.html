@@ -148,13 +148,85 @@ languagePluginLoader.then(() => {
     audio.play();        
 
     function draw_window(surface, grid) {
+      surface.fillStyle = black;
+      surface.fillRect(0, 0, s_width, s_height);
+      surface.font = '60px "Sofia", sans-serif';
+      surface.fillStyle = white;
+      surface.textAlign = 'center';
+      surface.fillText('Tetris', top_left_x + play_width / 2, 30);
+
+      for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+          surface.fillStyle = grid[i][j];
+          surface.fillRect(top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size);
+        }
+      }
+
+      surface.strokeStyle = red;
+      surface.lineWidth = 4;
+      surface.strokeRect(top_left_x, top_left_y, play_width, play_height);
+
+      draw_grid(surface, 20, 10);
+    }
     
 
     function main() {
       // Game logic goes here
-      // ...
+        function main() {
+      let locked_positions = {};
+      let grid = create_grid(locked_positions);
 
-         // Play audio
+      let change_piece = false;
+      let run = true;
+      let current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+      let fall_time = 0;
+      const fall_speed = 0.27;
+
+      function update() {
+        grid = create_grid(locked_positions);
+        fall_time += 1;
+        if (fall_time / 1000 >= fall_speed) {
+          fall_time = 0;
+          current_piece.y += 1;
+          if (!valid_space(current_piece, grid) && current_piece.y > 0) {
+            current_piece.y -= 1;
+            change_piece = true;
+          }
+        }
+
+        if (change_piece) {
+          for (const [x, y] of convert_shape_format(current_piece)) {
+            if (y >= 0) {
+              grid[y][x] = current_piece.color;
+            }
+          }
+
+          for (const [x, y] of convert_shape_format(current_piece)) {
+            const key = `${x},${y}`;
+            locked_positions[key] = current_piece.color;
+          }
+
+          current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+          change_piece = false;
+        }
+
+        draw_window(ctx, grid);
+
+        if (run) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      update();
+    }
+
+    function startGame() {
+      const warningMessage = document.getElementById('warningMessage');
+      warningMessage.style.display = 'block';
+      alert('Server started successfully!');
+      main();
+    }
+ // Play audio
       audio.play();
     }
 
@@ -165,23 +237,9 @@ languagePluginLoader.then(() => {
 
 
 
-
           
 
-          // Get the canvas element
-          const canvas = document.getElementById('gameCanvas');
-          const ctx = canvas.getContext('2d');
-
-          // Rest of the game code...
-
-          function draw_window(surface, grid) {
-            // Draw the game window
-           def draw_window(surface, grid):
-    surface.fill(black)
-    pygame.font.init()
-    font = pygame.font.SysFont('Sofia, sans sherif', 60)
-    label = font.render('Tetris', 1, white)
-    surface.blit(label, (top_left_x + play_width // 2 - label.get_width() // 2, 30))
+        
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
@@ -306,15 +364,4 @@ def run_game():
       update();
     }
 
-    function startGame() {
-      const warningMessage = document.getElementById('warningMessage');
-      warningMessage.style.display = 'block';
-      alert('Server started successfully!');
-          main();
-        `);
-      });
-    }
-  </script>
 
-</body>
-</html>
