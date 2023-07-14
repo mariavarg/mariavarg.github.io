@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <link href="/styles1.css" rel="stylesheet">
   <style>
     body, h1 {
@@ -26,96 +24,56 @@
       text-align: center;
     }
 
-    .canvas-container {
-      position: relative;
-      width: 100%;
-      max-width: 450px;
-      margin: auto;
+    #gameCanvas {
+      width: 450px;
+      height: 600px;
+      margin: 0 auto;
       background-image: url('/Druna-s-Tetris/unsplash.png');
       background-size: cover;
-      padding: 18px;
-    }
-
-    #gameArea {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      max-width: 450px;
-      height: 100%;
-      padding: 18px;
     }
   </style>
 </head>
   
 <body>
-
-<script>
-  function startServerAndGame() {
-    // Display the warning message
-    var warningMessage = document.getElementById("warningMessage");
-    warningMessage.style.display = "block";
-
-    // Open a new tab or window to start the server
-    window.open("http://localhost:8000", "/index.html");
-
-    // Alert the user that the server has started
-    alert('Server started successfully!');
-
-    // You can perform additional actions or start the game here
-  }
-</script>
-  
-<div class="content">
-  <button id="startButton" onclick="startServerAndGame()">Start Server & Game</button>
-  <p id="warningMessage" style="display: none;">By clicking "Start Server & Game," you acknowledge that we may
-    collect and store certain non-personally identifiable information for analytics purposes.</p>
-</div>
-
-<div class="content">
-  <h1>My Website</h1>
-  <h3>"Druna's Tetris"</h3>
-  <h4>(©copyright mariavarg - a.k.a. Druna C.)</h4>
-  <img src="Gondor.png" alt="Logo" class="responsive"><br>
-  <br><img src="/Druna-s-Tetris/unsplash.png" alt="gameArea" class="center"><br>
-  <div class="canvas-container">
-    <div id="gameArea"></div>
+  <div class="content">
+    <h1>My Website</h1>
+    <h3>"Druna's Tetris"</h3>
+    <h4>(© mariavarg - a.k.a. Druna C.)</h4>
+    <img src="Gondor.png" alt="Logo" class="responsive"><br>
+    <br><img src="/Druna-s-Tetris/unsplash.png" alt="gameArea" class="center"><br>
+    <div id="gameCanvas"></div>
   </div>
-  <py-script src="main.py"></py-script>
-  <script src="game.js"></script>
-</div>
 
-<nav class="navbar navbar-expand-bg bg-dark navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="/index.html">HOME!</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/contactme.html">CONTACT</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/about.html">ABOUT</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/about.html">NEXT</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="/Art.html">PREVIOUS</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="javascript:history.go(-1)">BACK</a>
-    </li>
-  </ul>
-</nav>
+  <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/index.html">HOME!</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contactme.html">CONTACT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about.html">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about.html">NEXT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Art.html">PREVIOUS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:history.go(-1)">BACK</a>
+      </li>
+    </ul>
+  </nav>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
-
-<!-- Place the modified code snippet here -->
-
+  <script src="game.js"></script>
 </body>
 </html>
+
