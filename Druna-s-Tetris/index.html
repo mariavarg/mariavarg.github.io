@@ -70,21 +70,6 @@
     <div id="canvas-container">
       <canvas id="gameCanvas"></canvas>
       <div id="game-container"></div>
-      <script>
-        // Load the game files from the server
-        const gameScript = document.createElement('script');
-        gameScript.src = 'game.js';
-        document.head.appendChild(gameScript);
-
-        // Initialize the game
-        window.addEventListener('load', () => {
-          const gameConfig = {
-            // Define your game configuration here (e.g., width, height, scene, etc.)
-            // ...
-          };
-          const game = new Phaser.Game(gameConfig);
-        });
-      </script>
     </div>
   </div>
 
@@ -149,7 +134,6 @@
           const ctx = canvas.getContext('2d');
 
           // Rest of the game code...
-          <py-script>scr="main.py"</py-script>
 
           // Base64-encoded audio data
           const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
@@ -159,17 +143,17 @@
           audio.play();
 
           // Base64-encoded audio data
-          const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
+          const audioData2 = 'data:audio/mpeg;base64,...Base64-encoded-audio-data-2...';
 
-          // Create an audio element and play the audio
-          const audio = new Audio(audioData);
-          audio.play();
+          // Create a second audio element and play the audio
+          const audio2 = new Audio(audioData2);
+          audio2.play();
 
           function draw_window(surface, grid) {
-            surface.fillStyle = black;
+            surface.fillStyle = 'black';
             surface.fillRect(0, 0, s_width, s_height);
             surface.font = '60px "Sofia", sans-serif';
-            surface.fillStyle = white;
+            surface.fillStyle = 'white';
             surface.textAlign = 'center';
             surface.fillText('Tetris', top_left_x + play_width / 2, 30);
 
@@ -180,75 +164,62 @@
               }
             }
 
-            surface.strokeStyle = red;
+            surface.strokeStyle = 'red';
             surface.lineWidth = 4;
             surface.strokeRect(top_left_x, top_left_y, play_width, play_height);
 
             draw_grid(surface, 20, 10);
           }
 
-          function main() {
-            let locked_positions = {};
-            let grid = create_grid(locked_positions);
-
-            let change_piece = false;
-            let run = true;
-            let current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
-            let fall_time = 0;
-            const fall_speed = 0.27;
-
-            function update() {
-              grid = create_grid(locked_positions);
-              fall_time += 1;
-              if (fall_time / 1000 >= fall_speed) {
-                fall_time = 0;
-                current_piece.y += 1;
-                if (!valid_space(current_piece, grid) && current_piece.y > 0) {
-                  current_piece.y -= 1;
-                  change_piece = true;
-                }
-              }
-
-              if (change_piece) {
-                for (const [x, y] of convert_shape_format(current_piece)) {
-                  if (y >= 0) {
-                    grid[y][x] = current_piece.color;
-                  }
-                }
-
-                for (const [x, y] of convert_shape_format(current_piece)) {
-                  const key = `${x},${y}`;
-                  locked_positions[key] = current_piece.color;
-                }
-
-                current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
-                change_piece = false;
-              }
-
-              draw_window(ctx, grid);
-
-              if (run) {
-                requestAnimationFrame(update);
+          function update() {
+            grid = create_grid(locked_positions);
+            fall_time += 1;
+            if (fall_time / 1000 >= fall_speed) {
+              fall_time = 0;
+              current_piece.y += 1;
+              if (!valid_space(current_piece, grid) && current_piece.y > 0) {
+                current_piece.y -= 1;
+                change_piece = true;
               }
             }
 
-            update();
+            if (change_piece) {
+              for (const [x, y] of convert_shape_format(current_piece)) {
+                if (y >= 0) {
+                  grid[y][x] = current_piece.color;
+                }
+              }
+
+              for (const [x, y] of convert_shape_format(current_piece)) {
+                const key = `${x},${y}`;
+                locked_positions[key] = current_piece.color;
+              }
+
+              current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+              change_piece = false;
+            }
+
+            draw_window(ctx, grid);
+
+            if (run) {
+              requestAnimationFrame(update);
+            }
           }
 
-          startGame();
+          // Game initialization code...
+          let locked_positions = {};
+          let grid = create_grid(locked_positions);
+
+          let change_piece = false;
+          let run = true;
+          let current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+          let fall_time = 0;
+          const fall_speed = 0.27;
+
+          update();
         `);
       });
     }
-
-    function startGame() {
-      const warningMessage = document.getElementById('warningMessage');
-      warningMessage.style.display = 'block';
-      alert('Server started successfully!');
-    }
-
-    // Initial game startup
-    startServerAndGame();
   </script>
 </body>
 </html>
-
