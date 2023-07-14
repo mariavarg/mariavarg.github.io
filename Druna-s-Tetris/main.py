@@ -1,5 +1,9 @@
 import pygame
 import random
+pip install websockets
+import asyncio
+import websockets
+
 
 pygame.font.init()
 pygame.init()
