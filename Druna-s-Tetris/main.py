@@ -36,19 +36,19 @@ start_server = websockets.serve(websocket_handler, '0.0.0.0', 8765)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
 
-    pygame.font.init()
-    pygame.init()
+pygame.font.init()
+pygame.init()
 
-    # GLOBALS VARS
-    s_width = 450
-    s_height = 700
-    play_width = 300  # meaning 300 // 10 = 30 width per block
-    play_height = 600  # meaning 600 // 20 = 30 height per block
-    block_size = play_width // 10
+# GLOBALS VARS
+s_width = 450
+s_height = 700
+play_width = 300  # meaning 300 // 10 = 30 width per block
+play_height = 600  # meaning 600 // 20 = 30 height per block
+block_size = play_width // 10
 
-    top_left_x = (s_width - play_width) // 2
-    top_left_y = 50
-    
+top_left_x = (s_width - play_width) // 2
+top_left_y = 50
+
 # color
 gray = (119, 118, 110)
 white = (255, 255, 255)
@@ -243,7 +243,7 @@ def draw_window(surface, grid):
     pygame.display.update()
 
 
-def main():
+def run_game():
     locked_positions = {}
     grid = create_grid(locked_positions)
 
@@ -310,5 +310,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-   
+    run_game()
