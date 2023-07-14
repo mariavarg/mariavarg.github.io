@@ -56,11 +56,17 @@
     var warningMessage = document.getElementById("warningMessage");
     warningMessage.style.display = "block";
 
-    // Start the game or perform other actions here
+    // Start the server
+    var serverProcess = new Process('python -m http.server');
+    serverProcess.start();
+
+    // Alert the user that the server has started
     alert('Server started successfully!');
-    // Start the game or perform other actions here
+
+    // You can perform additional actions or start the game here
   }
 </script>
+
   
   <div class="content">
     <button id="startButton" onclick="startServerAndGame()">Start Server & Game</button>
