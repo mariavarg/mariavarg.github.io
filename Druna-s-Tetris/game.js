@@ -4,43 +4,52 @@ languagePluginLoader.then(() => {
         import pygame
         
         pygame.init()
-// Get the canvas element
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
 
-// Event listener for the start button
-const startButton = document.getElementById('startButton');
-startButton.addEventListener('click', startGame);
+        // Get the canvas element
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
 
-# GLOBALS VARS
-s_width = 450
-s_height = 700
-play_width = 300  # meaning 300 // 10 = 30 width per block
-play_height = 600  # meaning 600 // 20 = 30 height per block
-block_size = play_width // 10
+        // Event listener for the start button
+        const startButton = document.getElementById('startButton');
+        startButton.addEventListener('click', startGame);
 
-top_left_x = (s_width - play_width) // 2
-top_left_y = 50
+        // GLOBALS VARS
+        const s_width = 450;
+        const s_height = 700;
+        const play_width = 300;  // meaning 300 // 10 = 30 width per block
+        const play_height = 600;  // meaning 600 // 20 = 30 height per block
+        const block_size = play_width // 10;
 
-top_left_x = (s_width - play_width) // 2
-top_left_y = s_height - play_height
+        const top_left_x = (s_width - play_width) // 2;
+        const top_left_y = 50;
 
-# color
-gray = (119, 118, 110)
-white = (255, 255, 255)
-black = (0, 0, 0)
-red = (200, 0, 0)
-green = (0, 200, 0)
-blue = (0, 255, 255)
-bright_red = (255, 0, 0)
-bright_green = (0, 255, 0)
-sea_green = (0, 255, 255)
-orange = (255, 165, 0)
-yellow = (255, 255, 0)
-purple = (128, 0, 128)
-light_red = (255, 0, 0)
+        // color
+        const gray = (119, 118, 110);
+        const white = (255, 255, 255);
+        const black = (0, 0, 0);
+        const red = (200, 0, 0);
+        const green = (0, 200, 0);
+        const blue = (0, 255, 255);
+        const bright_red = (255, 0, 0);
+        const bright_green = (0, 255, 0);
+        const sea_green = (0, 255, 255);
+        const orange = (255, 165, 0);
+        const yellow = (255, 255, 0);
+        const purple = (128, 0, 128);
+        const light_red = (255, 0, 0);
 
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
+        const shape_colors = [
+            (0, 255, 0),
+            (255, 0, 0),
+            (0, 255, 255),
+            (255, 255, 0),
+            (255, 165, 0),
+            (0, 0, 255),
+            (128, 0, 128)
+        ];
+
+      );
+});
 
 # SHAPE FORMATS
 
