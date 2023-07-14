@@ -1,5 +1,3 @@
-To fix these issues, you can make the following modifications to your main.py file:
-
 python
 Copy code
 import pygame
