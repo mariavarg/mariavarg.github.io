@@ -240,9 +240,6 @@ const light_red = [255, 0, 0];
       draw_grid(surface, 20, 10);
     }
 
-
-    
-
     function main() {
       let locked_positions = {};
       let grid = create_grid(locked_positions);
