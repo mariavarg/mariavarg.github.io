@@ -1,310 +1,302 @@
 // Load Pyodide and execute the game code
 languagePluginLoader.then(() => {
-    pyodide.runPython(`
-        import pygame
-        
-        pygame.init()
+  pyodide.runPython(`
+    import pygame
 
-        // Get the canvas element
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
+    pygame.init()
 
-        // Event listener for the start button
-        const startButton = document.getElementById('startButton');
-        startButton.addEventListener('click', startGame);
+    // Get the canvas element
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
 
-        // GLOBALS VARS
-        const s_width = 450;
-        const s_height = 700;
-        const play_width = 300;  // meaning 300 // 10 = 30 width per block
-        const play_height = 600;  // meaning 600 // 20 = 30 height per block
-        const block_size = play_width // 10;
+    // Event listener for the start button
+    const startButton = document.getElementById('startButton');
+    startButton.addEventListener('click', startGame);
 
-        const top_left_x = (s_width - play_width) // 2;
-        const top_left_y = 50;
+    // GLOBALS VARS
+    const s_width = 450;
+    const s_height = 700;
+    const play_width = 300;  // meaning 300 // 10 = 30 width per block
+    const play_height = 600;  // meaning 600 // 20 = 30 height per block
+    const block_size = play_width / 10;
 
-        // color
-        const gray = (119, 118, 110);
-        const white = (255, 255, 255);
-        const black = (0, 0, 0);
-        const red = (200, 0, 0);
-        const green = (0, 200, 0);
-        const blue = (0, 255, 255);
-        const bright_red = (255, 0, 0);
-        const bright_green = (0, 255, 0);
-        const sea_green = (0, 255, 255);
-        const orange = (255, 165, 0);
-        const yellow = (255, 255, 0);
-        const purple = (128, 0, 128);
-        const light_red = (255, 0, 0);
+    const top_left_x = (s_width - play_width) / 2;
+    const top_left_y = 50;
 
-        const shape_colors = [
-            (0, 255, 0),
-            (255, 0, 0),
-            (0, 255, 255),
-            (255, 255, 0),
-            (255, 165, 0),
-            (0, 0, 255),
-            (128, 0, 128)
-        ];
+    // color
+    const gray = (119, 118, 110);
+    const white = (255, 255, 255);
+    const black = (0, 0, 0);
+    const red = (200, 0, 0);
+    const green = (0, 200, 0);
+    const blue = (0, 255, 255);
+    const bright_red = (255, 0, 0);
+    const bright_green = (0, 255, 0);
+    const sea_green = (0, 255, 255);
+    const orange = (255, 165, 0);
+    const yellow = (255, 255, 0);
+    const purple = (128, 0, 128);
+    const light_red = (255, 0, 0);
 
+    const shape_colors = [
+      (0, 255, 0),
+      (255, 0, 0),
+      (0, 255, 255),
+      (255, 255, 0),
+      (255, 165, 0),
+      (0, 0, 255),
+      (128, 0, 128)
+    ];
+
+    const shapes = [
+      [['.....',
+        '.....',
+        '..00.',
+        '.00..',
+        '.....'],
+       ['.....',
+        '..0..',
+        '..00.',
+        '...0.',
+        '.....']],
+
+      [['.....',
+        '.....',
+        '.00..',
+        '..00.',
+        '.....'],
+       ['.....',
+        '..0..',
+        '.00..',
+        '.0...',
+        '.....']],
+
+      [['..0..',
+        '..0..',
+        '..0..',
+        '..0..',
+        '.....'],
+       ['.....',
+        '0000.',
+        '.....',
+        '.....',
+        '.....']],
+
+      [['.....',
+        '.....',
+        '.00..',
+        '.00..',
+        '.....']],
+
+      [['.....',
+        '.0...',
+        '.000.',
+        '.....',
+        '.....'],
+       ['.....',
+        '..00.',
+        '..0..',
+        '..0..',
+        '.....'],
+       ['.....',
+        '.....',
+        '.000.',
+        '...0.',
+        '.....'],
+       ['.....',
+        '..0..',
+        '..0..',
+        '.00..',
+        '.....']],
+
+      [['.....',
+        '...0.',
+        '.000.',
+        '.....',
+        '.....'],
+       ['.....',
+        '..0..',
+        '..0..',
+        '..00.',
+        '.....'],
+       ['.....',
+        '.....',
+        '.000.',
+        '.0...',
+        '.....'],
+       ['.....',
+        '.00..',
+        '..0..',
+        '..0..',
+        '.....']],
+
+      [['.....',
+        '..0..',
+        '.000.',
+        '.....',
+        '.....'],
+       ['.....',
+        '..0..',
+        '..00.',
+        '..0..',
+        '.....'],
+       ['.....',
+        '.....',
+        '.000.',
+        '..0..',
+        '.....'],
+       ['.....',
+        '..0..',
+        '.00..',
+        '..0..',
+        '.....']]
+    ];
+
+    // SHAPE FORMATS
+
+    class Piece {
+      constructor(x, y, shape) {
+        this.x = x;
+        this.y = y;
+        this.shape = shape;
+        this.color = shape_colors[shapes.indexOf(shape)];
+        this.rotation = 0;
+      }
+    }
+
+    function create_grid(locked_positions = {}) {
+      const grid = Array.from(Array(20), () => Array(10).fill(black));
+
+      for (const [key, color] of Object.entries(locked_positions)) {
+        const [x, y] = key.split(',').map(Number);
+        if (y >= 0) grid[y][x] = color;
+      }
+
+      return grid;
+    }
+
+    function convert_shape_format(shape) {
+      const positions = [];
+      const format = shape.shape[shape.rotation % shape.shape.length];
+
+      for (let i = 0; i < format.length; i++) {
+        const row = format[i];
+        for (let j = 0; j < row.length; j++) {
+          if (row[j] === '0') {
+            positions.push([shape.x + j, shape.y + i]);
+          }
+        }
+      }
+
+      for (let i = 0; i < positions.length; i++) {
+        const [x, y] = positions[i];
+        positions[i] = [x - 2, y - 4];
+      }
+
+      return positions;
+    }
+
+    function valid_space(shape, grid) {
+      const accepted_pos = shape.shape[shape.rotation % shape.shape.length].flatMap((row, i) =>
+        row.split('').map((cell, j) => [shape.x + j, shape.y + i])
       );
+
+      return accepted_pos.every(([x, y]) => y < 0 || (grid[y] && grid[y][x] === black));
+    }
+
+    function draw_grid(surface, row, col) {
+      for (let i = 0; i < row; i++) {
+        ctx.beginPath();
+        ctx.moveTo(top_left_x, top_left_y + i * block_size);
+        ctx.lineTo(top_left_x + play_width, top_left_y + i * block_size);
+        ctx.strokeStyle = gray;
+        ctx.stroke();
+      }
+
+      for (let j = 0; j < col; j++) {
+        ctx.beginPath();
+        ctx.moveTo(top_left_x + j * block_size, top_left_y);
+        ctx.lineTo(top_left_x + j * block_size, top_left_y + play_height);
+        ctx.strokeStyle = gray;
+        ctx.stroke();
+      }
+    }
+
+    function draw_window(surface, grid) {
+      surface.fillStyle = black;
+      surface.fillRect(0, 0, s_width, s_height);
+      surface.font = '60px "Sofia", sans-serif';
+      surface.fillStyle = white;
+      surface.textAlign = 'center';
+      surface.fillText('Tetris', top_left_x + play_width / 2, 30);
+
+      for (let i = 0; i < grid.length; i++) {
+        for (let j = 0; j < grid[i].length; j++) {
+          surface.fillStyle = grid[i][j];
+          surface.fillRect(top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size);
+        }
+      }
+
+      surface.strokeStyle = red;
+      surface.lineWidth = 4;
+      surface.strokeRect(top_left_x, top_left_y, play_width, play_height);
+
+      draw_grid(surface, 20, 10);
+    }
+
+    function main() {
+      let locked_positions = {};
+      let grid = create_grid(locked_positions);
+
+      let change_piece = false;
+      let run = true;
+      let current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+      let fall_time = 0;
+      const fall_speed = 0.27;
+
+      function update() {
+        grid = create_grid(locked_positions);
+        fall_time += 1;
+        if (fall_time / 1000 >= fall_speed) {
+          fall_time = 0;
+          current_piece.y += 1;
+          if (!valid_space(current_piece, grid) && current_piece.y > 0) {
+            current_piece.y -= 1;
+            change_piece = true;
+          }
+        }
+
+        if (change_piece) {
+          for (const [x, y] of convert_shape_format(current_piece)) {
+            if (y >= 0) {
+              grid[y][x] = current_piece.color;
+            }
+          }
+
+          for (const [x, y] of convert_shape_format(current_piece)) {
+            const key = `${x},${y}`;
+            locked_positions[key] = current_piece.color;
+          }
+
+          current_piece = new Piece(5, 0, shapes[Math.floor(Math.random() * shapes.length)]);
+          change_piece = false;
+        }
+
+        draw_window(ctx, grid);
+
+        if (run) {
+          requestAnimationFrame(update);
+        }
+      }
+
+      update();
+    }
+
+    function startGame() {
+      const warningMessage = document.getElementById('warningMessage');
+      warningMessage.style.display = 'block';
+      alert('Server started successfully!');
+      main();
+    }
+  `);
 });
-
-# SHAPE FORMATS
-
-S = [['.....',
-      '.....',
-      '..00.',
-      '.00..',
-      '.....'],
-     ['.....',
-      '..0..',
-      '..00.',
-      '...0.',
-      '.....']]
-
-Z = [['.....',
-      '.....',
-      '.00..',
-      '..00.',
-      '.....'],
-     ['.....',
-      '..0..',
-      '.00..',
-      '.0...',
-      '.....']]
-
-I = [['..0..',
-      '..0..',
-      '..0..',
-      '..0..',
-      '.....'],
-     ['.....',
-      '0000.',
-      '.....',
-      '.....',
-      '.....']]
-
-O = [['.....',
-      '.....',
-      '.00..',
-      '.00..',
-      '.....']]
-
-J = [['.....',
-      '.0...',
-      '.000.',
-      '.....',
-      '.....'],
-     ['.....',
-      '..00.',
-      '..0..',
-      '..0..',
-      '.....'],
-     ['.....',
-      '.....',
-      '.000.',
-      '...0.',
-      '.....'],
-     ['.....',
-      '..0..',
-      '..0..',
-      '.00..',
-      '.....']]
-
-L = [['.....',
-      '...0.',
-      '.000.',
-      '.....',
-      '.....'],
-     ['.....',
-      '..0..',
-      '..0..',
-      '..00.',
-      '.....'],
-     ['.....',
-      '.....',
-      '.000.',
-      '.0...',
-      '.....'],
-     ['.....',
-      '.00..',
-      '..0..',
-      '..0..',
-      '.....']]
-
-T = [['.....',
-      '..0..',
-      '.000.',
-      '.....',
-      '.....'],
-     ['.....',
-      '..0..',
-      '..00.',
-      '..0..',
-      '.....'],
-     ['.....',
-      '.....',
-      '.000.',
-      '..0..',
-      '.....'],
-     ['.....',
-      '..0..',
-      '.00..',
-      '..0..',
-      '.....']]
-
-shapes = [S, Z, I, O, J, L, T]
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
-# index 0 - 6 represent shape
-
-
-class Piece:
-    def __init__(self, x, y, shape):
-        self.x = x
-        self.y = y
-        self.shape = shape
-        self.color = shape_colors[shapes.index(shape)]
-        self.rotation = 0
-
-
-def create_grid(locked_positions={}):
-    grid = [[(black) for _ in range(10)] for _ in range(20)]
-
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if (j, i) in locked_positions:
-                c = locked_positions[(j, i)]
-                grid[i][j] = c
-    return grid
-
-
-def convert_shape_format(shape):
-    positions = []
-    format = shape.shape[shape.rotation % len(shape.shape)]
-
-    for i, line in enumerate(format):
-        row = list(line)
-        for j, column in enumerate(row):
-            if column == '0':
-                positions.append((shape.x + j, shape.y + i))
-
-    for i, pos in enumerate(positions):
-        positions[i] = (pos[0] - 2, pos[1] - 4)
-
-    return positions
-
-
-def valid_space(shape, grid):
-    accepted_pos = [[(j, i) for j in range(10) if grid[i][j] == (black)] for i in range(20)]
-
-def draw_grid(surface, row, col):
-    for i in range(row):
-        pygame.draw.line(surface, gray, (top_left_x, top_left_y + i * block_size),
-                         (top_left_x + play_width, top_left_y + i * block_size))
-        for j in range(col):
-            pygame.draw.line(surface, gray, (top_left_x + j * block_size, top_left_y),
-                             (top_left_x + j * block_size, top_left_y + play_height))
-
-def draw_window(surface, grid):
-    surface.fill(black)
-    pygame.font.init()
-    font = pygame.font.SysFont('Sofia, sans sherif', 60)
-    label = font.render('Tetris', 1, white)
-    surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
-
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size))
-
-    pygame.draw.rect(surface, red, (top_left_x, top_left_y, play_width, play_height), 4)
-
-    draw_grid(surface, 20, 10)
-    pygame.display.update()
-
-
-def main():
-    locked_positions = {}
-    grid = create_grid(locked_positions)
-
-    change_piece = False
-    run = True
-    current_piece = Piece(5, 0, random.choice(shapes))
-    clock = pygame.time.Clock()
-    fall_time = 0
-    fall_speed = 0.27
-
-    while run:
-        grid = create_grid(locked_positions)
-        fall_time += clock.get_rawtime()
-        clock.tick()
-
-        if fall_time / 1000 >= fall_speed:
-            fall_time = 0
-            current_piece.y += 1
-            if not valid_space(current_piece, grid) and current_piece.y > 0:
-                current_piece.y -= 1
-                change_piece = True
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-                quit()
-
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    current_piece.x -= 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.x += 1
-
-                elif event.key == pygame.K_RIGHT:
-                    current_piece.x += 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.x -= 1
-
-                elif event.key == pygame.K_DOWN:
-                    current_piece.y += 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.y -= 1
-
-                elif event.key == pygame.K_UP:
-                    current_piece.rotation = (current_piece.rotation + 1) % len(current_piece.shape)
-                    if not valid_space(current_piece, grid):
-                        current_piece.rotation = (current_piece.rotation - 1) % len(current_piece.shape)
-
-        shape_pos = convert_shape_format(current_piece)
-
-        for i in range(len(shape_pos)):
-            x, y = shape_pos[i]
-            if y > -1:
-                grid[y][x] = current_piece.color
-
-        if change_piece:
-            for pos in shape_pos:
-                p = (pos[0], pos[1])
-                locked_positions[p] = current_piece.color
-            current_piece = Piece(5, 0, random.choice(shapes))
-            change_piece = False
-
-        draw_window(surface, grid)
-
-import http.server
-import socketserver
-import threading
-
-def start_server():
-    handler = http.server.SimpleHTTPRequestHandler
-    with socketserver.TCPServer(("", 8000), handler) as httpd:
-        print("Server is starting...")
-        httpd.serve_forever()
-
-def start_server_endpoint(request):
-    # Start the server in a separate thread
-    server_thread = threading.Thread(target=start_server)
-    server_thread.start()
-    return "Server started successfully!", 200
-
-if __name__ == '__main__':
-    start_server()  # Start the server directly instead of the comment Python command
-    print("Ready to start the server...")
