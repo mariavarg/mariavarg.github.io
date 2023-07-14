@@ -297,6 +297,5 @@ def start_server_endpoint(request):
     return "Server started successfully!", 200
 
 if __name__ == '__main__':
-    Python 3 — python -m http. server 8000.
+    start_server()  # Start the server directly instead of the comment Python command
     print("Ready to start the server...")
-  
