@@ -2,6 +2,13 @@ import pygame
 import random
 import asyncio
 import websockets
+import micropip
+
+async def install_packages():
+    await micropip.install("websockets")
+
+asyncio.get_event_loop().run_until_complete(install_packages())
+
 
 async def websocket_handler(websocket, path):
     while True:
