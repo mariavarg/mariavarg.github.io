@@ -4,6 +4,31 @@ pip install websockets
 import asyncio
 import websockets
 
+async def websocket_handler(websocket, path):
+    while True:
+        try:
+            # Receive message from the client
+            message = await websocket.recv()
+            
+            # Process the message and update the game state
+            # You can implement your game logic here
+            
+            # Send the updated game state to all connected clients
+            await asyncio.wait([client.send(message) for client in clients])
+        except websockets.exceptions.ConnectionClosed:
+            # Remove the disconnected client from the list
+            clients.remove(websocket)
+            break
+
+# Create a list to store all connected clients
+clients = []
+
+# Start the WebSocket server
+start_server = websockets.serve(websocket_handler, 'localhost', 8765)
+
+# Run the server
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
 
 pygame.font.init()
 pygame.init()
