@@ -62,8 +62,25 @@
     // Alert the user that the server has started
     alert('Server started successfully!');
 
-    // You can perform additional actions or start the game here
-  }
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.18.1/full/pyodide.js"></script>
+<script>
+    // Load Pyodide and execute the game code
+    languagePluginLoader.then(() => {
+        pyodide.runPython(`
+            import pygame
+
+            def run_game():
+                pygame.font.init()
+                pygame.init()
+
+                # Add your game code here
+
+            # Call the game function
+            run_game()
+        `);
+    });
+</script>
+}
 </script>
   
   <div class="content">
