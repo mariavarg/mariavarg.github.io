@@ -226,10 +226,10 @@ languagePluginLoader.then(() => {
       alert('Server started successfully!');
       main();
     }
- // Play audio
-      audio.play();
-    }
-
+ # Play audio
+            const audio = document.getElementById('gameAudio');
+            audio.play();
+          }
     main();
   `);
 });
