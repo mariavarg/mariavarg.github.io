@@ -118,8 +118,55 @@
       languagePluginLoader.then(() => {
         pyodide.runPython(`
           import pygame
+          import base64
+          import io
 
-          pygame.init()
+// Load Pyodide and execute the game code
+languagePluginLoader.then(() => {
+  pyodide.runPython(`
+    
+    pygame.init()
+
+    // Get the canvas element
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Rest of the game code...
+
+    // Base64-encoded audio data
+    const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
+
+    // Create an audio element and play the audio
+    const audio = new Audio(audioData);
+    audio.play();
+
+    // Base64-encoded audio data
+    const audioData = 'data:audio/mpeg;base64,...Base64-encoded-audio-data...';
+
+    // Create an audio element and play the audio
+    const audio = new Audio(audioData);
+    audio.play();        
+
+    function draw_window(surface, grid) {
+    
+
+    function main() {
+      // Game logic goes here
+      // ...
+
+         // Play audio
+      audio.play();
+    }
+
+    main();
+  `);
+});
+
+
+
+
+
+          
 
           // Get the canvas element
           const canvas = document.getElementById('gameCanvas');
