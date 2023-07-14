@@ -92,50 +92,30 @@
 
   <script src="game.js"></script>
 
-  <script>
-   function startServerAndGame() {
+  <script>function startServerAndGame() {
   // Display the warning message
   var warningMessage = document.getElementById("warningMessage");
   warningMessage.style.display = "block";
 
-  // Create a WebSocket connection
-  var socket = new WebSocket('ws://localhost:8765/');
-  
-  // Event handler for receiving messages from the server
-  socket.onmessage = function(event) {
-    var message = event.data;
-    // Handle the received message and update the game interface
-    // You can implement your game rendering logic here
+  // Create an AJAX request to start the Python server on your Vercel deployment
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        alert('Server started successfully!');
+        // Start the game or perform other actions here
+      } else {
+        alert('Failed to start the server. Check the console for more details.');
+        console.error(xhr.responseText);
+      }
+    }
   };
-  
-  // Event handler for errors
-  socket.onerror = function(event) {
-    alert('WebSocket error. Check the console for more details.');
-    console.error(event);
-  };
-  
-  // Event handler for connection closure
-  socket.onclose = function(event) {
-    alert('WebSocket connection closed.');
-    console.log(event);
-  };
-}
-      // Create an AJAX request to start the Python server
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            alert('Server started successfully!');
-            // Start the game or perform other actions here
-          } else {
-            alert('Failed to start the server. Check the console for more details.');
-            console.error(xhr.responseText);
-          }
-        }
-      };
 
-      xhr.open('GET', '/start_server', true);
-      xhr.send();
+  // Update 'YOUR-VERCEL-DEPLOYMENT-URL' with the actual URL of your Vercel deployment
+  xhr.open('GET', 'mariavarg-github-90k144lqi-mariavarg.vercel.app/api/start_server', true);
+  xhr.send();
+}
+
     }
   </script>
 
