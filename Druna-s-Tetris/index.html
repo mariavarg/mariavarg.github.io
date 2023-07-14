@@ -101,27 +101,7 @@
   alert('Server started successfully!');
   // Start the game or perform other actions here
 }
-  // Create an AJAX request to start the Python server on your Vercel deployment
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-      if (xhr.status === 200) {
-        alert('Server started successfully!');
-        // Start the game or perform other actions here
-      } else {
-        alert('Failed to start the server. Check the console for more details.');
-        console.error(xhr.responseText);
-      }
-    }
-  };
-
-  // Update 'YOUR-VERCEL-DEPLOYMENT-URL' with the actual URL of your Vercel deployment
-  xhr.open('GET', 'mariavarg-github-90k144lqi-mariavarg.vercel.app/api/start_server', true);
-  xhr.send();
-}
-
-    }
-  </script>
+    </script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
