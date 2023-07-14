@@ -1,6 +1,9 @@
+To fix these issues, you can make the following modifications to your main.py file:
+
+python
+Copy code
 import pygame
 import random
-pip install websockets
 import asyncio
 import websockets
 
@@ -34,16 +37,16 @@ def run_game():
     pygame.font.init()
     pygame.init()
 
-# GLOBALS VARS
-s_width = 450
-s_height = 700
-play_width = 300  # meaning 300 // 10 = 30 width per block
-play_height = 600  # meaning 600 // 20 = 30 height per block
-block_size = play_width // 10
+    # GLOBALS VARS
+    s_width = 450
+    s_height = 700
+    play_width = 300  # meaning 300 // 10 = 30 width per block
+    play_height = 600  # meaning 600 // 20 = 30 height per block
+    block_size = play_width // 10
 
-top_left_x = (s_width - play_width) // 2
-top_left_y = 50
-
+    top_left_x = (s_width - play_width) // 2
+    top_left_y = 50
+    
 # color
 gray = (119, 118, 110)
 white = (255, 255, 255)
