@@ -7,3 +7,25 @@
 "features": {
   "ghcr.io/devcontainers/features/github-cli:1": {}
 }
+
+{
+  "name": "Python",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "python.pythonPath": "/usr/local/bin/python",
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.autoComplete.addBrackets": true,
+    "python.analysis.autoImportCompletions": false
+  },
+  "extensions": [
+    "ms-python.python",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "yzhang.markdown-all-in-one"
+  ],
+  "forwardPorts": [8000]
+}
