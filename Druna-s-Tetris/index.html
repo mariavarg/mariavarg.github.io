@@ -96,7 +96,7 @@ t<!DOCTYPE html>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-  <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     function startServerAndGame() {
       // Display the warning message
@@ -114,6 +114,10 @@ t<!DOCTYPE html>
     }
 
     // Call the startServerAndGame() function when the button is clicked
+    document.getElementById("startButton").onclick = startServerAndGame;
+  });
+  
+  // Call the startServerAndGame() function when the button is clicked
     document.getElementById("startButton").onclick = startServerAndGame;
 
     <py-script type="text/pyodide">
