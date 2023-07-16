@@ -1,4 +1,4 @@
-t<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,24 +30,26 @@ t<!DOCTYPE html>
       text-align: center;
     }
 
-<style>
-  .canvas-container {
-    position: relative;
-    width: 100%;
-    margin: auto;
-    background-image: url('./unsplash.png');
-    background-size: cover;
-    padding: 18px;
-  }
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      margin: auto;
+      background-image: url('/Druna-s-Tetris/unsplash.png');
+      background-size: cover;
+      padding: 18px;
+    }
 
-  #gameCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
+    #gameArea {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 450px;
+      height: 100%;
+      padding: 18px;
+    }
+  </style>
 </head>
 
 <body>
@@ -61,14 +63,16 @@ t<!DOCTYPE html>
   <div class="content">
     <h1>My Website</h1>
     <h3>"Druna's Tetris"</h3>
-    <h4>(©copyright mariavarg - a.k.a. Druna C.)</h4>
+    <h4>(Â©copyright mariavarg - a.k.a. Druna C.)</h4>
+    <img src="Gondor.png" alt="Logo" class="responsive"><br>
+    <br><img src="/Druna-s-Tetris/unsplash.png" alt="gameArea" class="center"><br>
     <div class="canvas-container">
       <canvas id="gameCanvas"></canvas>
       <div id="game-container"></div>
-    </div><br>
-  
+    </div>
+  </div>
 
-  <br><nav class="navbar navbar-expand-bg bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="/index.html">HOME!</a>
@@ -91,13 +95,10 @@ t<!DOCTYPE html>
     </ul>
   </nav>
 
-  </div>
-
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+  <script>
     function startServerAndGame() {
       // Display the warning message
       var warningMessage = document.getElementById("warningMessage");
@@ -113,26 +114,21 @@ t<!DOCTYPE html>
       main();
     }
 
-    // Call the startServerAndGame() function when the button is clicked
-    document.getElementById("startButton").onclick = startServerAndGame;
-  });
-  
-    <py-script type="text/pyodide">
-                            
- import pygame
- import base64
- import io
+    function main() {
+      // Load Pyodide and execute the game code
+      languagePluginLoader.then(() => {
+        pyodide.runPython(`
+          import pygame
+          import base64
+          import io
 
-      pygame.init()
-      
-// Get the canvas element
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+          pygame.init()
 
-    <py-script>main.py</py-script>
-}                            
-    </py-script>
-  });
+          // Get the canvas element
+          const canvas = document.getElementById('gameCanvas');
+          const ctx = canvas.getContext('2d');
+
+          // Rest of the game code...
 
           function draw_window(surface, grid) {
             surface.fillStyle = 'black';
