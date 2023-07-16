@@ -288,9 +288,9 @@ const light_red = [255, 0, 0];
       update();
     }
 
-    function startGame() {
+        function startGame() {
       const warningMessage = document.getElementById('warningMessage');
       warningMessage.style.display = 'block';
       alert('Server started successfully!');
       main();
-
+    }
