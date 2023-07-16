@@ -99,6 +99,7 @@ t<!DOCTYPE html>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
   <script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     function startServerAndGame() {
       // Display the warning message
@@ -115,10 +116,15 @@ t<!DOCTYPE html>
       main();
     }
 
-     <py-script>type="text/pyodide">
-    import pygame
-    import base64
-    import io
+    // Call the startServerAndGame() function when the button is clicked
+    document.getElementById("startButton").onclick = startServerAndGame;
+
+    <py-script type="text/pyodide">
+      // Pyodide code goes here...
+                            
+ import pygame
+ import base64
+ import io
 
       pygame.init()
       
@@ -127,13 +133,10 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
     <py-script>main.py</py-script>
-}
-
-    // Call the startServerAndGame() function when the button is clicked
-    document.getElementById("startButton").onclick = startServerAndGame;
+}                            
+    </py-script>
   });
 </script>
-
 
           function draw_window(surface, grid) {
             surface.fillStyle = 'black';
