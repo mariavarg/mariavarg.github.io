@@ -112,22 +112,65 @@
 
   <script>
     function startServerAndGame() {
-      // Display the warning message
-      var warningMessage = document.getElementById("warningMessage");
-      warningMessage.style.display = "block";
+  // Display the warning message
+  var warningMessage = document.getElementById("warningMessage");
+  warningMessage.style.display = "block";
 
-      // Open a new tab or window to start the server (Update the URL if necessary)
-      window.open("http://localhost:8000/index.html");
+  // Start the server and the game
+  languagePluginLoader
+    .then(() => {
+      // Import the necessary Python modules
+      return pyodide.loadPackage(["websockets"]);
+    })
+    .then(() => {
+      // Run the Python code to start the server and game
+      pyodide.runPythonAsync(`
+        import asyncio
+        import websockets
+        import http.server
+        import socketserver
 
+        async def start_server():
+          server = websockets.serve(websocket_handler, "localhost", 8000)
+          await server
+
+        async def websocket_handler(websocket, path):
+          while True:
+            try:
+              # Receive message from the client
+              message = await websocket.recv()
+
+              # Process the message and update the game state
+              # You can implement your game logic here
+
+              # Send the updated game state to all connected clients
+              await asyncio.wait([client.send(message) for client in clients])
+            except websockets.exceptions.ConnectionClosed:
+              # Remove the disconnected client from the list
+              clients.remove(websocket)
+              break
+
+        # Create a list to store all connected clients
+        clients = []
+
+        # Start the server
+        asyncio.get_event_loop().run_until_complete(start_server())
+        asyncio.get_event_loop().run_forever()
+      `);
+    })
+    .then(() => {
       // Alert the user that the server has started
-      alert('Server started successfully!');
-      
-      // Delay the game start to ensure the server is running
-      setTimeout(() => {
-        // Start the game
-        main();
-      }, 2000);
-    }
+      alert("Server started successfully!");
+
+      // Start the game
+      main();
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("An error occurred while starting the server and game.");
+    });
+}
+
 
     function main() {
       // Load Pyodide and execute the game code
