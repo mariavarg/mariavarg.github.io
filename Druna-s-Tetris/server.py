@@ -328,14 +328,11 @@ def run_game():
 
         draw_window(surface, grid)
 
-
-if __name__ == "__main__":
-    run_game()
-
 # Start the server
 if __name__ == "__main__":
     with socketserver.TCPServer(("", 8080), MyHandler) as httpd:
         print("Server started on port 8080")
         httpd.serve_forever()
+         run_game()
 
      
