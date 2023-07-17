@@ -1,11 +1,16 @@
 import http.server
 import socketserver
+import threading
+import webbrowser
+import subprocess
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/start_server':
-            # Start the game server
-            start_game()
+            # Start the game server in a separate thread
+            server_thread = threading.Thread(target=self.start_game_server)
+            server_thread.daemon = True
+            server_thread.start()
 
             # Send a response to indicate the server has started successfully
             self.send_response(200)
@@ -18,6 +23,18 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(404)
             super().do_GET()
 
+    def start_game_server(self):
+        # Start the game server
+        subprocess.run(['python', 'game_server.py'])
+
+        # Optionally, open the game client in a web browser
+        webbrowser.open('http://localhost:8080')
+            # Send a response to indicate the server has started successfully
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b'Server started successfully!')
+     
 def start_game():
     import pygame
     import random
@@ -329,11 +346,8 @@ def run_game():
 
         draw_window(surface, grid)
 
-# Start the server
-if __name__ == "__main__":
-    with socketserver.TCPServer(("", 8080), MyHandler) as httpd:
-        print("Server started on port 8080")
-        httpd.serve_forever()
-         run_game()
-
+# Start the HTTP server
+with socketserver.TCPServer(("", 8000), MyHandler) as httpd:
+    print("Server started on port 8000")
+    httpd.serve_forever()
      
