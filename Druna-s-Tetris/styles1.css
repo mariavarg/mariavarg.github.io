@@ -40,7 +40,9 @@ div {
 .bg {
   /* The image used */
   background-image: url("/Druna-s-Tetris/unsplash.png");
-
+  background-repeat: no-repeat;
+  }
+  
   /* Full height */
   height: 100%;
   width: 450px;
@@ -51,8 +53,6 @@ div {
   background-size: cover;
   background-position: center center;
   
-</style>
-
 .content {
   max-width: 500px;
   margin: auto;
