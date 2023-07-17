@@ -136,6 +136,12 @@
           import pygame
           import base64
           import io
+          import pyodide
+
+if "websockets" in pyodide.loadedPackages:
+    print("websockets package is installed")
+else:
+    print("websockets package is not installed")
 
           pygame.init()
 
