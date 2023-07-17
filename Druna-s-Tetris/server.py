@@ -7,10 +7,8 @@ import subprocess
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/start_server':
-            # Start the game server in a separate thread
-            server_thread = threading.Thread(target=self.start_game_server)
-            server_thread.daemon = True
-            server_thread.start()
+            # Start the game server in a separate process
+            subprocess.Popen(['py-script', 'main.py'])
 
             # Send a response to indicate the server has started successfully
             self.send_response(200)
@@ -347,7 +345,7 @@ def run_game():
         draw_window(surface, grid)
 
 # Start the HTTP server
-with socketserver.TCPServer(("", 8080), MyHandler) as httpd:
-    print("Server started on port 8080")
+with socketserver.TCPServer(("", 8000), MyHandler) as httpd:
+    print("Server started on port 8000")
     httpd.serve_forever()
      
