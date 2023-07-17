@@ -347,7 +347,7 @@ def run_game():
         draw_window(surface, grid)
 
 # Start the HTTP server
-with socketserver.TCPServer(("", 8000), MyHandler) as httpd:
-    print("Server started on port 8000")
+with socketserver.TCPServer(("", 8080), MyHandler) as httpd:
+    print("Server started on port 8080")
     httpd.serve_forever()
      
