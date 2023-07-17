@@ -15,6 +15,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
 
         # Serve the game files
         else:
+            self.send_response(404)
             super().do_GET()
 
 def start_game():
