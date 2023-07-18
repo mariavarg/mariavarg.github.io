@@ -51,10 +51,27 @@
     }
   </style>
 
+   <script>
+    var audio = new Audio("path/to/your/music/file.mp3");
+    var isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+      } else {
+        audio.play();
+        isPlaying = true;
+      }
+    }
+  </script>
 </head>
 
-<body>
-  <div class="content">
+  <body>
+  <!-- Add a button or an element to control the music playback -->
+  <button onclick="toggleMusic()">Toggle Music</button>
+
+   <div class="content">
     <h1>My Website</h1>
     <h3>"Druna's Tetris"</h3>
     <h4>(© mariavarg - a.k.a. Druna C.)</h4>
