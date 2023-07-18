@@ -21,12 +21,13 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(404)
             super().do_GET()
 
-    def start_game_server(self):
-        # Start the game server
-        subprocess.run(['python', 'game_server.py'])
+def start_game_server(self):
+    # Start the game server
+    subprocess.run(['python', 'server.py'])
+
 
         # Optionally, open the game client in a web browser
-        webbrowser.open('http://localhost:8080')
+        webbrowser.open('http://localhost:8000')
             # Send a response to indicate the server has started successfully
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
