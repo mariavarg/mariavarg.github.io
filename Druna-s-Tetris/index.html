@@ -65,6 +65,11 @@
    <button id="startButton" onclick="openNewWindow()">Start Server & Game</button>
 <script>
 function openNewWindow() {
+  // Display the warning message
+  var warningMessage = document.getElementById("warningMessage");
+  warningMessage.style.display = "block";
+  
+  // Open the new window
   window.open("http://localhost:8000/index.html");
 }
 </script>
