@@ -62,8 +62,12 @@
     <p id="warningMessage" style="display: block;">By clicking "Start Server &amp; Game," you acknowledge that we may
       collect and store certain non-personally identifiable information for analytics purposes.</p>
 
-   <button id="startButton" onclick="startServerAndGame()">Start Server & Game</button>
-    <script>window.open("http://localhost:8000/index.html");</script>
+   <button id="startButton" onclick="openNewWindow()">Start Server & Game</button>
+<script>
+function openNewWindow() {
+  window.open("http://localhost:8000/index.html");
+}
+</script>
 
 
   </div>
