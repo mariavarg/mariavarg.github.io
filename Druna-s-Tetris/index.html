@@ -93,7 +93,7 @@
         warningMessage.style.display = "block";
 
         // Open the new window
-        window.open("http://localhost:8000/index.html");
+        window.open("http://localhost:8888/index.html");
       }
     </script>
   </div>
@@ -158,7 +158,7 @@
         import socketserver
 
         async def start_server():
-          server = websockets.serve(websocket_handler, "localhost", 8000)
+          server = websockets.serve(websocket_handler, "localhost", 8888)
           await server
 
         async def websocket_handler(websocket, path):
@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function () {
             import websockets
 
             async def start_server():
-              server = websockets.serve(websocket_handler, "localhost", 8000)
+              server = websockets.serve(websocket_handler, "localhost", 8888)
               await server
 
             async def websocket_handler(websocket, path):
