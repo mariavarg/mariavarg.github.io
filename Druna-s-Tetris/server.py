@@ -22,12 +22,12 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 
 # Start the HTTP server
-with socketserver.TCPServer(("", 8000), MyHandler) as httpd:
-    print("Server started on port 8000")
+with socketserver.TCPServer(("", 8888), MyHandler) as httpd:
+    print("Server started on port 8888")
     httpd.serve_forever()
 
         # Optionally, open the game client in a web browser
-        webbrowser.open('http://localhost:8000')
+        webbrowser.open('http://localhost:8888')
             # Send a response to indicate the server has started successfully
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
@@ -67,7 +67,7 @@ async def websocket_handler(websocket, path):
 clients = []
 
 # Start the WebSocket server
-start_server = websockets.serve(websocket_handler, '0.0.0.0', 8765)
+start_server = websockets.serve(websocket_handler, '0.0.0.0', 8888)
 
 # Run the server
 asyncio.get_event_loop().run_until_complete(start_server)
@@ -345,8 +345,4 @@ def run_game():
 
         draw_window(surface, grid)
 
-# Start the HTTP server
-with socketserver.TCPServer(("", 8000), MyHandler) as httpd:
-    print("Server started on port 8000")
-    httpd.serve_forever()
-     
+
