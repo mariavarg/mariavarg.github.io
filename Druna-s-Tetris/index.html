@@ -51,8 +51,8 @@
   </style>
 
    <script>
-    var audio = new Audio("/06-Kashmir.mp3");
-    var isPlaying = true;
+    var audio = new Audio("music.mp3");
+    var isPlaying = false;
 
     function toggleMusic() {
       if (isPlaying) {
@@ -65,7 +65,7 @@
     }
   </script>
 </head>
-
+    
   <body>
  
    <div class="content">
@@ -105,8 +105,14 @@ function openNewWindow() {
       margin-right: auto;
       width: 450px;
       height: 570px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
   </style>
-     <button onclick="toggleMusic()" class="center">Toggle Music</button>         
+      <button onclick="toggleMusic()" class="toggle-music-button">Toggle Music</button>
 
     <div class="content">
     <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
