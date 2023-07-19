@@ -30,7 +30,7 @@ async def websocket_handler(websocket, path):
 clients = []
 
 # Start the WebSocket server
-start_server = websockets.serve(websocket_handler, '0.0.0.0', 8765)
+start_server = websockets.serve(websocket_handler, '0.0.0.0', 8888)
 
 # Run the server
 asyncio.get_event_loop().run_until_complete(start_server)
@@ -38,6 +38,12 @@ asyncio.get_event_loop().run_forever()
 
 pygame.font.init()
 pygame.init()
+
+pygame.mixer.music.load('/kashmir.wav')
+pygame.mixer.music.play(-1)
+
+running = True
+while running:
 
 # GLOBALS VARS
 s_width = 450
@@ -255,6 +261,10 @@ def run_game():
     fall_speed = 0.27
 
     while run:
+        for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+            break
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
         clock.tick()
@@ -308,6 +318,12 @@ def run_game():
 
         draw_window(surface, grid)
 
+   if user_wins:
+        # Stop the music and break the loop
+        pygame.mixer.music.stop()
+        break
 
 if __name__ == "__main__":
     run_game()
+
+pygame.quit()
