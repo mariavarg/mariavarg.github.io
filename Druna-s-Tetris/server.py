@@ -21,10 +21,10 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(404)
             super().do_GET()
 
-def start_game_server(self):
-    # Start the game server
-    subprocess.run(['python', 'server.py'])
-
+# Start the HTTP server
+with socketserver.TCPServer(("", 8000), MyHandler) as httpd:
+    print("Server started on port 8000")
+    httpd.serve_forever()
 
         # Optionally, open the game client in a web browser
         webbrowser.open('http://localhost:8000')
