@@ -1,49 +1,11 @@
 import pygame
 import random
-import asyncio
-import websockets
-import micropip
-
-async def install_packages():
-    await micropip.install("websockets")
-
-asyncio.get_event_loop().run_until_complete(install_packages())
-
-
-async def websocket_handler(websocket, path):
-    while True:
-        try:
-            # Receive message from the client
-            message = await websocket.recv()
-            
-            # Process the message and update the game state
-            # You can implement your game logic here
-            
-            # Send the updated game state to all connected clients
-            await asyncio.wait([client.send(message) for client in clients])
-        except websockets.exceptions.ConnectionClosed:
-            # Remove the disconnected client from the list
-            clients.remove(websocket)
-            break
-
-# Create a list to store all connected clients
-clients = []
-
-# Start the WebSocket server
-start_server = websockets.serve(websocket_handler, '0.0.0.0', 8888)
-
-# Run the server
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
 
 pygame.font.init()
 pygame.init()
 
-pygame.mixer.music.load('/kashmir.wav')
+pygame.mixer.music.load('kashmir.wav')
 pygame.mixer.music.play(-1)
-
-running = True
-while running:
 
 # GLOBALS VARS
 s_width = 450
@@ -177,8 +139,6 @@ T = [['.....',
       '.....']]
 
 shapes = [S, Z, I, O, J, L, T]
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
-# index 0 - 6 represent shape
 
 
 class Piece:
@@ -241,7 +201,8 @@ def draw_window(surface, grid):
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
-            pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size))
+            pygame.draw.rect(surface, grid[i][j],
+                             (top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size))
 
     pygame.draw.rect(surface, red, (top_left_x, top_left_y, play_width, play_height), 4)
 
@@ -261,10 +222,6 @@ def run_game():
     fall_speed = 0.27
 
     while run:
-        for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-            break
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
         clock.tick()
@@ -279,7 +236,7 @@ def run_game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-                quit()
+                break
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
@@ -318,12 +275,11 @@ def run_game():
 
         draw_window(surface, grid)
 
-   if user_wins:
-        # Stop the music and break the loop
-        pygame.mixer.music.stop()
-        break
+    pygame.quit()
+
 
 if __name__ == "__main__":
+    surface = pygame.display.set_mode((s_width, s_height))
+    pygame.display.set_caption("Tetris")
     run_game()
 
-pygame.quit()
