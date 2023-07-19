@@ -1,4 +1,9 @@
-on: [push]
+name: My Workflow
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
