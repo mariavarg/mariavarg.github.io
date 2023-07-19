@@ -7,12 +7,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.17.0/full/pyodide.js"></script>
-  <script src="https://pyscript.net/latest/logger.js"></script>
-  <script src="https://pyscript.net/latest/language.js"></script>
-
   <link href="/styles1.css" rel="stylesheet">
   <style>
     body,
@@ -24,7 +18,8 @@
       width: 100%;
       max-width: 150px;
       height: auto;
-    
+    }
+
     .content {
       max-width: 500px;
       margin: auto;
@@ -35,10 +30,20 @@
       position: relative;
       width: 100%;
       max-width: 450px;
-      height: 700px; /* Set your desired height here */
+      height: 700px;
       margin: auto;
       background-size: cover;
       padding: 15px;
+      background-image: url('/Druna-s-Tetris/unsplash.png');
+      background-repeat: no-repeat;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     #gameCanvas {
@@ -49,14 +54,13 @@
       height: 570px;
     }
 
-       .toggle-music-button {
-      /* Styles for the toggle music button */
+    .toggle-music-button {
       display: block;
       margin: 0 auto;
     }
   </style>
 
-   <script>
+  <script>
     var audio = new Audio("/06-Kashmir.mp3");
     var isPlaying = false;
 
@@ -71,10 +75,10 @@
     }
   </script>
 </head>
-    
-  <body>
- 
-   <div class="content">
+
+<body>
+
+  <div class="content">
     <h1>My Website</h1>
     <h3>"Druna's Tetris"</h3>
     <h4>(© mariavarg - a.k.a. Druna C.)</h4>
@@ -82,19 +86,17 @@
     <p id="warningMessage" style="display: block;">By clicking "Start Server &amp; Game," you acknowledge that we may
       collect and store certain non-personally identifiable information for analytics purposes.</p>
 
-   <button id="startButton" onclick="openNewWindow()">Start Server & Game</button>
-<script>
-function openNewWindow() {
-  // Display the warning message
-  var warningMessage = document.getElementById("warningMessage");
-  warningMessage.style.display = "block";
-  
-  // Open the new window
-  window.open("http://localhost:8000/index.html");
-}
-</script>
+    <button id="startButton" onclick="openNewWindow()">Start Server & Game</button>
+    <script>
+      function openNewWindow() {
+        // Display the warning message
+        var warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block";
 
-
+        // Open the new window
+        window.open("http://localhost:8000/index.html");
+      }
+    </script>
   </div>
 
   <div class="canvas-container">
@@ -102,25 +104,9 @@ function openNewWindow() {
     <div id="game-container"></div>
   </div><br>
 
-  <style>
-    .canvas-container {
-      background-image: url('/Druna-s-Tetris/unsplash.png');
-      background-repeat: no-repeat;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 450px;
-      height: 570px;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-  </style>
-       <button onclick="toggleMusic()" class="toggle-music-button">Toggle Music</button>
+  <button onclick="toggleMusic()" class="toggle-music-button">Toggle Music</button>
 
-    <div class="content">
+  <div class="content">
     <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -151,6 +137,7 @@ function openNewWindow() {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
     crossorigin="anonymous"></script>
+
   
   <script>
   // Start the server and the game
