@@ -67,14 +67,15 @@
     var isPlaying = true;
 
     function toggleMusic() {
-      if (isPlaying) {
-        audio.pause();
-        isPlaying = true;
-      } else {
-        audio.play();
-        isPlaying = true;
-      }
-    }
+  if (isPlaying) {
+    audio.pause();
+    isPlaying = false; // Change to false when pausing the audio
+  } else {
+    audio.play();
+    isPlaying = true; // Change to true when playing the audio
+  }
+}
+
   </script>
 </head>
 
@@ -210,12 +211,10 @@
           const canvas = document.getElementById('gameCanvas');
           const ctx = canvas.getContext('2d');
 
-           // Start the server and the game
-    function startServerAndGame() {
-      // Display the warning message
-      var warningMessage = document.getElementById("warningMessage");
-      warningMessage.style.display = "block";
-
+           // Wait for the page to load before starting the server and game
+document.addEventListener("DOMContentLoaded", function () {
+  main();
+});
       // Load Pyodide and execute the game code
       languagePluginLoader
         .then(() => {
