@@ -62,13 +62,11 @@
     }
   </style>
 
-  <script>
-    var audio = new Audio("/06-Kashmir.wav");
-    var isPlaying = false;
+<audio id="myAudio" src="/06-Kashmir.wav"></audio>
+<button onclick="toggleMusic()">Toggle Music</button>
 
-    function toggleMusic() {
-     <script>
-  var audio = new Audio("/06-Kashmir.wav");
+<script>
+  var audio = document.getElementById("myAudio");
   var isPlaying = false;
 
   function toggleMusic() {
@@ -83,8 +81,7 @@
     }
   }
 </script>
-
-    }
+}
   </script>
 </head>
 
