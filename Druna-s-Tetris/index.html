@@ -67,13 +67,23 @@
     var isPlaying = false;
 
     function toggleMusic() {
-      if (isPlaying) {
-        audio.pause();
-        isPlaying = false;
-      } else {
-        audio.play();
-        isPlaying = true;
-      }
+     <script>
+  var audio = new Audio("/06-Kashmir.wav");
+  var isPlaying = false;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      console.log("Music paused.");
+    } else {
+      audio.play();
+      isPlaying = true;
+      console.log("Music playing.");
+    }
+  }
+</script>
+
     }
   </script>
 </head>
