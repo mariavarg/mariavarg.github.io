@@ -6,6 +6,7 @@ import subprocess
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
+        self.send_header('Access-Control-Allow-Origin', '*')
         if self.path == '/start_server':
             # Start the game server in a separate process
             subprocess.Popen(['py', 'main.py'])
