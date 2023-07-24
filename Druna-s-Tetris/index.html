@@ -63,24 +63,23 @@
   </style>
 
   <audio id="myAudio" src="/06-Kashmir.wav"></audio>
-<script>
-  var audio = new Audio("/Druna-s-Tetris/06-Kashmir.wav");
-  var isPlaying = false;
+  <script>
+    var audio = new Audio("/Druna-s-Tetris/06-Kashmir.wav");
+    var isPlaying = false;
 
-  function toggleMusic() {
-    if (isPlaying) {
-      audio.pause();
-      isPlaying = false;
-      console.log("Music paused.");
-    } else {
-      audio.play();
-      isPlaying = true;
-      console.log("Music playing.");
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        console.log("Music paused.");
+      } else {
+        audio.play();
+        isPlaying = true;
+        console.log("Music playing.");
+      }
     }
-  }
-</script>
-
   </script>
+
 </head>
 
 <body>
@@ -93,15 +92,29 @@
     <p id="warningMessage" style="display: block;">By clicking "Start Server &amp; Game," you acknowledge that we may
       collect and store certain non-personally identifiable information for analytics purposes.</p>
 
-    <button id="startButton" onclick="openNewWindow()">Start Server & Game</button>
+    <button id="startButton" onclick="startServerAndGame()">Start Server & Game</button>
     <script>
-      function openNewWindow() {
+      function startServerAndGame() {
         // Display the warning message
         var warningMessage = document.getElementById("warningMessage");
         warningMessage.style.display = "block";
 
+        // Send a request to start the server and game
+        fetch('/start_server')
+          .then(response => {
+            if (response.ok) {
+              alert('Server started successfully!');
+            } else {
+              alert('Error starting the server.');
+            }
+          })
+          .catch(error => {
+            alert('Error starting the server.');
+            console.error('Error:', error);
+          });
+
         // Open the new window
-        window.open("http://localhost:8888/index.html");
+        window.open("http://localhost:8888");
       }
     </script>
   </div>
@@ -173,7 +186,7 @@
 
                 # Process the message and update the game state
                 <py-script>/main.py</py-script>
-                  
+
                 # Send the updated game state to all connected clients
                 await asyncio.wait([client.send(message) for client in clients])
               except websockets.exceptions.ConnectionClosed:
@@ -185,14 +198,22 @@
           clients = []
 
           # Start the server
-          asyncio.get_event_loop().run_until_complete(start_server())
-          asyncio.get_event_loop().run_forever()
-        `);
+          asyncio.get_event_loop().run_until_complete(start_server());
+          `);
       })
       .then(() => {
         // Alert the user that the server has started
-        alert("Server started successfully!");
+        // alert("Server started successfully!");
+      })
+      .catch(err => {
+        console.error("Error starting the Python server:", err);
+        // alert("Error starting the Python server.");
+      });
+  </script>
 
-        // Start the game
-        main();
-      })     
+</body>
+
+</html>
+
+
+      
