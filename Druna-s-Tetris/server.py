@@ -2,12 +2,16 @@ import http.server
 import socketserver
 import webbrowser
 import subprocess
+import time
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/start_server':
             # Start the game server in a separate process
             subprocess.Popen(['python', 'main.py'])  # Use 'python' instead of 'py' for Windows
+
+            # Wait for the game server to start (adjust the delay as needed)
+            time.sleep(2)
 
             # Send a response to indicate the server has started successfully
             self.send_response(200)
@@ -32,4 +36,3 @@ with socketserver.TCPServer(("", 8888), MyHandler) as httpd:
     # Keep the server running until interrupted
     httpd.serve_forever()
 
-   
