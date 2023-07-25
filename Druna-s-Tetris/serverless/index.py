@@ -23,11 +23,11 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 
 # Start the HTTP server
-with socketserver.TCPServer(("", 8888), MyHandler) as httpd:
-    print("Server started on port 8888")
+with socketserver.TCPServer(("", 888), MyHandler) as httpd:
+    print("Server started on port 888")
 
     # Optionally, open the game client in a web browser
-    webbrowser.open('http://localhost:8888')
+    webbrowser.open('http://localhost:888')
 
     # Keep the server running until interrupted
     httpd.serve_forever()
