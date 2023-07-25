@@ -139,11 +139,12 @@
     // Your existing script content
 
     async function startNgrokTunnel() {
-    try {
-      // Start the ngrok tunnel and get the public URL
-      const url = await ngrok.connect({
-        addr: 8888, // Change this to the port your Python server is running on
-      });
+  try {
+    // Start the ngrok tunnel and get the public URL
+    const url = await ngrok.connect({
+      addr: 888, // Change this to your desired port number
+    });
+
 
       // Display the public URL in the console
       console.log('Ngrok tunnel URL:', url);
