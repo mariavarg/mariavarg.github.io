@@ -26,9 +26,8 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Access-Control-Allow-Origin', '*')  # Add the CORS header here
             super().do_GET()
 
-# Start the HTTP server
-with socketserver.TCPServer(("", 8888), MyHandler) as httpd:
-    print("Server started on port:", httpd.server_address[1])
+with socketserver.TCPServer(("", 888), MyHandler) as httpd:
+print("Server started on port:", httpd.server_address[1])
     
     # Optionally, open the game client in a web browser
     webbrowser.open('http://localhost:8888')
