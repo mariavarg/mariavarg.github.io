@@ -195,57 +195,32 @@
 
   <script>
     // Start the server and the game
-    languagePluginLoader
-      .then(() => {
-        // Import the necessary Python modules
-        return pyodide.loadPackage(["websockets"]);
+    <script>
+  async function startServerAndGame(url) {
+    // Display the warning message
+    var warningMessage = document.getElementById("warningMessage");
+    warningMessage.style.display = "block";
+
+    // Send a request to start the server and game using the ngrok URL
+    fetch(`${url}/start_server`)
+      .then((response) => {
+        console.log('Response status:', response.status);
+        return response.text();
       })
-      .then(() => {
-        // Run the Python code to start the server and game
-        pyodide.runPythonAsync(`
-          import asyncio
-          import websockets
-
-          async def start_server():
-            server = websockets.serve(websocket_handler, "localhost", 8888)
-            await server
-
-          async def websocket_handler(websocket, path):
-            while True:
-              try:
-                # Receive message from the client
-                message = await websocket.recv()
-
-                # Process the message and update the game state
-                <py-script>/main.py</py-script>
-
-                # Send the updated game state to all connected clients
-                await asyncio.wait([client.send(message) for client in clients])
-              except websockets.exceptions.ConnectionClosed:
-                # Remove the disconnected client from the list
-                clients.remove(websocket)
-                break
-
-          # Create a list to store all connected clients
-          clients = []
-
-          # Start the server
-          asyncio.get_event_loop().run_until_complete(start_server());
-          `);
+      .then((message) => {
+        console.log('Response message:', message);
+        if (response.ok) {
+          alert('Server started successfully!');
+        } else {
+          alert('Error starting the server.');
+        }
       })
-      .then(() => {
-        // Alert the user that the server has started
-        // alert("Server started successfully!");
-      })
-      .catch(err => {
-        console.error("Error starting the Python server:", err);
-        // alert("Error starting the Python server.");
+      .catch((error) => {
+        alert('Error starting the server.');
+        console.error('Error:', error);
       });
-  </script>
-
-</body>
-
-</html>
+  }
+</script>
 
 
       
