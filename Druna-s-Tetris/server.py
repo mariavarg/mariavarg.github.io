@@ -28,8 +28,8 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
 
 # Start the HTTP server
 with socketserver.TCPServer(("", 8888), MyHandler) as httpd:
-    print("Server started on port 8888")
-
+    print("Server started on port:", httpd.server_address[1])
+    
     # Optionally, open the game client in a web browser
     webbrowser.open('http://localhost:8888')
 
