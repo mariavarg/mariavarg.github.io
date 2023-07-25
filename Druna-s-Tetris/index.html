@@ -195,7 +195,7 @@
 
   <script>
     // Start the server and the game
-    <script>
+      <script>
   async function startServerAndGame(url) {
     // Display the warning message
     var warningMessage = document.getElementById("warningMessage");
@@ -207,7 +207,8 @@
         console.log('Response status:', response.status);
         return response.text();
       })
-      .then((message) => {
+    // Send a request to start the server and game using the ngrok URL
+  .then((message) => {
         console.log('Response message:', message);
         if (response.ok) {
           alert('Server started successfully!');
@@ -222,5 +223,7 @@
   }
 </script>
 
+</body>
+</html>
 
       
