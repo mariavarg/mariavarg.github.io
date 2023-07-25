@@ -100,6 +100,26 @@
 
     <button id="startButton" onclick="startServerAndGame()">Start Server & Game</button>
     <script>
+
+      <script>
+  async function startNgrokTunnel() {
+    try {
+      // Start the ngrok tunnel and get the public URL
+      const url = await ngrok.connect({
+        addr: 8888, // Change this to the port your Python server is running on
+      });
+
+      // Display the public URL in the console
+      console.log('Ngrok tunnel URL:', url);
+
+      // Call your function to start the server and game with the ngrok URL
+      startServerAndGame(url);
+    } catch (error) {
+      console.error('Error starting ngrok:', error);
+    }
+  }
+</script>
+
       function startServerAndGame() {
         // Display the warning message
         var warningMessage = document.getElementById("warningMessage");
