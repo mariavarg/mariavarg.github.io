@@ -114,8 +114,17 @@
           });
 
         // Open the new window
-        window.open("http://localhost:8888");
-      }
+        <script>
+  function openNewWindow() {
+    // Display the warning message
+    var warningMessage = document.getElementById("warningMessage");
+    warningMessage.style.display = "block";
+
+    // Replace "http://localhost:8888" with the ngrok public URL
+    window.open("http://abcd1234.ngrok.io/index.html");
+  }
+</script>
+      
     </script>
   </div>
 
