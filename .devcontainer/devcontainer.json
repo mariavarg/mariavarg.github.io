@@ -27,5 +27,5 @@
     "VisualStudioExptTeam.vscodeintellicode",
     "yzhang.markdown-all-in-one"
   ],
-  "forwardPorts": [8000]
+  "forwardPorts": [8888]
 }
