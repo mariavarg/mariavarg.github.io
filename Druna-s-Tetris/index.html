@@ -97,7 +97,7 @@
     <p id="warningMessage" style="display: block;">By clicking "Start Server &amp; Game," you acknowledge that we may
       collect and store certain non-personally identifiable information for analytics purposes.</p>
 
-   <button id="startButton" onclick="startNgrokTunnel()">Start Server & Game</button>
+   <button id="startButton" onclick="startServerAndGame()">Start Server & Game</button>
         <script>
   async function startNgrokTunnel() {
     try {
@@ -115,12 +115,7 @@
       console.error('Error starting ngrok:', error);
     }
   }
-      function startServerAndGame() {
-        // Display the warning message
-        var warningMessage = document.getElementById("warningMessage");
-        warningMessage.style.display = "block";
-
-        // Send a request to start the server and game
+       // Send a request to start the server and game
         fetch('/start_server')
           .then(response => {
             if (response.ok) {
@@ -144,9 +139,12 @@
     // Replace "http://localhost:8888" with the ngrok public URL
     window.open("http://abcd1234.ngrok.io/index.html");
   }
+          function startServerAndGame() {
+        // Display the warning message
+        var warningMessage = document.getElementById("warningMessage");
+        warningMessage.style.display = "block";
 </script>
       
-    </script>
   </div>
 
   <div class="canvas-container">
