@@ -27,4 +27,4 @@ jobs:
         run: python -m pip install --upgrade pip setuptools wheel
       
       - name: Run server
-        run: python -m http.server 8000
+        run: python -m http.server 8888
