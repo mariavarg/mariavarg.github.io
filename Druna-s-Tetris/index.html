@@ -142,7 +142,7 @@
   try {
     // Start the ngrok tunnel and get the public URL
     const url = await ngrok.connect({
-      addr: 888, // Change this to your desired port number
+      addr: 443, // Change this to your desired port number
     });
 
 
@@ -172,7 +172,7 @@
         console.log('Response message:', message);
         if (message === 'Server started successfully!') {
           // Open the game window when the server starts successfully
-          window.open("http://localhost:8888/main.html");
+          window.open("http://localhost:443/main.html");
         } else {
           alert('Error starting the server.');
         }
