@@ -27,7 +27,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 
 # Start the HTTP server
-with socketserver.TCPServer(("", 8443), MyHandler) as httpd:  # Listen on port 443
+with socketserver.TCPServer(("", 8443), MyHandler) as httpd:  # Listen on port 8443
     print("Server started on port 8443")
 
     # Optionally, open the game client in a web browser
