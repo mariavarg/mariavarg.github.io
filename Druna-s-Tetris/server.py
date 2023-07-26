@@ -32,11 +32,7 @@ with socketserver.TCPServer(("", 443), MyHandler) as httpd:  # Listen on port 44
 
     # Optionally, open the game client in a web browser
     webbrowser.open('http://localhost:443')
-
-    print("Server started on port 888")
-
-    # Optionally, open the game client in a web browser
-    webbrowser.open('http://localhost:888')
+        print("Server started on port 443")
 
  # Keep the server running until interrupted
     httpd.serve_forever()
