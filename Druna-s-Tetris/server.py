@@ -5,6 +5,11 @@ import subprocess
 import json
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
+    class MyHandler(http.server.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header('Access-Control-Allow-Origin', '*')
+        super().end_headers()
+
     def do_POST(self):
         if self.path == '/start_server':
             # Start the game server in a separate process
