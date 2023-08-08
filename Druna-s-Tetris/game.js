@@ -305,10 +305,3 @@ languagePluginLoader.then(() => {
     console.error("Error:", error);
   });
 }
-
-
-      startGame();
-    `);
-  });
-});
-
