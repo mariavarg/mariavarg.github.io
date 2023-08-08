@@ -143,7 +143,7 @@
   </div>
  
 <script>
-function startGame() {
+ function startGame() {
   const warningMessage = document.getElementById('warningMessage');
   warningMessage.style.display = 'block';
 
@@ -164,22 +164,6 @@ function startGame() {
   });
 }
 
-</script>
-
-
-   <script>
-  async function startServerAndGame() {
-    const response = await fetch('/start_server', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ action: 'start_server' }),
-    });
-
-    const data = await response.json();
-    console.log(data.message);
-  }
 </script>
       
    
