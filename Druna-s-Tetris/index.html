@@ -143,22 +143,27 @@
   </div>
  
 <script>
-document.getElementById("startButton").addEventListener("click", async () => {
-  try {
-    const response = await fetch("http://localhost:8443/start_server", {
-      method: "POST"
-    });
+function startGame() {
+  const warningMessage = document.getElementById('warningMessage');
+  warningMessage.style.display = 'block';
 
+  // Send a request to start the server and game
+  fetch("http://localhost:8443/start_server", {
+    method: "POST"
+  })
+  .then(response => {
     if (response.ok) {
-      const result = await response.text();
-      console.log(result); // Log the response from the server
+      console.log("Server started successfully!");
+      main(); // Start the game
     } else {
       console.error("Server error:", response.status);
     }
-  } catch (error) {
+  })
+  .catch(error => {
     console.error("Error:", error);
-  }
-});
+  });
+}
+
 </script>
 
 
