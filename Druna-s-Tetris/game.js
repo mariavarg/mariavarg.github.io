@@ -286,11 +286,26 @@ languagePluginLoader.then(() => {
       }
 
       function startGame() {
-        const warningMessage = document.getElementById('warningMessage');
-        warningMessage.style.display = 'block';
-        alert('Server started successfully!');
-        main();
-      }
+  const warningMessage = document.getElementById('warningMessage');
+  warningMessage.style.display = 'block';
+
+  // Send a request to start the server and game
+  fetch("http://localhost:8443/start_server", {
+    method: "POST"
+  })
+  .then(response => {
+    if (response.ok) {
+      console.log("Server started successfully!");
+      main(); // Start the game
+    } else {
+      console.error("Server error:", response.status);
+    }
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+}
+
 
       startGame();
     `);
