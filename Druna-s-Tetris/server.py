@@ -21,7 +21,27 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Access-Control-Allow-Origin', '*')  # Add the CORS header here
             self.end_headers()
+            
+  # Serve the favicon and other resources
+        if self.path.startswith('/favicon_package_v0.16'):
+            # Get the requested file path within the folder
+            file_path = self.path[1:]  # Remove the leading '/'
+            full_file_path = os.path.join('favicon_package_v0.16', file_path)
 
+            if os.path.exists(full_file_path):
+                # Load and serve the requested file
+                with open(full_file_path, 'rb') as f:
+                    content = f.read()
+                self.send_response(200)
+                self.send_header('Content-type', 'image/png')  # Adjust the content type if needed
+                self.end_headers()
+                self.wfile.write(content)
+            else:
+                # If the file doesn't exist, return a 404 response
+                self.send_response(404)
+                self.send_header('Content-type', 'text/plain')
+                self.end_headers()
+                self.wfile.write(b'File not found')
     
 # Start the HTTP server
 with socketserver.TCPServer(("", 8443), MyHandler) as httpd:  # Listen on port 8443
