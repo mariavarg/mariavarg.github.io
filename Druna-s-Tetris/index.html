@@ -88,23 +88,9 @@
     }
   </style>
 
-  <audio id="myAudio" src="/Druna-s-Tetris/06-Kashmir.mp3"></audio>
-  <script>
-    var audio = new Audio("Druna-s-Tetris/06-Kashmir.mp3");
-    var isPlaying = True;
-
-    function toggleMusic() {
-      if (isPlaying) {
-        audio.pause();
-        isPlaying = false;
-        console.log("Music paused.");
-      } else {
-        audio.play();
-        isPlaying = true;
-        console.log("Music playing.");
-      }
-    }
-  </script>
+<audio controls autoplay>
+  <source src="Druna-s-Tetris/06-Kashmir.mp3" type="audio/mpeg">
+</audio>
 
 </head>
 
