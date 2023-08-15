@@ -2,6 +2,7 @@ import http.server
 import socketserver
 import webbrowser
 import subprocess
+import pygame
 import json
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
