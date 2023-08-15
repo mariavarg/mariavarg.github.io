@@ -1,4 +1,4 @@
-pip install pygame
+!pip install pygame
 import pygame
 import random
 
