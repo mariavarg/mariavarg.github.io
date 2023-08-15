@@ -1,3 +1,4 @@
+pip install pygame
 import http.server
 import socketserver
 import webbrowser
