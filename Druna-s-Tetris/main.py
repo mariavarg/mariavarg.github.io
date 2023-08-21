@@ -1,12 +1,12 @@
 pip install pygame
-pip install pygame --upgrade 
-import os
 import pygame
 import random
-import gradio as gr
 
 pygame.font.init()
 pygame.init()
+
+pygame.mixer.music.load('kashmir.wav')
+pygame.mixer.music.play(-1)
 
 # GLOBALS VARS
 s_width = 450
@@ -210,6 +210,7 @@ def draw_window(surface, grid):
     draw_grid(surface, 20, 10)
     pygame.display.update()
 
+
 def run_game():
     locked_positions = {}
     grid = create_grid(locked_positions)
@@ -229,7 +230,7 @@ def run_game():
         if fall_time / 1000 >= fall_speed:
             fall_time = 0
             current_piece.y += 1
-            if not valid_space(current_piece, grid):
+            if not valid_space(current_piece, grid) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
 
@@ -263,7 +264,7 @@ def run_game():
 
         for i in range(len(shape_pos)):
             x, y = shape_pos[i]
-            if 0 <= y < len(grid) and 0 <= x < len(grid[y]):
+            if y > -1:
                 grid[y][x] = current_piece.color
 
         if change_piece:
@@ -282,20 +283,3 @@ if __name__ == "__main__":
     surface = pygame.display.set_mode((s_width, s_height))
     pygame.display.set_caption("Tetris")
     run_game()
-
-def start_game():
-    pygame.init()
-    surface = pygame.display.set_mode((s_width, s_height))
-    pygame.display.set_caption("Tetris")
-    run_game(surface)
-
-def game_callback(input_key):
-    if input_key == "start":
-        start_game()  # Start the game
-        return "Game started."
-    else: input_key == "quit":
-        pygame.quit()
-        return "Game quit."
-    
-iface = gr.Interface(fn=game_callback, inputs="text", outputs="text")
-iface.launch(share=False)
