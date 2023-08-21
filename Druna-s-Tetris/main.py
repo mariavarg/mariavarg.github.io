@@ -1,5 +1,5 @@
-!pip install pygame
-!pip install pygame --upgrade 
+pip install pygame
+pip install pygame --upgrade 
 import os
 import pygame
 import random
