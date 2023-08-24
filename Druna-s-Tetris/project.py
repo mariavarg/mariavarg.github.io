@@ -211,7 +211,7 @@ def draw_window(surface, grid):
     pygame.display.update()
 
 
-def run_game():
+def main():
     locked_positions = {}
     grid = create_grid(locked_positions)
 
@@ -282,4 +282,4 @@ def run_game():
 if __name__ == "__main__":
     surface = pygame.display.set_mode((s_width, s_height))
     pygame.display.set_caption("Tetris")
-    run_game()
+    main()  # Call the main function
