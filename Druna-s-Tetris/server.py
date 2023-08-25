@@ -14,7 +14,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):
         if self.path == '/start_server':
             # Start the game server in a separate process
-            subprocess.Popen(['python', 'main.py'])  # Use 'python' instead of 'py' for Windows
+            subprocess.Popen(['python', 'project.py'])  # Use 'python' instead of 'py' for Windows
 
             # Send a response to indicate the server has started successfully
             self.send_response(200)
