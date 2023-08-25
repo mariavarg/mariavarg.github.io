@@ -4,9 +4,12 @@ import webbrowser
 import subprocess
 import pygame
 import json
+import os  # Import the 'os' module to work with file paths
+
+# Define the directory where your files are located
+file_directory = 'favicon_package_v0.16'
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):
-    class MyHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
         super().end_headers()
@@ -28,11 +31,11 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header('Access-Control-Allow-Origin', '*')  # Add the CORS header here
             self.end_headers()
             
-  # Serve the favicon and other resources
+        # Serve the favicon and other resources
         if self.path.startswith('/favicon_package_v0.16'):
             # Get the requested file path within the folder
             file_path = self.path[1:]  # Remove the leading '/'
-            full_file_path = os.path.join('favicon_package_v0.16', file_path)
+            full_file_path = os.path.join(file_directory, file_path)
 
             if os.path.exists(full_file_path):
                 # Load and serve the requested file
