@@ -1,5 +1,8 @@
 pip install pygame
-import pygame
+pip install pygbag
+import asyncio
+import pygame as pg
+import math
 import random
 
 pygame.font.init()
@@ -179,9 +182,9 @@ def convert_shape_format(shape):
 
 
 def valid_space(shape, grid):
-    accepted_pos = [[(j, i) for j in range(10) if grid[i][j] == (black)] for i in range(20)]
-    # You should return a value indicating whether the shape's positions are accepted or not
-    return all(accepted_pos)
+    accepted_pos = [[(j, i) for j in range(10) if grid[i][j] == black] for i in range(20)]
+    # Check if positions are within the grid bounds and not already occupied
+    return all(j >= 0 and j < 10 and i < 20 and grid[i][j] == black for i, row in enumerate(shape.shape[shape.rotation % len(shape.shape)]) for j, column in enumerate(row) if column == '0')
 
 
 def draw_grid(surface, row, col):
@@ -210,6 +213,7 @@ def draw_window(surface, grid):
     draw_grid(surface, 20, 10)
     pygame.display.update()
 
+    await asyncio.sleep(0)
 
 def main():
     locked_positions = {}
@@ -281,5 +285,4 @@ def main():
 
 if __name__ == "__main__":
     surface = pygame.display.set_mode((s_width, s_height))
-    pygame.display.set_caption("Tetris")
-    main()  # Call the main function
+    asyncio.run(main())
