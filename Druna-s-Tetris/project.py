@@ -251,7 +251,26 @@ moving_down = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 moving_left = True
+            elif event.key == pygame.K_RIGHT:
+                moving_right = True
+            elif event.key == pygame.K_DOWN:
+                moving_down = True
 
+    if moving_left:
+        current_piece.x -= 1
+        if not valid_space(current_piece, grid):
+            current_piece.x += 1
+
+    if moving_right:
+        current_piece.x += 1
+        if not valid_space(current_piece, grid):
+            current_piece.x -= 1
+
+    if moving_down:
+        current_piece.y += 1
+        if not valid_space(current_piece, grid):
+            current_piece.y -= 1
+          
         shape_pos = convert_shape_format(current_piece)
 
         for i in range(len(shape_pos)):
