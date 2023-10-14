@@ -5,6 +5,11 @@ import pygame as pg
 import math
 import random
 
+import asyncio
+import pygame
+import math
+import random
+
 pygame.font.init()
 pygame.init()
 
@@ -196,7 +201,7 @@ def draw_grid(surface, row, col):
                              (top_left_x + j * block_size, top_left_y + play_height))
 
 
-def draw_window(surface, grid):
+async def draw_window(surface, grid):
     surface.fill(black)
     pygame.font.init()
     font = pygame.font.SysFont('Sofia, sans serif', 60)
@@ -212,11 +217,12 @@ def draw_window(surface, grid):
 
     draw_grid(surface, 20, 10)
     pygame.display.update()
-    pygame.time.delay(50) 
+    pygame.time.delay(50)
 
     await asyncio.sleep(0)
 
-def main():
+
+async def main():
     locked_positions = {}
     grid = create_grid(locked_positions)
 
@@ -227,9 +233,9 @@ def main():
     fall_time = 0
     fall_speed = 0.27
 
-moving_left = False
-moving_right = False
-moving_down = False
+    moving_left = False
+    moving_right = False
+    moving_down = False
 
     while run:
         grid = create_grid(locked_positions)
@@ -242,35 +248,35 @@ moving_down = False
             if not valid_space(current_piece, grid) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
-                  
-    for event in pygame.event.get(): 
-        if event.type == pygame.QUIT:
-            run = False
-            break
 
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
-                moving_left = True
-            elif event.key == pygame.K_RIGHT:
-                moving_right = True
-            elif event.key == pygame.K_DOWN:
-                moving_down = True
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                break
 
-    if moving_left:
-        current_piece.x -= 1
-        if not valid_space(current_piece, grid):
-            current_piece.x += 1
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    moving_left = True
+                elif event.key == pygame.K_RIGHT:
+                    moving_right = True
+                elif event.key == pygame.K_DOWN:
+                    moving_down = True
 
-    if moving_right:
-        current_piece.x += 1
-        if not valid_space(current_piece, grid):
+        if moving_left:
             current_piece.x -= 1
+            if not valid_space(current_piece, grid):
+                current_piece.x += 1
 
-    if moving_down:
-        current_piece.y += 1
-        if not valid_space(current_piece, grid):
-            current_piece.y -= 1
-          
+        if moving_right:
+            current_piece.x += 1
+            if not valid_space(current_piece, grid):
+                current_piece.x -= 1
+
+        if moving_down:
+            current_piece.y += 1
+            if not valid_space(current_piece, grid):
+                current_piece.y -= 1
+
         shape_pos = convert_shape_format(current_piece)
 
         for i in range(len(shape_pos)):
@@ -285,7 +291,7 @@ moving_down = False
             current_piece = Piece(5, 0, random.choice(shapes))
             change_piece = False
 
-        draw_window(surface, grid)
+        await draw_window(surface, grid)
 
     pygame.quit()
 
