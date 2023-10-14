@@ -5,11 +5,6 @@ import pygame as pg
 import math
 import random
 
-import asyncio
-import pygame
-import math
-import random
-
 pygame.font.init()
 pygame.init()
 
