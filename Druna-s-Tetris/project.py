@@ -199,7 +199,7 @@ def draw_grid(surface, row, col):
 def draw_window(surface, grid):
     surface.fill(black)
     pygame.font.init()
-    font = pygame.font.SysFont('Sofia, sans sherif', 60)
+    font = pygame.font.SysFont('Sofia, sans serif', 60)
     label = font.render('Tetris', 1, white)
     surface.blit(label, (top_left_x + play_width // 2 - label.get_width() // 2, 30))
 
@@ -212,6 +212,7 @@ def draw_window(surface, grid):
 
     draw_grid(surface, 20, 10)
     pygame.display.update()
+    pygame.time.delay(50) 
 
     await asyncio.sleep(0)
 
