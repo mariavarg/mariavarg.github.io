@@ -227,6 +227,10 @@ def main():
     fall_time = 0
     fall_speed = 0.27
 
+moving_left = False
+moving_right = False
+moving_down = False
+
     while run:
         grid = create_grid(locked_positions)
         fall_time += clock.get_rawtime()
@@ -238,32 +242,15 @@ def main():
             if not valid_space(current_piece, grid) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
+                  
+    for event in pygame.event.get(): 
+        if event.type == pygame.QUIT:
+            run = False
+            break
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-                break
-
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    current_piece.x -= 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.x += 1
-
-                elif event.key == pygame.K_RIGHT:
-                    current_piece.x += 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.x -= 1
-
-                elif event.key == pygame.K_DOWN:
-                    current_piece.y += 1
-                    if not valid_space(current_piece, grid):
-                        current_piece.y -= 1
-
-                elif event.key == pygame.K_UP:
-                    current_piece.rotation = (current_piece.rotation + 1) % len(current_piece.shape)
-                    if not valid_space(current_piece, grid):
-                        current_piece.rotation = (current_piece.rotation - 1) % len(current_piece.shape)
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                moving_left = True
 
         shape_pos = convert_shape_format(current_piece)
 
