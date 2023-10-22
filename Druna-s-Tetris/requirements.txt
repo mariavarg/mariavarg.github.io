@@ -1,3 +1,0 @@
-pygame
-py-script
-pnpm i @vercel/analytics
