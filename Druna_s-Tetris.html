@@ -35,7 +35,26 @@ body, h2, h4 {
     
     <body>
 <iframe src="https://druna-s-tetris-io-mariavarg.vercel.app" width="450" height="auto" frameborder="0"></iframe>
+ <button id="runGameButton">Play Tetris</button>
 
+    <script>
+        document.getElementById("runGameButton").addEventListener("click", function() {
+            // Send a request to the server endpoint to run the game
+            fetch("/rungame")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        console.log("Game successfully started!");
+                    } else {
+                        console.error("Error: " + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error: " + error.message);
+                });
+        });
+    </script>
+        
 <nav class="navbar navbar-expand-bg bg-dark navbar-dark">
 <ul class="navbar-nav">
     <li class="nav-item">
