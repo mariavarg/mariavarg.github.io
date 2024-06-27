@@ -1,0 +1,262 @@
+<html><head><base href="https://mariav.art/classicaltetrisgame"><title>MariaV.art - Classical Tetris Game</title>
+<style>
+body {
+    font-family: "Sofia", sans-serif;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+.game-container {
+    background-color: #111;
+    border: 4px solid #444;
+    padding: 20px;
+    text-align: center;
+}
+#game-board {
+    display: inline-block;
+    border: 2px solid #fff;
+    background-color: #000;
+}
+.game-cell {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #333;
+    display: inline-block;
+}
+.filled {
+    background-color: #0f0;
+}
+#score {
+    font-size: 18px;
+    margin-top: 20px;
+}
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.control-btn {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+}
+.control-btn:hover {
+    background-color: #666;
+}
+.links {
+    margin-top: 20px;
+}
+.links a {
+    color: #0f0;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.links a:hover {
+    text-decoration: underline;
+}
+@keyframes glitch {
+    0% {
+        transform: translate(2px, 2px);
+    }
+    25% {
+        transform: translate(-2px, -2px);
+    }
+    50% {
+        transform: translate(-2px, 2px);
+    }
+    75% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(2px, 2px);
+    }
+}
+.glitch {
+    animation: glitch 0.1s infinite;
+}
+</style>
+</head>
+<body>
+<div class="game-container">
+    <h1 class="glitch">Classical Tetris</h1>
+    <div id="game-board">
+        <!-- Game board will be dynamically generated here -->
+    </div>
+    <div id="score">Score: 0</div>
+    <div class="controls">
+        <button class="control-btn" id="left-btn">←</button>
+        <button class="control-btn" id="rotate-btn">Rotate</button>
+        <button class="control-btn" id="right-btn">→</button>
+        <button class="control-btn" id="down-btn">↓</button>
+    </div>
+    <div class="links">
+        <a href="/highscores">High Scores</a>
+        <a href="/tetrishistory">Tetris History</a>
+        <a href="https://mariav.art/imagecreator">AI Image Creator</a>
+        <a href="https://retrogames.network">Retro Games Network</a>
+    </div>
+</div>
+
+<script>
+// Game board dimensions
+const ROWS = 20;
+const COLS = 10;
+
+// Initialize game board
+let gameBoard = Array(ROWS).fill().map(() => Array(COLS).fill(0));
+let score = 0;
+
+// Create game board HTML
+const gameBoardElement = document.getElementById('game-board');
+for (let i = 0; i < ROWS; i++) {
+    for (let j = 0; j < COLS; j++) {
+        const cell = document.createElement('div');
+        cell.className = 'game-cell';
+        cell.id = `cell-${i}-${j}`;
+        gameBoardElement.appendChild(cell);
+    }
+    gameBoardElement.appendChild(document.createElement('br'));
+}
+
+// Tetromino shapes
+const tetrominoes = [
+    [[1,1,1,1]],
+    [[1,1],[1,1]],
+    [[1,1,1],[0,1,0]],
+    [[1,1,1],[1,0,0]],
+    [[1,1,1],[0,0,1]],
+    [[1,1,0],[0,1,1]],
+    [[0,1,1],[1,1,0]]
+];
+
+let currentTetromino;
+let currentPosition;
+
+function newTetromino() {
+    currentTetromino = tetrominoes[Math.floor(Math.random() * tetrominoes.length)];
+    currentPosition = {x: Math.floor(COLS/2) - Math.floor(currentTetromino[0].length/2), y: 0};
+    if (!canMove(0, 0)) {
+        alert('Game Over! Your score: ' + score);
+        resetGame();
+    }
+}
+
+function draw() {
+    for (let i = 0; i < ROWS; i++) {
+        for (let j = 0; j < COLS; j++) {
+            const cell = document.getElementById(`cell-${i}-${j}`);
+            cell.className = 'game-cell' + (gameBoard[i][j] ? ' filled' : '');
+        }
+    }
+    
+    for (let i = 0; i < currentTetromino.length; i++) {
+        for (let j = 0; j < currentTetromino[i].length; j++) {
+            if (currentTetromino[i][j]) {
+                const cell = document.getElementById(`cell-${currentPosition.y + i}-${currentPosition.x + j}`);
+                if (cell) cell.className = 'game-cell filled';
+            }
+        }
+    }
+}
+
+function canMove(offsetX, offsetY) {
+    for (let i = 0; i < currentTetromino.length; i++) {
+        for (let j = 0; j < currentTetromino[i].length; j++) {
+            if (currentTetromino[i][j]) {
+                let newX = currentPosition.x + j + offsetX;
+                let newY = currentPosition.y + i + offsetY;
+                if (newX < 0 || newX >= COLS || newY >= ROWS || (newY >= 0 && gameBoard[newY][newX])) {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+function moveTetromino(dx, dy) {
+    if (canMove(dx, dy)) {
+        currentPosition.x += dx;
+        currentPosition.y += dy;
+        draw();
+        return true;
+    }
+    return false;
+}
+
+function rotateTetromino() {
+    const rotated = currentTetromino[0].map((_, i) => currentTetromino.map(row => row[i]).reverse());
+    const previousTetromino = currentTetromino;
+    currentTetromino = rotated;
+    if (!canMove(0, 0)) {
+        currentTetromino = previousTetromino;
+    } else {
+        draw();
+    }
+}
+
+function clearLines() {
+    for (let i = ROWS - 1; i >= 0; i--) {
+        if (gameBoard[i].every(cell => cell)) {
+            gameBoard.splice(i, 1);
+            gameBoard.unshift(Array(COLS).fill(0));
+            score += 100;
+            document.getElementById('score').textContent = 'Score: ' + score;
+        }
+    }
+}
+
+function mergeTetromino() {
+    for (let i = 0; i < currentTetromino.length; i++) {
+        for (let j = 0; j < currentTetromino[i].length; j++) {
+            if (currentTetromino[i][j]) {
+                gameBoard[currentPosition.y + i][currentPosition.x + j] = 1;
+            }
+        }
+    }
+    clearLines();
+    newTetromino();
+}
+
+function gameLoop() {
+    if (!moveTetromino(0, 1)) {
+        mergeTetromino();
+    }
+}
+
+function resetGame() {
+    gameBoard = Array(ROWS).fill().map(() => Array(COLS).fill(0));
+    score = 0;
+    document.getElementById('score').textContent = 'Score: 0';
+    newTetromino();
+}
+
+// Controls
+document.getElementById('left-btn').addEventListener('click', () => moveTetromino(-1, 0));
+document.getElementById('right-btn').addEventListener('click', () => moveTetromino(1, 0));
+document.getElementById('down-btn').addEventListener('click', () => moveTetromino(0, 1));
+document.getElementById('rotate-btn').addEventListener('click', rotateTetromino);
+
+document.addEventListener('keydown', (e) => {
+    switch(e.key) {
+        case 'ArrowLeft': moveTetromino(-1, 0); break;
+        case 'ArrowRight': moveTetromino(1, 0); break;
+        case 'ArrowDown': moveTetromino(0, 1); break;
+        case 'ArrowUp': rotateTetromino(); break;
+    }
+});
+
+// Start game
+newTetromino();
+draw();
+setInterval(gameLoop, 1000);
+</script>
+</body></html>
