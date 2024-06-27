@@ -284,4 +284,5 @@ setInterval(gameLoop, 1000);
 
 </nav>
 
-</body></html>
+</body>
+</html>
